@@ -1,0 +1,94 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  border-radius: var(--border-radius-full);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tagContent {
+  display: inline-flex;
+  align-items: center;
+}
+
+.tagIcon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.tagClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--spacing-1);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  line-height: 1;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity var(--transitions-duration-base) var(--transitions-easing-easeInOut);
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+/* Sizes */
+.tag--sm {
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--typography-font-size-xs);
+}
+
+.tag--md {
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--typography-font-size-sm);
+}
+
+.tag--lg {
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--typography-font-size-base);
+}
+
+/* Variants */
+.tag--primary {
+  background-color: var(--palette-primary-main);
+  color: var(--palette-primary-contrastText);
+}
+
+.tag--secondary {
+  background-color: var(--palette-secondary-main);
+  color: var(--palette-secondary-contrastText);
+}
+
+.tag--success {
+  background-color: var(--palette-success-main);
+  color: #ffffff;
+}
+
+.tag--warning {
+  background-color: var(--palette-warning-main);
+  color: #ffffff;
+}
+
+.tag--error {
+  background-color: var(--palette-error-main);
+  color: #ffffff;
+}
+
+.tag--neutral {
+  background-color: var(--palette-border-default);
+  color: var(--palette-text-primary);
+}
+

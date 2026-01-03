@@ -1,0 +1,8 @@
+dist
+node_modules
+coverage
+.storybook
+build
+*.min.js
+*.min.css
+.configs

@@ -1,0 +1,92 @@
+{
+  "name": "@atme/ui-kit",
+  "version": "0.1.0",
+  "description": "Modern, scalable React UI library with TypeScript",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    },
+    "./global": {
+      "types": "./dist/global.d.ts",
+      "import": "./dist/global.esm.js",
+      "require": "./dist/global.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite --config .configs/vite.config.ts",
+    "build": "tsc && vite build --config .configs/vite.config.ts",
+    "type-check": "tsc --noEmit",
+    "test": "vitest --config .configs/vitest.config.ts",
+    "test:ui": "vitest --config .configs/vitest.config.ts --ui",
+    "test:coverage": "vitest --config .configs/vitest.config.ts --coverage",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --config .configs/eslintrc.cjs",
+    "lint:fix": "eslint . --ext ts,tsx --fix --config .configs/eslintrc.cjs",
+    "format": "prettier --write --config .configs/prettierrc \"**/*.{ts,tsx,js,jsx,json,css,md}\" --ignore-path .prettierignore",
+    "format:check": "prettier --check --config .configs/prettierrc \"**/*.{ts,tsx,js,jsx,json,css,md}\" --ignore-path .prettierignore",
+    "stylelint": "stylelint --config .configs/stylelintrc.json \"**/*.{css,pcss}\"",
+    "stylelint:fix": "stylelint --config .configs/stylelintrc.json \"**/*.{css,pcss}\" --fix"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "typescript",
+    "design-system"
+  ],
+  "author": "Pavel Gordeev <pavelgq@yandex.ru>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^8.3.0",
+    "@storybook/addon-essentials": "^8.3.0",
+    "@storybook/addon-interactions": "^8.3.0",
+    "@storybook/addon-links": "^8.3.0",
+    "@storybook/blocks": "^8.3.0",
+    "@storybook/react": "^8.3.0",
+    "@storybook/react-vite": "^8.3.0",
+    "@storybook/test": "^8.3.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^25.0.3",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.5",
+    "@typescript-eslint/eslint-plugin": "^8.18.2",
+    "@typescript-eslint/parser": "^8.18.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.23",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "eslint-plugin-storybook": "^0.11.1",
+    "globals": "^15.14.0",
+    "postcss": "^8.5.6",
+    "postcss-nested": "^7.0.2",
+    "prettier": "^3.4.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "stylelint": "^16.11.0",
+    "stylelint-config-standard": "^36.0.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vitest": "^4.0.16"
+  }
+}
