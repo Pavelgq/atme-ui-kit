@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import cn from 'classnames';
 import styles from './Icon.module.pcss';
 
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
@@ -28,12 +29,10 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(
     if (svg) {
       const svgContent = svg.replace(/<svg[^>]*>/, '').replace(/<\/svg>/, '');
 
-      const classNames = [styles.icon, styles['icon--custom'], className].filter(Boolean).join(' ');
-
       return (
         <svg
           ref={ref}
-          className={classNames}
+          className={cn(styles.icon, styles['icon--custom'], className)}
           viewBox={viewBox}
           xmlns={xmlns}
           aria-hidden={decorative}
@@ -45,12 +44,10 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(
       );
     }
 
-    const classNames = [styles.icon, className].filter(Boolean).join(' ');
-
     return (
       <svg
         ref={ref}
-        className={classNames}
+        className={cn(styles.icon, className)}
         viewBox={viewBox}
         fill={fill}
         xmlns={xmlns}

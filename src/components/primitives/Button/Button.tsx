@@ -1,8 +1,9 @@
-import React, { forwardRef } from 'react';
-import styles from './Button.module.pcss';
+import React, { forwardRef } from "react";
+import cn from "classnames";
+import styles from "./Button.module.pcss";
 
-export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
-export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -17,8 +18,8 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
-      variant = 'primary',
-      size = 'md',
+      variant = "primary",
+      size = "md",
       startIcon,
       endIcon,
       fullWidth = false,
@@ -32,35 +33,38 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const isDisabled = disabled || loading;
 
-    const classNames = [
-      styles.button,
-      styles[`button--${variant}`],
-      styles[`button--${size}`],
-      fullWidth && styles['button--fullWidth'],
-      loading && styles['button--loading'],
-      className,
-    ]
-      .filter(Boolean)
-      .join(' ');
-
     return (
       <button
         ref={ref}
         type="button"
-        className={classNames}
+        className={cn(
+          styles.button,
+          styles[`button--${variant}`],
+          styles[`button--${size}`],
+          {
+            [styles["button--fullWidth"]]: fullWidth,
+            [styles["button--loading"]]: loading,
+          },
+          className
+        )}
         disabled={isDisabled}
         aria-busy={loading}
         aria-disabled={isDisabled}
         {...props}
       >
-        {loading && <span className={styles.buttonSpinner} aria-hidden="true" />}
-        {startIcon && !loading && <span className={styles.buttonIcon}>{startIcon}</span>}
+        {loading && (
+          <span className={styles.buttonSpinner} aria-hidden="true" />
+        )}
+        {startIcon && !loading && (
+          <span className={styles.buttonIcon}>{startIcon}</span>
+        )}
         <span className={styles.buttonContent}>{children}</span>
-        {endIcon && !loading && <span className={styles.buttonIcon}>{endIcon}</span>}
+        {endIcon && !loading && (
+          <span className={styles.buttonIcon}>{endIcon}</span>
+        )}
       </button>
     );
   }
 );
 
-Button.displayName = 'Button';
-
+Button.displayName = "Button";

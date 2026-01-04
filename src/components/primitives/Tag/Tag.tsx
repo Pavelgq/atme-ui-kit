@@ -1,14 +1,21 @@
-import React, { forwardRef } from 'react';
-import styles from './Tag.module.pcss';
+import React, { forwardRef } from "react";
+import cn from "classnames";
+import styles from "./Tag.module.pcss";
 
-export type TagVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'neutral';
-export type TagSize = 'sm' | 'md' | 'lg';
+export type TagVariant =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error"
+  | "neutral";
+export type TagSize = "sm" | "md" | "lg";
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: TagVariant;
   size?: TagSize;
   icon?: React.ReactNode;
-  iconPosition?: 'left' | 'right';
+  iconPosition?: "left" | "right";
   closeable?: boolean;
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
@@ -17,10 +24,10 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
 export const Tag = forwardRef<HTMLSpanElement, TagProps>(
   (
     {
-      variant = 'primary',
-      size = 'md',
+      variant = "primary",
+      size = "md",
       icon,
-      iconPosition = 'left',
+      iconPosition = "left",
       closeable = false,
       onClose,
       children,
@@ -34,15 +41,24 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>(
       onClose?.(event);
     };
 
-    const classNames = [styles.tag, styles[`tag--${variant}`], styles[`tag--${size}`], className]
-      .filter(Boolean)
-      .join(' ');
-
     return (
-      <span ref={ref} className={classNames} {...props}>
-        {icon && iconPosition === 'left' && <span className={styles.tagIcon}>{icon}</span>}
+      <span
+        ref={ref}
+        className={cn(
+          styles.tag,
+          styles[`tag--${variant}`],
+          styles[`tag--${size}`],
+          className
+        )}
+        {...props}
+      >
+        {icon && iconPosition === "left" && (
+          <span className={styles.tagIcon}>{icon}</span>
+        )}
         <span className={styles.tagContent}>{children}</span>
-        {icon && iconPosition === 'right' && <span className={styles.tagIcon}>{icon}</span>}
+        {icon && iconPosition === "right" && (
+          <span className={styles.tagIcon}>{icon}</span>
+        )}
         {closeable && (
           <button
             type="button"
@@ -58,5 +74,4 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>(
   }
 );
 
-Tag.displayName = 'Tag';
-
+Tag.displayName = "Tag";

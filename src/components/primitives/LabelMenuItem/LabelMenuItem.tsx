@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { Typography } from '../Typography';
 import type { IconProps } from '../Icon';
 import styles from './LabelMenuItem.module.pcss';
@@ -20,10 +21,12 @@ export const LabelMenuItem: React.FC<LabelMenuItemProps> = ({
   className,
   iconSize = '50px',
 }) => {
-  const classNames = [styles.labelMenuItem, className].filter(Boolean).join(' ');
-
   return (
-    <button className={classNames} onClick={onClick} disabled={disabled}>
+    <button
+      className={cn(styles.labelMenuItem, className)}
+      onClick={onClick}
+      disabled={disabled}
+    >
       <div className={styles.icon}>
         <IconComponent decorative width={iconSize} height={iconSize} />
       </div>
