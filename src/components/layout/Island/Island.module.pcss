@@ -1,0 +1,57 @@
+.island {
+  border-radius: var(--border-radius-lg);
+  transition: box-shadow var(--transitions-duration-base) var(--transitions-easing-easeInOut);
+}
+
+/* Размеры паддингов */
+.island--size-sm {
+  padding: spacing(2) spacing(3);
+}
+
+.island--size-md {
+  padding: spacing(3) spacing(4);
+}
+
+.island--size-lg {
+  padding: spacing(4) spacing(6);
+}
+
+/* Варианты фона */
+.island--variant-default {
+  background-color: var(--palette-background-default);
+}
+
+.island--variant-paper {
+  background-color: var(--palette-background-paper);
+}
+
+.island--variant-accent {
+  background-color: var(--palette-background-accent);
+}
+
+/* Elevation (тени) */
+.island--elevation-none {
+  box-shadow: none;
+}
+
+.island--elevation-sm {
+  box-shadow: var(--shadows-sm);
+}
+
+.island--elevation-md {
+  box-shadow: var(--shadows-md);
+}
+
+.island--elevation-lg {
+  box-shadow: var(--shadows-lg);
+}
+
+.island--elevation-xl {
+  box-shadow: var(--shadows-xl);
+}
+
+/* Граница */
+.island--bordered {
+  border: var(--border-base) solid var(--palette-border-subtle);
+}
+
