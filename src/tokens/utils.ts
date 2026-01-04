@@ -7,3 +7,15 @@ export function mergeTheme(
 ): Theme {
   return deepMerge(baseTheme, overrides);
 }
+
+export function getSpacingVar(
+  spacing: number | string | undefined
+): string | undefined {
+  if (spacing === undefined) return undefined;
+
+  if (typeof spacing === 'number') {
+    return `${spacing * 4}px`;
+  }
+
+  return spacing;
+}

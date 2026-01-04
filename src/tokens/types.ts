@@ -33,6 +33,7 @@ export interface Palette {
   };
   background: {
     default: string;
+    accent: string;
     paper: string;
   };
   border: {
@@ -44,18 +45,6 @@ export interface Palette {
 
 export interface Spacing {
   unit: number;
-  0: number | string;
-  1: string;
-  2: string;
-  3: string;
-  4: string;
-  5: string;
-  6: string;
-  8: string;
-  10: string;
-  12: string;
-  16: string;
-  [key: number]: number | string;
 }
 
 export interface Typography {
@@ -93,8 +82,12 @@ export interface Shadows {
   none: string;
 }
 
+export interface Border {
+  base: string;
+}
 export interface BorderRadius {
-  none: number;
+  none: string;
+  round: string;
   sm: string;
   base: string;
   md: string;
@@ -132,6 +125,7 @@ export interface Theme {
   spacing: Spacing;
   typography: Typography;
   shadows: Shadows;
+  border: Border;
   borderRadius: BorderRadius;
   transitions: Transitions;
   zIndex: ZIndex;

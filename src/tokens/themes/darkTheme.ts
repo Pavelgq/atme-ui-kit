@@ -42,6 +42,7 @@ export const darkTheme = {
     },
     background: {
       default: '#171717',
+      accent: '#212121',
       paper: '#262626',
     },
     border: {

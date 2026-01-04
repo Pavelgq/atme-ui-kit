@@ -38,10 +38,11 @@ export const lightTheme = {
     },
     background: {
       default: '#fafafa',
+      accent: '#f7f1e3',
       paper: '#ffffff',
     },
     border: {
-      default: '#d4d4d4',
+      default: '#5d5d5d',
       subtle: '#e5e5e5',
       strong: '#a3a3a3',
     },

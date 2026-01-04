@@ -4,17 +4,6 @@ import type { Theme } from '../types';
 export const baseTheme: Omit<Theme, 'palette'> = {
   spacing: {
     unit: 4,
-    0: 0,
-    1: '4px',
-    2: '8px',
-    3: '12px',
-    4: '16px',
-    5: '20px',
-    6: '24px',
-    8: '32px',
-    10: '40px',
-    12: '48px',
-    16: '64px',
   },
   typography: {
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
@@ -49,8 +38,12 @@ export const baseTheme: Omit<Theme, 'palette'> = {
     '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
     none: 'none',
   },
+  border: {
+    base: '2px'
+  },
   borderRadius: {
-    none: 0,
+    none: '0',
+    round: '50%',
     sm: '0.125rem',
     base: '0.25rem',
     md: '0.375rem',
