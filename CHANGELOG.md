@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.2...v0.1.3) (2026-01-04)
+
+### Features
+
+- add TagGroup component ([34aa17d](https://github.com/Pavelgq/atme-ui-kit/commit/34aa17d8f35d4053662c4bde79be2b063b68ed3c))
+
+### Chores
+
+- update package name and publish config for npm ([404aedf](https://github.com/Pavelgq/atme-ui-kit/commit/404aedfa7f547d2cebde9bfeec8c321dd655dbfb))
+
+### Documentation
+
+- translate README to English and add Russian version ([bad2bcd](https://github.com/Pavelgq/atme-ui-kit/commit/bad2bcd05c632a6c052e2b03468d8ad66f70a9f7))
+
+### Styles
+
+- update light theme colors ([e21bc63](https://github.com/Pavelgq/atme-ui-kit/commit/e21bc63bb17ece25c1ec8b0148df3a6203e2efa4))
+
+### Code Refactoring
+
+- update Typography and WindowFrame components ([e8265af](https://github.com/Pavelgq/atme-ui-kit/commit/e8265af85843b42468c03621f8b7fae6c19866e1))
+
 ### [0.1.2](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.1...v0.1.2) (2026-01-04)
 
 ### Features
