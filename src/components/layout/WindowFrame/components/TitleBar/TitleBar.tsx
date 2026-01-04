@@ -21,7 +21,7 @@ export const TitleBar: FC<TitleBarProps> = ({ title, addonLeft }) => {
         <Spacer />
         {addonLeft}
       </Stack>
-      <Typography as="h2" size="sm" variant="h2">
+      <Typography as="h2" size="sm" variant="h2" color="secondary">
         {title}
       </Typography>
     </Stack>

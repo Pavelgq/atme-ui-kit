@@ -22,15 +22,21 @@ export type TypographySize =
   | "3xl"
   | "4xl";
 
+export type TypographyColor = "primary" | "secondary" | "disabled";
+
 export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   variant?: TypographyVariant;
   size?: TypographySize;
+  color?: TypographyColor;
   as?: React.ElementType;
   children: React.ReactNode;
 }
 
 export const Typography = forwardRef<HTMLElement, TypographyProps>(
-  ({ variant = "body", size, as, children, className, ...props }, ref) => {
+  (
+    { variant = "body", size, color, as, children, className, ...props },
+    ref
+  ) => {
     const defaultElement = React.useMemo(() => {
       if (as) return as;
       if (variant.startsWith("h")) return variant;
@@ -47,6 +53,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
           styles.typography,
           styles[`typography--${variant}`],
           size && styles[`typography--${size}`],
+          color && styles[`typography--color-${color}`],
           className
         )}
         {...props}
