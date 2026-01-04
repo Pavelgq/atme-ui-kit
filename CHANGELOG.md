@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.1...v0.1.2) (2026-01-04)
+
+### Features
+
+- add layout components (Grid, Island, Stack, WindowFrame) ([2259493](https://github.com/Pavelgq/atme-ui-kit/commit/2259493ce61bbb1aed8f8c87fd2a2b43838e4c49))
+- add navigation and interaction hooks ([872dfae](https://github.com/Pavelgq/atme-ui-kit/commit/872dfae046eb53b418cf7a557cb39b42678d8e73))
+- add SideMenu navigation component ([78d1eb2](https://github.com/Pavelgq/atme-ui-kit/commit/78d1eb29a6874aa42e7f6dcb3685398c1bfa57cd))
+- add Spacer component and base component types ([74c6e2f](https://github.com/Pavelgq/atme-ui-kit/commit/74c6e2fdbdedcadb731a1f34c28e8a2f50259eeb))
+- add style functions and design types ([0db1e64](https://github.com/Pavelgq/atme-ui-kit/commit/0db1e64139e9eb00311e357cb98b70772a99f472))
+
+### Code Refactoring
+
+- improve primitive components (Button, Icon, Tag, Typography, LabelMenuItem) ([0642342](https://github.com/Pavelgq/atme-ui-kit/commit/0642342556ee77ed087b684ce87cd769e0076a11))
+- improve token system (spacing, border, getSpacingVar) ([5408d81](https://github.com/Pavelgq/atme-ui-kit/commit/5408d81426f435bd2dc287bd1c915452c4d81f5a))
+
+### Build System
+
+- update project configuration ([91d13bf](https://github.com/Pavelgq/atme-ui-kit/commit/91d13bfcc01d829c70ef960a6d51e54a9962d2b9))
+
+### Chores
+
+- update project dependencies ([873d8e4](https://github.com/Pavelgq/atme-ui-kit/commit/873d8e4bcb26d44938a54a7230a98595128fcbd1))
+
 ### 0.1.1 (2026-01-03)
 
 ### Features
