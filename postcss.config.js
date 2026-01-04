@@ -1,7 +1,13 @@
+import spacing from "./src/styles/functions/spacing";
+
 export default {
   plugins: {
-    'postcss-nested': {},
+    "postcss-functions": {
+      functions: {
+        spacing,
+      },
+    },
+    "postcss-nested": {},
     autoprefixer: {},
   },
 };
-

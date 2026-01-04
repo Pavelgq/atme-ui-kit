@@ -8,6 +8,6 @@
     "strict": true,
     "types": ["node"]
   },
-  "include": [".configs/vite.config.ts", ".configs/vitest.config.ts"]
+  "include": [".configs/**/*.ts", ".storybook/**/*.ts"]
 }
 
