@@ -1,23 +1,30 @@
-# @atme/ui-kit
+# @atme-lab/ui-kit
 
-Библиотека компонентов для личных проектов
+Component library for personal projects
 
-## Установка
+> [Read in Russian](docs/README.ru.md)
+
+## Installation
 
 ```bash
-pnpm add @atme/ui-kit
-# или
-npm install @atme/ui-kit
-# или
-yarn add @atme/ui-kit
+pnpm add @atme-lab/ui-kit
+# or
+npm install @atme-lab/ui-kit
+# or
+yarn add @atme-lab/ui-kit
 ```
 
-## Быстрый старт
+## Quick Start
 
 ```tsx
-import { ThemeProvider, lightTheme, Button, Typography } from "@atme/ui-kit";
-// Импортируйте глобальные стили в корне вашего приложения
-import "@atme/ui-kit/global";
+import {
+  ThemeProvider,
+  lightTheme,
+  Button,
+  Typography,
+} from "@atme-lab/ui-kit";
+// Import global styles at the root of your application
+import "@atme-lab/ui-kit/global";
 
 function App() {
   return (
@@ -29,44 +36,44 @@ function App() {
 }
 ```
 
-**Важно**: Глобальные стили (`@atme/ui-kit/global`) нужно импортировать один раз в корне вашего приложения (например, в `main.tsx` или `App.tsx`). Они содержат CSS reset и базовые стили для элементов.
+**Important**: Global styles (`@atme-lab/ui-kit/global`) should be imported once at the root of your application (e.g., in `main.tsx` or `App.tsx`). They contain CSS reset and base styles for elements.
 
-## Документация компонентов
+## Component Documentation
 
-Детальная документация по всем компонентам, их пропсам и примерам использования доступна в **Storybook**.
+Detailed documentation for all components, their props, and usage examples is available in **Storybook**.
 
-Для локального просмотра документации:
+To view documentation locally:
 
 ```bash
 pnpm storybook
 ```
 
-Или используйте онлайн-документацию (если доступна).
+Or use the online documentation (if available).
 
-## Использование тем
+## Using Themes
 
-Библиотека предоставляет две готовые темы: `lightTheme` и `darkTheme`. Вы можете использовать любую из них или создать свою кастомную тему.
+The library provides two ready-made themes: `lightTheme` and `darkTheme`. You can use either of them or create your own custom theme.
 
-### Светлая тема
+### Light Theme
 
 ```tsx
-import { ThemeProvider, lightTheme } from "@atme/ui-kit";
+import { ThemeProvider, lightTheme } from "@atme-lab/ui-kit";
 
-<ThemeProvider theme={lightTheme}>{/* Ваши компоненты */}</ThemeProvider>;
+<ThemeProvider theme={lightTheme}>{/* Your components */}</ThemeProvider>;
 ```
 
-### Темная тема
+### Dark Theme
 
 ```tsx
-import { ThemeProvider, darkTheme } from "@atme/ui-kit";
+import { ThemeProvider, darkTheme } from "@atme-lab/ui-kit";
 
-<ThemeProvider theme={darkTheme}>{/* Ваши компоненты */}</ThemeProvider>;
+<ThemeProvider theme={darkTheme}>{/* Your components */}</ThemeProvider>;
 ```
 
-### Кастомная тема
+### Custom Theme
 
 ```tsx
-import { ThemeProvider, lightTheme, mergeTheme } from "@atme/ui-kit";
+import { ThemeProvider, lightTheme, mergeTheme } from "@atme-lab/ui-kit";
 
 const customTheme = mergeTheme(lightTheme, {
   palette: {
@@ -76,47 +83,47 @@ const customTheme = mergeTheme(lightTheme, {
   },
 });
 
-<ThemeProvider theme={customTheme}>{/* Ваши компоненты */}</ThemeProvider>;
+<ThemeProvider theme={customTheme}>{/* Your components */}</ThemeProvider>;
 ```
 
-## Доступные компоненты
+## Available Components
 
-Библиотека включает следующие категории компонентов:
+The library includes the following component categories:
 
-- **Primitives**: Button, Typography, Tag и другие базовые компоненты
-- **Form**: Input, Select, Checkbox, Radio и другие компоненты форм
-- **Feedback**: Alert, Toast, Modal, Tooltip и другие компоненты обратной связи
-- **Layout**: Card, Container, Stack, Grid и другие компоненты раскладки
-- **Navigation**: Tabs, Menu, Breadcrumb и другие навигационные компоненты
+- **Primitives**: Button, Typography, Tag, and other base components
+- **Form**: Input, Select, Checkbox, Radio, and other form components
+- **Feedback**: Alert, Toast, Modal, Tooltip, and other feedback components
+- **Layout**: Card, Container, Stack, Grid, and other layout components
+- **Navigation**: Tabs, Menu, Breadcrumb, and other navigation components
 
-Полный список компонентов и примеры использования смотрите в Storybook документации.
+See the Storybook documentation for a complete list of components and usage examples.
 
-## Разработка
+## Development
 
 ```bash
-# Установка зависимостей
+# Install dependencies
 pnpm install
 
-# Запуск Storybook
+# Run Storybook
 pnpm storybook
 
-# Запуск тестов
+# Run tests
 pnpm test
 
-# Сборка
+# Build
 pnpm build
 
-# Линтинг
+# Linting
 pnpm lint
 ```
 
-## Версионирование
+## Versioning
 
-Проект использует [Conventional Commits](https://www.conventionalcommits.org/) для автоматического версионирования и генерации CHANGELOG.
+The project uses [Conventional Commits](https://www.conventionalcommits.org/) for automatic versioning and CHANGELOG generation.
 
-### Формат коммитов
+### Commit Format
 
-Все коммиты должны следовать формату Conventional Commits:
+All commits should follow the Conventional Commits format:
 
 ```
 <type>: <subject>
@@ -127,63 +134,63 @@ pnpm lint
 ```
 
 **Breaking changes:**
-Для major версии добавьте `BREAKING CHANGE:` в footer коммита или используйте `!` после типа: `feat!: breaking change`
+For major version, add `BREAKING CHANGE:` in the commit footer or use `!` after the type: `feat!: breaking change`
 
-### Создание коммитов
+### Creating Commits
 
-**Рекомендуемый способ** (интерактивный):
+**Recommended way** (interactive):
 
 ```bash
 pnpm commit
 ```
 
-Или используйте обычный git commit с правильным форматом:
+Or use regular git commit with the correct format:
 
 ```bash
-git commit -m "feat: добавил компонент Button"
-git commit -m "fix: исправил стили в Input"
+git commit -m "feat: add Button component"
+git commit -m "fix: correct Input styles"
 ```
 
-### Создание релиза
+### Creating a Release
 
-Для создания релиза используйте:
+To create a release, use:
 
 ```bash
-# Автоматическое определение версии на основе коммитов
+# Automatic version detection based on commits
 pnpm release
 
-# Принудительный minor релиз
+# Force minor release
 pnpm release:minor
 
-# Принудительный major релиз
+# Force major release
 pnpm release:major
 ```
 
-Команда `pnpm release` автоматически:
+The `pnpm release` command automatically:
 
-1. Анализирует коммиты с момента последнего релиза
-2. Определяет версию (patch/minor/major) на основе типов коммитов
-3. Обновляет `package.json` с новой версией
-4. Генерирует/обновляет `CHANGELOG.md`
-5. Создает git tag (например, `v1.1.0`)
-6. Создает коммит с изменениями
+1. Analyzes commits since the last release
+2. Determines the version (patch/minor/major) based on commit types
+3. Updates `package.json` with the new version
+4. Generates/updates `CHANGELOG.md`
+5. Creates a git tag (e.g., `v1.1.0`)
+6. Creates a commit with the changes
 
-После создания релиза:
+After creating a release:
 
 ```bash
-# Отправка изменений и тегов
+# Push changes and tags
 git push --follow-tags
 
-# Публикация в npm (если нужно)
+# Publish to npm (if needed)
 npm publish
 ```
 
 ### Workflow
 
-1. **Разработка**: Создавайте коммиты с правильным форматом (используйте `pnpm commit` для упрощения)
-2. **Релиз**: Запустите `pnpm release` когда готовы создать релиз
-3. **Публикация**: Отправьте изменения и теги, затем опубликуйте в npm (если нужно)
+1. **Development**: Create commits with the correct format (use `pnpm commit` for convenience)
+2. **Release**: Run `pnpm release` when ready to create a release
+3. **Publishing**: Push changes and tags, then publish to npm (if needed)
 
-## Лицензия
+## License
 
 MIT
