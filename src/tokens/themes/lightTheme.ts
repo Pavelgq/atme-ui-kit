@@ -5,16 +5,16 @@ export const lightTheme = {
   ...baseTheme,
   palette: {
     primary: {
-      main: '#0ea5e9',
-      hover: '#38bdf8',
-      active: '#0284c7',
+      main: '#3971b8',
+      hover: '#4a82c9',
+      active: '#2d5a96',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#a855f7',
-      hover: '#c084fc',
-      active: '#9333ea',
-      contrastText: '#ffffff',
+      main: '#c8d69b',
+      hover: '#d4e0b0',
+      active: '#b8c882',
+      contrastText: '#343b1b',
     },
     error: {
       main: '#ef4444',
@@ -32,19 +32,19 @@ export const lightTheme = {
       active: '#16a34a',
     },
     text: {
-      primary: '#171717',
-      secondary: '#525252',
+      primary: '#fbfcee',
+      secondary: '#5a6342',
       disabled: '#a3a3a3',
     },
     background: {
-      default: '#fafafa',
-      accent: '#f7f1e3',
+      default: '#fbfcee',
+      accent: '#f6e6a5',
       paper: '#ffffff',
     },
     border: {
-      default: '#5d5d5d',
+      default: '#c8d69b',
       subtle: '#e5e5e5',
-      strong: '#a3a3a3',
+      strong: '#5a6342',
     },
   },
 } satisfies Theme;
