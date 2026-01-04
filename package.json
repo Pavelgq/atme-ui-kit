@@ -1,7 +1,7 @@
 {
-  "name": "@atme/ui-kit",
+  "name": "@atme-lab/ui-kit",
   "version": "0.1.2",
-  "description": "Modern, scalable React UI library with TypeScript",
+  "description": "Component library for personal projects",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -55,6 +55,9 @@
   ],
   "author": "Pavel Gordeev <pavelgq@yandex.ru>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
