@@ -6,6 +6,9 @@ export type { TypographyProps, TypographyVariant, TypographySize } from './primi
 export { Tag } from './primitives/Tag';
 export type { TagProps, TagVariant, TagSize } from './primitives/Tag';
 
+export { TagGroup } from './primitives/TagGroup';
+export type { TagGroupProps } from './primitives/TagGroup';
+
 export { Button } from './primitives/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './primitives/Button';
 
