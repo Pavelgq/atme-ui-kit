@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useMemo } from "react";
 import cn from "classnames";
 import { BaseComponentProps } from "@components/types";
 import { Stack } from "../Stack";
@@ -9,6 +9,7 @@ import styles from "./WindowFrame.module.pcss";
 export interface WindowFrameProps extends BaseComponentProps {
   children?: ReactNode;
   title?: string;
+  actions?: ReactNode;
 }
 
 export const WindowFrame: FC<WindowFrameProps> = ({
@@ -16,7 +17,18 @@ export const WindowFrame: FC<WindowFrameProps> = ({
   title = "",
   className,
   testId,
+  actions,
 }) => {
+  const defaultActions = useMemo(
+    () => (
+      <Stack gap={1.5}>
+        <ActionButton icon={<CloseIcon />} hint="Закрыть" />
+        <ActionButton icon={<FullscreenIcon />} hint="Полноэкранный режим" />
+      </Stack>
+    ),
+    []
+  );
+
   return (
     <Stack
       direction="column"
@@ -24,18 +36,7 @@ export const WindowFrame: FC<WindowFrameProps> = ({
       className={cn(styles.frame, className)}
       {...(testId && { testId })}
     >
-      <TitleBar
-        addonLeft={
-          <Stack gap={1.5}>
-            <ActionButton icon={<CloseIcon />} hint="Закрыть" />
-            <ActionButton
-              icon={<FullscreenIcon />}
-              hint="Полноэкранный режим"
-            />
-          </Stack>
-        }
-        title={title}
-      />
+      <TitleBar addonLeft={actions ?? defaultActions} title={title} />
       <div className={styles.frameContent}>{children}</div>
     </Stack>
   );
