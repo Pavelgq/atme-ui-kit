@@ -24,3 +24,5 @@ export type { StackProps, StackDirection, StackAlign, StackJustify, StackWrap, S
 export { Grid } from './layout/Grid';
 export type { GridProps, GridColumns, GridGap } from './layout/Grid';
 
+export { ArticlePreview } from './content/ArticlePreview';
+export type { ArticlePreviewProps, ArticlePreviewView } from './content/ArticlePreview';

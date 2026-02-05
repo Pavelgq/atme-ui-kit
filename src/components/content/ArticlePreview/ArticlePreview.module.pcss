@@ -1,0 +1,39 @@
+.root {
+  display: block;
+  background-color: var(--palette-background-paper);
+  border: var(--border-base) solid var(--palette-border-subtle);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadows-sm);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform var(--transitions-duration-slow) var(--transitions-easing-easeInOut),
+    box-shadow var(--transitions-duration-slow) var(--transitions-easing-easeInOut),
+    border-color var(--transitions-duration-slow) var(--transitions-easing-easeInOut),
+    background-color var(--transitions-duration-slow) var(--transitions-easing-easeInOut);
+}
+
+.root--interactive {
+  cursor: pointer;
+}
+
+.root--interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadows-lg);
+  border-color: var(--palette-border-default);
+  background-color: var(--palette-background-default);
+}
+
+.root--interactive:focus-visible {
+  outline: 2px solid var(--palette-primary-main);
+  outline-offset: 2px;
+}
+
+.root--tile {
+  max-width: 360px;
+}
+
+.root--row {
+  max-width: 100%;
+}
