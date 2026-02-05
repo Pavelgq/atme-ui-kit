@@ -1,0 +1,144 @@
+.likeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: spacing(2);
+  padding: spacing(1.5) spacing(2);
+  border: none;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  color: var(--palette-text-secondary);
+  cursor: pointer;
+  font-family: var(--typography-font-family);
+  transition:
+    color var(--transitions-duration-base) var(--transitions-easing-easeInOut),
+    transform var(--transitions-duration-base) var(--transitions-easing-easeOut),
+    filter var(--transitions-duration-base) var(--transitions-easing-easeInOut);
+}
+
+.likeButton:hover:not(.likeButton--disabled) {
+  color: var(--palette-primary-main);
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 6px var(--palette-primary-main));
+}
+
+.likeButton--liked {
+  color: var(--palette-primary-main);
+}
+
+.likeButton--liked:hover:not(.likeButton--disabled) {
+  color: var(--palette-primary-hover);
+  filter: drop-shadow(0 0 8px var(--palette-primary-hover));
+}
+
+.likeButton:active:not(.likeButton--disabled) {
+  transform: scale(0.98);
+}
+
+.likeButton:focus-visible {
+  outline: 2px solid var(--palette-primary-main);
+  outline-offset: 2px;
+}
+
+.likeButton--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Весёлый «поп» при постановке лайка */
+.likeButton--pop .heartWrap {
+  animation: heartPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes heartPop {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.45);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+  70% {
+    transform: scale(1.12);
+  }
+  85% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Лёгкое «биение» сердца при ховере в состоянии лайка */
+.likeButton--liked:hover:not(.likeButton--disabled) .heartWrap {
+  animation: heartBeat 0.6s ease-in-out;
+}
+
+@keyframes heartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.15);
+  }
+  40% {
+    transform: scale(0.95);
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  80% {
+    transform: scale(1);
+  }
+}
+
+.heartWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.heart {
+  width: 100%;
+  height: 100%;
+  transition: color var(--transitions-duration-base) var(--transitions-easing-easeInOut);
+}
+
+.countWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 1.5em;
+}
+
+.countWrap--bump {
+  animation: countBump 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes countBump {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  30% {
+    transform: scale(1.35) translateY(-4px);
+  }
+  55% {
+    transform: scale(0.95) translateY(1px);
+  }
+  75% {
+    transform: scale(1.08) translateY(-1px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.count {
+  margin: 0;
+  text-align: left;
+}
