@@ -1,6 +1,6 @@
 {
   "name": "@atme-lab/ui-kit",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Component library for personal projects",
   "type": "module",
   "main": "./dist/index.js",
@@ -27,6 +27,7 @@
   ],
   "scripts": {
     "prepare": "husky",
+    "prepublishOnly": "npm run build",
     "dev": "vite --config .configs/vite.config.ts",
     "build": "tsc && vite build --config .configs/vite.config.ts",
     "type-check": "tsc --noEmit",
