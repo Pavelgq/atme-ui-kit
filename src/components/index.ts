@@ -12,6 +12,9 @@ export type { TagGroupProps, TagGroupItem, TagGroupTag } from './primitives/TagG
 export { Button } from './primitives/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './primitives/Button';
 
+export { Input } from './primitives/Input';
+export type { InputProps, InputSize } from './primitives/Input';
+
 export { Icon } from './primitives/Icon';
 export type { IconProps } from './primitives/Icon';
 

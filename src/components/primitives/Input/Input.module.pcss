@@ -1,0 +1,104 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(2);
+  border: 1px solid var(--palette-border-default);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--palette-background-paper);
+  color: var(--palette-text-primary);
+  font-family: var(--typography-font-family);
+  transition: border-color var(--transitions-duration-base)
+    var(--transitions-easing-easeInOut),
+    box-shadow var(--transitions-duration-base)
+      var(--transitions-easing-easeInOut);
+  box-shadow: var(--shadows-sm);
+}
+
+.wrapper:focus-within {
+  border-color: var(--palette-primary-main);
+  box-shadow: 0 0 0 2px var(--palette-primary-main);
+}
+
+.wrapper--error {
+  border-color: var(--palette-error-main);
+}
+
+.wrapper--error:focus-within {
+  border-color: var(--palette-error-main);
+  box-shadow: 0 0 0 2px var(--palette-error-main);
+}
+
+.wrapper--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: var(--palette-background-default);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  font-weight: var(--typography-font-weight-normal);
+  line-height: 1.5;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--palette-text-disabled);
+}
+
+.input:disabled {
+  cursor: inherit;
+}
+
+/* Убираем outline у input — фокус показываем на wrapper */
+.input:focus {
+  outline: none;
+}
+
+.iconStart,
+.iconEnd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--palette-text-secondary);
+}
+
+/* Sizes — как у Button */
+.wrapper--sm {
+  min-height: 36px;
+  padding: 0 spacing(3.5);
+  font-size: var(--typography-font-size-sm);
+}
+
+.wrapper--sm .input {
+  padding: spacing(1.5) 0;
+}
+
+.wrapper--md {
+  min-height: 44px;
+  padding: 0 spacing(5);
+  font-size: var(--typography-font-size-base);
+}
+
+.wrapper--md .input {
+  padding: spacing(2.5) 0;
+}
+
+.wrapper--lg {
+  min-height: 52px;
+  padding: 0 spacing(6);
+  font-size: var(--typography-font-size-lg);
+}
+
+.wrapper--lg .input {
+  padding: spacing(3) 0;
+}
+
+.wrapper--fullWidth {
+  width: 100%;
+}
