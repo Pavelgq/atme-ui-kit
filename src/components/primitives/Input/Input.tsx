@@ -4,7 +4,8 @@ import styles from "./Input.module.pcss";
 
 export type InputSize = "sm" | "md" | "lg";
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   size?: InputSize;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;

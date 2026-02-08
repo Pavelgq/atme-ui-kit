@@ -52,7 +52,7 @@ export const WithIcons: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", maxWidth: "320px" }}>
       <Input
-        startIcon={<HomeIcon decorative size={20} />}
+        startIcon={<HomeIcon decorative width={20} height={20} />}
         placeholder="Иконка слева"
         aria-label="Поле с иконкой слева"
       />
@@ -62,7 +62,7 @@ export const WithIcons: Story = {
         aria-label="Поле с иконкой справа"
       />
       <Input
-        startIcon={<HomeIcon decorative size={18} />}
+        startIcon={<HomeIcon decorative width={18} height={18} />}
         endIcon={<span style={{ fontSize: "0.875rem" }}>→</span>}
         placeholder="Обе иконки"
         aria-label="Поле с иконками"
