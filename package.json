@@ -15,7 +15,8 @@
     "./global": {
       "types": "./dist/global.d.ts",
       "import": "./dist/global.esm.js",
-      "require": "./dist/global.cjs.js"
+      "require": "./dist/global.cjs.js",
+      "default": "./dist/global.esm.js"
     },
     "./tokens": {
       "types": "./dist/tokens/index.d.ts",
