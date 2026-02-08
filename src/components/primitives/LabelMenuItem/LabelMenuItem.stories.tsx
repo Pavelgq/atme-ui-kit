@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { LabelMenuItem } from './LabelMenuItem';
 import { CloseIcon, DocumentIcon } from '../Icon/Icons';

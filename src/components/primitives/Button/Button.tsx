@@ -41,10 +41,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           styles.button,
           styles[`button--${variant}`],
           styles[`button--${size}`],
-          {
-            [styles["button--fullWidth"]]: fullWidth,
-            [styles["button--loading"]]: loading,
-          },
+          fullWidth && styles["button--fullWidth"],
+          loading && styles["button--loading"],
           className
         )}
         disabled={isDisabled}
