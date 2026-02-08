@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import dts from 'vite-plugin-dts';
 import { resolve } from 'path';
 import { ViteAliases } from 'vite-aliases';
 
@@ -8,6 +9,10 @@ export default defineConfig({
   plugins: [
     ViteAliases({ dir: 'src', prefix: '@', depth: 1 }),
     react(),
+    dts({
+      tsconfigPath: resolve(__dirname, '../tsconfig.build.json'),
+      outDir: 'dist',
+    }),
   ],
   build: {
     lib: {

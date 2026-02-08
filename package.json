@@ -110,8 +110,9 @@
     "tsx": "^4.21.0",
     "typescript": "^5.7.2",
     "vite": "^6.0.5",
-    "vitest": "^4.0.16",
-    "vite-aliases": "^0.11.8"
+    "vite-aliases": "^0.11.8",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^4.0.16"
   },
   "dependencies": {
     "classnames": "^2.5.1"
