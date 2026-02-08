@@ -2,11 +2,22 @@
   display: inline-flex;
   align-items: center;
   gap: spacing(1);
-  border-radius: var(--border-radius-full);
+  border-radius: var(--border-radius-base);
+  border: 2px solid var(--palette-border-strong);
   font-family: var(--typography-font-family);
   font-weight: var(--typography-font-weight-medium);
   line-height: 1;
   white-space: nowrap;
+}
+
+.tag--link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tag--link:focus-visible {
+  outline: 2px solid var(--palette-primary-main);
+  outline-offset: 2px;
 }
 
 .tagContent {
@@ -64,7 +75,7 @@
 /* Variants */
 .tag--primary {
   background-color: var(--palette-primary-main);
-  color: var(--palette-primary-contrastText);
+  color: var(--palette-secondary-contrastText);
 }
 
 .tag--secondary {

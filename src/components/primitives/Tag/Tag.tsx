@@ -19,9 +19,22 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   closeable?: boolean;
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
+  href?: string;
 }
 
-export const Tag = forwardRef<HTMLSpanElement, TagProps>(
+type TagRootElement = HTMLAnchorElement | HTMLSpanElement;
+
+const TagRoot = forwardRef<
+  TagRootElement,
+  (
+    | (React.ComponentPropsWithoutRef<"a"> & { as: "a" })
+    | (React.ComponentPropsWithoutRef<"span"> & { as: "span" })
+  ) & { as: "a" | "span" }
+>(function TagRoot({ as: Component, ...props }, ref) {
+  return React.createElement(Component, { ...props, ref });
+});
+
+export const Tag = forwardRef<TagRootElement, TagProps>(
   (
     {
       variant = "primary",
@@ -32,6 +45,7 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>(
       onClose,
       children,
       className,
+      href,
       ...props
     },
     ref
@@ -41,17 +55,17 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>(
       onClose?.(event);
     };
 
+    const rootProps = href ? { ...props, href, as: "a" as const } : { ...props, as: "span" as const };
+    const classNameComputed = cn(
+      styles.tag,
+      styles[`tag--${variant}`],
+      styles[`tag--${size}`],
+      href && styles["tag--link"],
+      className
+    );
+
     return (
-      <span
-        ref={ref}
-        className={cn(
-          styles.tag,
-          styles[`tag--${variant}`],
-          styles[`tag--${size}`],
-          className
-        )}
-        {...props}
-      >
+      <TagRoot ref={ref} className={classNameComputed} {...rootProps}>
         {icon && iconPosition === "left" && (
           <span className={styles.tagIcon}>{icon}</span>
         )}
@@ -69,7 +83,7 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>(
             ×
           </button>
         )}
-      </span>
+      </TagRoot>
     );
   }
 );
