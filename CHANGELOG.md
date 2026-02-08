@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.10...v0.1.11) (2026-02-08)
+
+### Features
+
+- add Badge components ([5ad872c](https://github.com/Pavelgq/atme-ui-kit/commit/5ad872c9e1fda8020d2267c269c83e7fd043a2c1))
+- add Input components ([c368f7a](https://github.com/Pavelgq/atme-ui-kit/commit/c368f7a6a7539ea8f856fc264c9c64f30a0b52f4))
+- **styles:** scope box-sizing reset to components via data-atme-ui ([9df7509](https://github.com/Pavelgq/atme-ui-kit/commit/9df7509dd55197c74a84009059bc0a1c3f652b3a))
+
+### Bug Fixes
+
+- **Input:** update icon properties to use width and height attributes ([8145ec7](https://github.com/Pavelgq/atme-ui-kit/commit/8145ec7c3a19f26be06f524bf02ffec0428703b4))
+
+### Code Refactoring
+
+- **styles:** move global styles to separate styles.css export ([0709b15](https://github.com/Pavelgq/atme-ui-kit/commit/0709b1507f8d4d55258ff189fbf91ba684554f89))
+
+### Styles
+
+- **themes:** update palette colors and add Martian Grotesk font ([a71fcc6](https://github.com/Pavelgq/atme-ui-kit/commit/a71fcc6351b1f0c50e53441d5eba22beb950efbd))
+
+### Chores
+
+- **cursor:** add rule for data-atme-ui on new components ([4c1faed](https://github.com/Pavelgq/atme-ui-kit/commit/4c1faed116e0bfe9e9ab4b03308c679342fd2624))
+- remove global styles import and update README; add styles.css entry in package.json ([cf15c93](https://github.com/Pavelgq/atme-ui-kit/commit/cf15c93b9b153598694f995b8538d46685b02c00))
+- update storybook command and add storybook dependency ([c7a3111](https://github.com/Pavelgq/atme-ui-kit/commit/c7a31114401bd2b10d0182ad55705d393ccd3d66))
+
 ### [0.1.10](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.9...v0.1.10) (2026-02-08)
 
 ### Chores

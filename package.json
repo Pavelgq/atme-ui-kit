@@ -1,6 +1,6 @@
 {
   "name": "@atme-lab/ui-kit",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Component library for personal projects",
   "type": "module",
   "main": "./dist/index.cjs.js",
