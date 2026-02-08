@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.8...v0.1.9) (2026-02-08)
+
+### Chores
+
+- add vite-plugin-dts for TypeScript declaration file generation ([d31beb5](https://github.com/Pavelgq/atme-ui-kit/commit/d31beb551d06a983a13548aa6ec997cc1adc120d))
+
 ### [0.1.8](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.7...v0.1.8) (2026-02-08)
 
 ### Chores
