@@ -1,8 +1,8 @@
-import React from 'react';
-import cn from 'classnames';
-import { Typography } from '../Typography';
-import type { IconProps } from '../Icon';
-import styles from './LabelMenuItem.module.pcss';
+import React from "react";
+import cn from "classnames";
+import { Typography } from "../Typography";
+import type { IconProps } from "../Icon";
+import styles from "./LabelMenuItem.module.pcss";
 
 export interface LabelMenuItemProps {
   label: string;
@@ -19,7 +19,7 @@ export const LabelMenuItem: React.FC<LabelMenuItemProps> = ({
   onClick,
   disabled = false,
   className,
-  iconSize = '50px',
+  iconSize = "50px",
 }) => {
   return (
     <button
@@ -30,12 +30,16 @@ export const LabelMenuItem: React.FC<LabelMenuItemProps> = ({
       <div className={styles.icon}>
         <IconComponent decorative width={iconSize} height={iconSize} />
       </div>
-      <Typography as="span" variant="body" className={styles.label}>
+      <Typography
+        as="span"
+        variant="body"
+        color="secondary"
+        className={styles.label}
+      >
         {label}
       </Typography>
     </button>
   );
 };
 
-LabelMenuItem.displayName = 'LabelMenuItem';
-
+LabelMenuItem.displayName = "LabelMenuItem";
