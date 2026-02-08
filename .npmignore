@@ -1,0 +1,35 @@
+# Исходники — в пакет попадает только dist
+src
+
+# Конфиги и инструменты
+.configs
+.storybook
+.husky
+*.config.js
+*.config.ts
+postcss.config.js
+postcss.config.ts
+
+# Документация и линтинг (опционально — раскомментируй, если не нужны в пакете)
+# docs
+# .eslintrc*
+# .prettier*
+# .stylelintrc*
+
+# Тесты и отчёты
+coverage
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+*.stories.tsx
+vitest.config.ts
+
+# Сборка Storybook
+storybook-static
+
+# Прочее
+.env*
+*.tsbuildinfo
+.cache
+node_modules
