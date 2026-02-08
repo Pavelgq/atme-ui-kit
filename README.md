@@ -23,8 +23,6 @@ import {
   Button,
   Typography,
 } from "@atme-lab/ui-kit";
-// Import global styles at the root of your application
-import "@atme-lab/ui-kit/global";
 
 function App() {
   return (
@@ -36,7 +34,7 @@ function App() {
 }
 ```
 
-**Important**: Global styles (`@atme-lab/ui-kit/global`) should be imported once at the root of your application (e.g., in `main.tsx` or `App.tsx`). They contain CSS reset and base styles for elements.
+Styles are loaded automatically when you import from `@atme-lab/ui-kit`. To load only the styles (e.g. to control load order), use `import '@atme-lab/ui-kit/styles.css'`.
 
 ## Component Documentation
 

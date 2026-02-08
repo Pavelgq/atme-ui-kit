@@ -16,13 +16,10 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: {
-        index: resolve(__dirname, '../src/index.ts'),
-        global: resolve(__dirname, '../src/global.ts'),
-      },
+      entry: resolve(__dirname, '../src/index.ts'),
       name: 'AtmeUiKit',
-      fileName: (format, entryName) =>
-        `${entryName}.${format === 'es' ? 'esm' : format}.js`,
+      fileName: (format) =>
+        `index.${format === 'es' ? 'esm' : format}.js`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
@@ -32,7 +29,14 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
-        banner: "'use client';",
+        banner: (chunk) => {
+          const isIndex = chunk.fileName?.startsWith('index.');
+          const isEsm = chunk.fileName?.includes('.esm.');
+          const base = "'use client';";
+          if (isIndex && isEsm) return `${base}\nimport "./ui-kit.css";`;
+          if (isIndex && !isEsm) return `${base}\nrequire("./ui-kit.css");`;
+          return base;
+        },
       },
     },
     cssCodeSplit: false,
