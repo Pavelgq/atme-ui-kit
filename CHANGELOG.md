@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.6...v0.1.7) (2026-02-08)
+
+### Chores
+
+- add .npmignore file to exclude unnecessary files from npm package ([db0cc81](https://github.com/Pavelgq/atme-ui-kit/commit/db0cc810f1e7c4200bc1baad828f898fe9854d42))
+
 ### [0.1.6](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.5...v0.1.6) (2026-02-08)
 
 ### Chores
