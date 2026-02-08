@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.7...v0.1.8) (2026-02-08)
+
+### Chores
+
+- added entry point ([cd56dde](https://github.com/Pavelgq/atme-ui-kit/commit/cd56dde72f76b8e05dcce9e28e69fd2fdf49fb01))
+
 ### [0.1.7](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.6...v0.1.7) (2026-02-08)
 
 ### Chores
