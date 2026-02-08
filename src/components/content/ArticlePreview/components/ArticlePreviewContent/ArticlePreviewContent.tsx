@@ -11,6 +11,7 @@ export interface ArticlePreviewContentProps {
   imageAlt: string;
   formattedDate: string;
   view: ArticlePreviewContentView;
+  tags?: React.ReactNode;
 }
 
 export function ArticlePreviewContent({
@@ -19,10 +20,16 @@ export function ArticlePreviewContent({
   imageAlt,
   formattedDate,
   view,
+  tags,
 }: ArticlePreviewContentProps) {
   return (
     <div className={cn(styles.content, styles[`content--${view}`])}>
       <div className={styles.previewWrap}>
+        {tags && view === 'tile' && (
+          <div className={styles.tagsSlotTile} onClick={(e) => e.stopPropagation()}>
+            {tags}
+          </div>
+        )}
         {imageUrl ? (
           <img
             src={imageUrl}
@@ -36,6 +43,11 @@ export function ArticlePreviewContent({
         )}
       </div>
       <div className={styles.body}>
+        {tags && view === 'row' && (
+          <div className={styles.tagsSlotRow} onClick={(e) => e.stopPropagation()}>
+            {tags}
+          </div>
+        )}
         <Typography variant="h5" as="h2" className={styles.title} title={title}>
           {title}
         </Typography>

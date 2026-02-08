@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArticlePreview } from './ArticlePreview';
 import { Stack } from '../../layout/Stack';
+import { TagGroup } from '../../primitives/TagGroup';
 
 const meta: Meta<typeof ArticlePreview> = {
   title: 'Content/ArticlePreview',
@@ -37,6 +38,9 @@ const meta: Meta<typeof ArticlePreview> = {
       control: 'text',
       description: 'URL карточки (вся карточка — ссылка)',
     },
+    tags: {
+      description: 'Слот для тегов (плитка: левый верхний угол, строка: над заголовком)',
+    },
   },
 };
 
@@ -68,7 +72,6 @@ export const MockNoImage: Story = {
   args: {
     title: shortTitle,
     publishedAt: defaultDate,
-    imageUrl: undefined,
   },
   parameters: {
     docs: {
@@ -160,6 +163,56 @@ export const WithHref: Story = {
     docs: {
       description: {
         story: 'С переданным href вся карточка — кликабельная ссылка.',
+      },
+    },
+  },
+};
+
+const exampleTags = (
+  <TagGroup
+    tags={[
+      { label: 'блог', href: '/tag/blog' },
+      { label: 'дизайн', href: '/tag/design' },
+      { label: 'UI', href: '/tag/ui' },
+    ]}
+    size="sm"
+    variant="secondary"
+    maxVisible={3}
+  />
+);
+
+export const WithTagsTile: Story = {
+  args: {
+    title: shortTitle,
+    publishedAt: defaultDate,
+    imageUrl: 'https://picsum.photos/400/250',
+    view: 'tile',
+    href: '/blog/post-1',
+    tags: exampleTags,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Слот для TagGroup: теги в левом верхнем углу. Ссылки/обработчики передаются в данных тега (TagGroupItem.href / TagGroupItem.onClick).',
+      },
+    },
+  },
+};
+
+export const WithTagsRow: Story = {
+  args: {
+    title: shortTitle,
+    publishedAt: defaultDate,
+    imageUrl: 'https://picsum.photos/200/200',
+    view: 'row',
+    href: '/blog/post-1',
+    tags: exampleTags,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'TagGroup над заголовком в варианте «в строку».',
       },
     },
   },

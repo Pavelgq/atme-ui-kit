@@ -15,6 +15,7 @@ export interface ArticlePreviewProps
   view?: ArticlePreviewView;
   imageAlt?: string;
   href?: string;
+  tags?: React.ReactNode;
 }
 
 function formatDate(value: Date | string): string {
@@ -35,6 +36,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
       view = 'tile',
       imageAlt = '',
       href,
+      tags,
       className,
       testId,
       onClick,
@@ -77,6 +79,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
             imageAlt={imageAlt}
             formattedDate={formattedDate}
             view={view}
+            tags={tags}
           />
         </a>
       );
@@ -95,6 +98,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
           imageAlt={imageAlt}
           formattedDate={formattedDate}
           view={view}
+          tags={tags}
         />
       </div>
     );

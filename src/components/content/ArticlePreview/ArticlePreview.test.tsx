@@ -101,4 +101,28 @@ describe('ArticlePreview', () => {
     expect(screen.getByTestId('card-1')).toBeInTheDocument();
     expect(screen.getByTestId('card-1').tagName).toBe('A');
   });
+
+  it('рендерит слот tags в плитке (левый верхний угол)', () => {
+    render(
+      <ArticlePreview
+        {...defaultProps}
+        view="tile"
+        tags={<span data-testid="card-tags">Метка</span>}
+      />
+    );
+    expect(screen.getByTestId('card-tags')).toBeInTheDocument();
+    expect(screen.getByText('Метка')).toBeInTheDocument();
+  });
+
+  it('рендерит слот tags в строке (над заголовком)', () => {
+    render(
+      <ArticlePreview
+        {...defaultProps}
+        view="row"
+        tags={<span data-testid="card-tags">Тег</span>}
+      />
+    );
+    expect(screen.getByTestId('card-tags')).toBeInTheDocument();
+    expect(screen.getByText('Тег')).toBeInTheDocument();
+  });
 });
