@@ -1,3 +1,5 @@
+import './styles/scoped-reset.css';
+
 export * from './components';
 
 export * from './themes';

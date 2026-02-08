@@ -52,6 +52,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
     return (
       <span
         ref={ref}
+        data-atme-ui
         className={cn(
           styles.badge,
           styles[`badge--${variant}`],

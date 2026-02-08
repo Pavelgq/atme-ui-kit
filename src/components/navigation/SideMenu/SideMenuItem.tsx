@@ -66,6 +66,7 @@ export const SideMenuItem = forwardRef<HTMLLIElement, SideMenuItemProps>(
 
     return (
       <li
+        data-atme-ui
         ref={(el) => {
           if (ref) {
             if (typeof ref === "function") {

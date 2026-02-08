@@ -65,6 +65,7 @@ export const LikeButton = forwardRef<HTMLButtonElement, LikeButtonProps>(
       <button
         ref={ref}
         type="button"
+        data-atme-ui
         className={cn(
           styles.likeButton,
           liked && styles['likeButton--liked'],

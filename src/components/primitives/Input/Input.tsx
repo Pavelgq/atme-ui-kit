@@ -39,6 +39,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div
+        data-atme-ui
         className={cn(
           styles.wrapper,
           styles[`wrapper--${size}`],

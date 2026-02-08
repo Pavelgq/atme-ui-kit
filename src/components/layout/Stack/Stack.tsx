@@ -66,6 +66,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
     return (
       <Component
         ref={ref}
+        data-atme-ui
         className={cn(
           styles.stack,
           styles[`stack--direction-${direction}`],

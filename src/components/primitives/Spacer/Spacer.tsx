@@ -35,6 +35,7 @@ export const Spacer: FC<SpacerProps> = ({
 
   return (
     <div
+      data-atme-ui
       className={cn(styles.spacer, className)}
       style={spacingStyles}
       {...(testId && { "data-testid": testId })}

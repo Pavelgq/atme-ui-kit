@@ -1,5 +1,6 @@
 export { DocumentIcon } from './DocumentIcon';
 export { CloseIcon } from './CloseIcon';
+export { ChevronUpIcon } from './ChevronUpIcon';
 export { HomeIcon } from './HomeIcon';
 export { FullscreenIcon } from './FullscreenIcon';
 export { HeartIcon } from './HeartIcon';

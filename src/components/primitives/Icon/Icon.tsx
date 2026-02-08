@@ -32,6 +32,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(
       return (
         <svg
           ref={ref}
+          data-atme-ui
           className={cn(styles.icon, styles['icon--custom'], className)}
           viewBox={viewBox}
           xmlns={xmlns}
@@ -47,6 +48,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(
     return (
       <svg
         ref={ref}
+        data-atme-ui
         className={cn(styles.icon, className)}
         viewBox={viewBox}
         fill={fill}

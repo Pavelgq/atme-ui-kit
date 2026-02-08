@@ -1,0 +1,11 @@
+/**
+ * Сброс стилей только для компонентов библиотеки.
+ * Не влияет на стили страницы потребителя.
+ * Компоненты помечены атрибутом data-atme-ui.
+ */
+[data-atme-ui],
+[data-atme-ui] *,
+[data-atme-ui] *::before,
+[data-atme-ui] *::after {
+  box-sizing: border-box;
+}

@@ -37,6 +37,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         type="button"
+        data-atme-ui
         className={cn(
           styles.button,
           styles[`button--${variant}`],

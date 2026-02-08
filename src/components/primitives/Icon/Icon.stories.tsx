@@ -140,6 +140,10 @@ export const Sizes: Story = {
 };
 
 export const AllIcons: Story = {
+  args: {
+    color: "primary"
+  },
+
   render: () => {
     if (iconComponents.length === 0) {
       return (
@@ -199,9 +203,10 @@ export const AllIcons: Story = {
       </div>
     );
   },
+
   parameters: {
     layout: 'fullscreen',
-  },
+  }
 };
 
 export const Playground: Story = {

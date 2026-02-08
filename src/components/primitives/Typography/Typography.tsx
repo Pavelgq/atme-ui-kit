@@ -49,6 +49,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
     return (
       <Component
         ref={ref}
+        data-atme-ui
         className={cn(
           styles.typography,
           styles[`typography--${variant}`],

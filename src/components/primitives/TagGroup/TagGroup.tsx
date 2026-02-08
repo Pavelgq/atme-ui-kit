@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback } from "react";
 import cn from "classnames";
 import styles from "./TagGroup.module.pcss";
 import { Tag, TagProps } from "../Tag";
+import { ChevronUpIcon } from "../Icon/Icons";
 import { TagGroupItemView } from "./components";
 import type { TagGroupTag } from "./types";
 
@@ -81,7 +82,7 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
     );
 
     return (
-      <div ref={ref} className={cn(styles.tagGroup, className)} {...props}>
+      <div ref={ref} data-atme-ui className={cn(styles.tagGroup, className)} {...props}>
         {visibleTags.map((tag, index) => (
           <TagGroupItemView key={index} tag={tag} baseTagProps={baseTagProps} />
         ))}
@@ -112,7 +113,7 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
             aria-label={collapseText}
             style={{ cursor: "pointer", ...collapseTagProps?.style }}
           >
-            {collapseText}
+            <ChevronUpIcon decorative width={16} height={16} />
           </Tag>
         )}
       </div>

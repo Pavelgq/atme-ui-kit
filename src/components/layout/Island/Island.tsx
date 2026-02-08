@@ -26,6 +26,7 @@ export const Island: FC<IslandProps> = ({
 }) => {
   return (
     <div
+      data-atme-ui
       className={cn(
         styles.island,
         styles[`island--size-${size}`],

@@ -17,6 +17,7 @@ export const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>(
       <button
         ref={ref}
         type="button"
+        data-atme-ui
         className={cn(styles.button, className)}
         aria-label={hint}
         onClick={onClick}

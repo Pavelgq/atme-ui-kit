@@ -23,6 +23,7 @@ export const LabelMenuItem: React.FC<LabelMenuItemProps> = ({
 }) => {
   return (
     <button
+      data-atme-ui
       className={cn(styles.labelMenuItem, className)}
       onClick={onClick}
       disabled={disabled}

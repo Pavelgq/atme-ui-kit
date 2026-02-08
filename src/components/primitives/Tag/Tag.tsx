@@ -55,7 +55,9 @@ export const Tag = forwardRef<TagRootElement, TagProps>(
       onClose?.(event);
     };
 
-    const rootProps = href ? { ...props, href, as: "a" as const } : { ...props, as: "span" as const };
+    const rootProps = href
+      ? { ...props, href, as: "a" as const, "data-atme-ui": true }
+      : { ...props, as: "span" as const, "data-atme-ui": true };
     const classNameComputed = cn(
       styles.tag,
       styles[`tag--${variant}`],

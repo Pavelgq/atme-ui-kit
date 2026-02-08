@@ -94,6 +94,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
     <ul
       ref={containerRef}
       role={menuRole}
+      data-atme-ui
       className={cn(
         styles.container,
         styles[`container--${orientation}`],

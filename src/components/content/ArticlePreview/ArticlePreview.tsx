@@ -66,6 +66,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
       className: sharedClassName,
       onClick,
       onKeyDown: isInteractive ? handleKeyDown : onKeyDown,
+      'data-atme-ui': true,
       'data-testid': testId,
       ...props,
     };
