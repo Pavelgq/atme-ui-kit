@@ -120,6 +120,9 @@ importers:
       standard-version:
         specifier: ^9.5.0
         version: 9.5.0
+      storybook:
+        specifier: ^8.3.0
+        version: 8.6.15(prettier@3.7.4)
       stylelint:
         specifier: ^16.11.0
         version: 16.26.1(typescript@5.9.3)
