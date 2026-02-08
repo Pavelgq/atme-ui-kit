@@ -131,6 +131,48 @@ export const CustomCollapseText: Story = {
   },
 };
 
+export const ClickableAsLinks: Story = {
+  render: () => (
+    <TagGroup
+      tags={[
+        { label: "блог", href: "/tag/blog" },
+        { label: "дизайн", href: "/tag/design" },
+        { label: "UI", href: "/tag/ui" },
+      ]}
+      size="sm"
+      variant="secondary"
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Ссылки приходят в данных тега (href в TagGroupItem).",
+      },
+    },
+  },
+};
+
+export const ClickableWithHandler: Story = {
+  render: () => (
+    <TagGroup
+      tags={[
+        { label: "React", onClick: () => alert("React") },
+        { label: "Vue", onClick: () => alert("Vue") },
+        { label: "Svelte", onClick: () => alert("Svelte") },
+      ]}
+      size="sm"
+      variant="primary"
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Обработчик приходит в данных тега (onClick в TagGroupItem).",
+      },
+    },
+  },
+};
+
 export const Playground: Story = {
   args: {
     tags: manyTags,

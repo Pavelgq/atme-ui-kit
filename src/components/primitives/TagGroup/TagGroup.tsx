@@ -1,10 +1,15 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import cn from "classnames";
 import styles from "./TagGroup.module.pcss";
 import { Tag, TagProps } from "../Tag";
+import { TagGroupItemView } from "./components";
+import type { TagGroupTag } from "./types";
+
+export type { TagGroupItem, TagGroupTag } from "./types";
+export { isTagGroupItem } from "./types";
 
 export interface TagGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  tags: React.ReactNode[];
+  tags: TagGroupTag[];
   maxVisible?: number;
   overflowTagProps?: Omit<TagProps, "children">;
   collapseTagProps?: Omit<TagProps, "children">;
@@ -44,29 +49,41 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
       };
     }, [tags, maxVisible, isExpanded]);
 
-    const handleExpand = () => {
-      setIsExpanded(true);
-    };
+    const handleExpand = useCallback(() => setIsExpanded(true), []);
+    const handleCollapse = useCallback(() => setIsExpanded(false), []);
 
-    const handleCollapse = () => {
-      setIsExpanded(false);
-    };
+    const handleExpandKeyDown = useCallback(
+      (e: React.KeyboardEvent<HTMLElement>) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleExpand();
+        }
+      },
+      [handleExpand]
+    );
 
-    const baseTagProps = {
-      ...(size && { size }),
-      ...(variant && { variant }),
-    };
+    const handleCollapseKeyDown = useCallback(
+      (e: React.KeyboardEvent<HTMLElement>) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleCollapse();
+        }
+      },
+      [handleCollapse]
+    );
+
+    const baseTagProps = useMemo(
+      () => ({
+        ...(size && { size }),
+        ...(variant && { variant }),
+      }),
+      [size, variant]
+    );
 
     return (
       <div ref={ref} className={cn(styles.tagGroup, className)} {...props}>
         {visibleTags.map((tag, index) => (
-          <React.Fragment key={index}>
-            {typeof tag === "object" && React.isValidElement(tag) ? (
-              tag
-            ) : (
-              <Tag {...baseTagProps}>{tag}</Tag>
-            )}
-          </React.Fragment>
+          <TagGroupItemView key={index} tag={tag} baseTagProps={baseTagProps} />
         ))}
 
         {!isExpanded && hiddenCount > 0 && (
@@ -74,12 +91,7 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
             {...baseTagProps}
             {...overflowTagProps}
             onClick={handleExpand}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                handleExpand();
-              }
-            }}
+            onKeyDown={handleExpandKeyDown}
             role="button"
             tabIndex={0}
             aria-label={`Показать еще ${hiddenCount} тегов`}
@@ -94,12 +106,7 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
             {...baseTagProps}
             {...collapseTagProps}
             onClick={handleCollapse}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                handleCollapse();
-              }
-            }}
+            onKeyDown={handleCollapseKeyDown}
             role="button"
             tabIndex={0}
             aria-label={collapseText}
