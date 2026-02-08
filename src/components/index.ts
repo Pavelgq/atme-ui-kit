@@ -15,6 +15,9 @@ export type { ButtonProps, ButtonVariant, ButtonSize } from './primitives/Button
 export { Input } from './primitives/Input';
 export type { InputProps, InputSize } from './primitives/Input';
 
+export { Badge } from './primitives/Badge';
+export type { BadgeProps, BadgeVariant, BadgeSize } from './primitives/Badge';
+
 export { Icon } from './primitives/Icon';
 export type { IconProps } from './primitives/Icon';
 
