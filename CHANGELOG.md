@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.5...v0.1.6) (2026-02-08)
+
+### Chores
+
+- add vite-aliases and update config ([5c286a5](https://github.com/Pavelgq/atme-ui-kit/commit/5c286a58a8616d1fc154e035eea9138600e0e983))
+- update TypeScript configuration and clean up imports in test files ([26f9d8e](https://github.com/Pavelgq/atme-ui-kit/commit/26f9d8e518767e913b53bf11bbdb7d610d316d8b))
+
 ### [0.1.5](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.4...v0.1.5) (2026-02-08)
 
 ### [0.1.4](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.3...v0.1.4) (2026-02-08)
