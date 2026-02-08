@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.3...v0.1.4) (2026-02-08)
+
+### Features
+
+- **ArticlePreview:** add tags support for ArticlePreview component with styling and tests ([6e4ab1b](https://github.com/Pavelgq/atme-ui-kit/commit/6e4ab1bf6e4cdcec4ea69c42366230675f30fc60))
+- **content:** add ArticlePreview component ([92b3ef8](https://github.com/Pavelgq/atme-ui-kit/commit/92b3ef8af68313611c19ddbeae5d5af404b603de))
+- **primitives:** add HeartIcon ([d94f9df](https://github.com/Pavelgq/atme-ui-kit/commit/d94f9df94c0a99e4d69f156c1c6e8946f8b80b9b))
+- **primitives:** add LikeButton component ([bfc96d8](https://github.com/Pavelgq/atme-ui-kit/commit/bfc96d8c0894632b475258635b864c54f61b3faa))
+- **Tag:** enhance Tag component with link support and style updates ([5fae3ee](https://github.com/Pavelgq/atme-ui-kit/commit/5fae3ee8ffbe8d68ace62785644fb59f2ee579a0))
+- **TagGroup:** add support for clickable tags and enhance TagGroup functionality ([541e518](https://github.com/Pavelgq/atme-ui-kit/commit/541e518d2b589748f2fa0f83e7d4571049aa10b1))
+
+### Bug Fixes
+
+- fixed PostCSS configuration ([b42d923](https://github.com/Pavelgq/atme-ui-kit/commit/b42d9233d8d0e657c94e132fc5a1fe5bcc0e4ace))
+
+### Code Refactoring
+
+- enhance WindowFrame component with customizable actions ([73d1527](https://github.com/Pavelgq/atme-ui-kit/commit/73d1527dd0c79cc468e21a97049f4a59410c5e2c))
+
+### Styles
+
+- **Button, LabelMenuItem:** enhance button styles and clean up LabelMenuItem component ([64f1451](https://github.com/Pavelgq/atme-ui-kit/commit/64f14511c1fff0c8ad6ba90136be5f92b62efaff))
+
 ### [0.1.3](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.2...v0.1.3) (2026-01-04)
 
 ### Features
