@@ -151,45 +151,34 @@ git commit -m "feat: add Button component"
 git commit -m "fix: correct Input styles"
 ```
 
-### Creating a Release
+### Creating a Release and Publishing to npm
 
-To create a release, use:
+**1. Create a release** (bump version, update CHANGELOG, create tag and commit):
 
 ```bash
-# Automatic version detection based on commits
+# Auto version from commits (patch/minor/major)
 pnpm release
 
-# Force minor release
+# Or explicitly: minor
 pnpm release:minor
 
-# Force major release
+# Or explicitly: major
 pnpm release:major
 ```
 
-The `pnpm release` command automatically:
-
-1. Analyzes commits since the last release
-2. Determines the version (patch/minor/major) based on commit types
-3. Updates `package.json` with the new version
-4. Generates/updates `CHANGELOG.md`
-5. Creates a git tag (e.g., `v1.1.0`)
-6. Creates a commit with the changes
-
-After creating a release:
+**2. Push changes and tags to the repository:**
 
 ```bash
-# Push changes and tags
 git push --follow-tags
-
-# Publish to npm (if needed)
-npm publish
 ```
 
-### Workflow
+**3. Publish the package to npm:**
 
-1. **Development**: Create commits with the correct format (use `pnpm commit` for convenience)
-2. **Release**: Run `pnpm release` when ready to create a release
-3. **Publishing**: Push changes and tags, then publish to npm (if needed)
+```bash
+pnpm publish
+```
+
+Before publishing, `prepublishOnly` runs → `npm run build`: the `dist` folder is built and only the built output is published (see the `files` field in package.json). No need to run build manually.
 
 ## License
 

@@ -1,15 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
+import { ViteAliases } from 'vite-aliases';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@*': resolve(__dirname, '../src/*'),
-    },
-  },
+  plugins: [
+    ViteAliases({ dir: 'src', prefix: '@', depth: 1 }),
+    react(),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, '../src/index.ts'),
