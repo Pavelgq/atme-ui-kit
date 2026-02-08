@@ -11,9 +11,13 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, '../src/index.ts'),
+      entry: {
+        index: resolve(__dirname, '../src/index.ts'),
+        global: resolve(__dirname, '../src/global.ts'),
+      },
       name: 'AtmeUiKit',
-      fileName: (format) => `index.${format === 'es' ? 'esm' : format}.js`,
+      fileName: (format, entryName) =>
+        `${entryName}.${format === 'es' ? 'esm' : format}.js`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {

@@ -3,19 +3,19 @@
   "version": "0.1.7",
   "description": "Component library for personal projects",
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.esm.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs.js"
     },
     "./global": {
       "types": "./dist/global.d.ts",
       "import": "./dist/global.esm.js",
-      "require": "./dist/global.js"
+      "require": "./dist/global.cjs.js"
     },
     "./tokens": {
       "types": "./dist/tokens/index.d.ts",
