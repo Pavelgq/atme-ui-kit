@@ -21,8 +21,8 @@ import {
   Button,
   Typography,
 } from "@atme-lab/ui-kit";
-// Импортируйте глобальные стили в корне вашего приложения
-import "@atme-lab/ui-kit/global";
+// Опционально: шрифт Martian Grotesk. Импортируйте один раз в корне (main.tsx)
+import "@atme-lab/ui-kit/styles.css";
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
 }
 ```
 
-**Важно**: Глобальные стили (`@atme-lab/ui-kit/global`) нужно импортировать один раз в корне вашего приложения (например, в `main.tsx` или `App.tsx`). Они содержат CSS reset и базовые стили для элементов.
+**Стили**: `@atme-lab/ui-kit/styles.css` — опционально, содержит только @font-face для Martian Grotesk. Импортируйте один раз в корне, если используете шрифт темы. Стили компонентов подключаются автоматически. Сброс `box-sizing: border-box` применяется только к компонентам библиотеки (через `data-atme-ui`), на стили страницы потребителя не влияет.
 
 ## Документация компонентов
 
