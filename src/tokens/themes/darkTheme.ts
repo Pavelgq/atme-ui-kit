@@ -9,9 +9,9 @@ export const darkTheme = {
   ...baseTheme,
   palette: {
     primary: {
-      main: '#0ea5e9',
-      hover: '#38bdf8',
-      active: '#0284c7',
+      main: '#5c9fc4',
+      hover: '#6ba8c9',
+      active: '#4a8ab5',
       contrastText: '#ffffff',
     },
     secondary: {

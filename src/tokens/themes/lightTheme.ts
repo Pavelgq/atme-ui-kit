@@ -5,10 +5,10 @@ export const lightTheme = {
   ...baseTheme,
   palette: {
     primary: {
-      main: '#3971b8',
-      hover: '#4a82c9',
-      active: '#2d5a96',
-      contrastText: '#ffffff',
+      main: '#a9d0e7',
+      hover: '#96c4de',
+      active: '#7eb3d4',
+      contrastText: '#171717',
     },
     secondary: {
       main: '#c8d69b',
@@ -32,7 +32,7 @@ export const lightTheme = {
       active: '#16a34a',
     },
     text: {
-      primary: '#fbfcee',
+      primary: '#24292e',
       secondary: '#5a6342',
       disabled: '#a3a3a3',
     },
