@@ -1,0 +1,44 @@
+---
+description: Добавлять data-atme-ui на корень новых компонентов
+globs: src/components/**/*.tsx
+alwaysApply: false
+---
+
+# data-atme-ui на корневом элементе компонента
+
+Каждый новый компонент библиотеки должен иметь атрибут `data-atme-ui` на корневом DOM-элементе. Это нужно для изолированного сброса стилей (`box-sizing: border-box` и др.) только внутри компонентов, без влияния на страницу потребителя.
+
+## Как добавить
+
+На корневой JSX-элемент компонента:
+
+```tsx
+// Для обычных элементов
+return (
+  <button data-atme-ui className={cn(styles.button, className)} {...props}>
+    {children}
+  </button>
+);
+
+// Для polymorphic-компонентов — через пропсы
+const rootProps = { ...props, "data-atme-ui": true };
+return <TagRoot ref={ref} {...rootProps} />;
+```
+
+## Где применяется
+
+- Primitives: Button, Input, Badge, Tag, Icon, Typography и т.д.
+- Layout: Grid, Stack, Island, WindowFrame
+- Content: ArticlePreview
+- Navigation: SideMenu, SideMenuItem
+
+Правило сброса в `src/styles/scoped-reset.css`:
+
+```css
+[data-atme-ui],
+[data-atme-ui] *,
+[data-atme-ui] *::before,
+[data-atme-ui] *::after {
+  box-sizing: border-box;
+}
+```
