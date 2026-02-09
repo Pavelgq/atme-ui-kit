@@ -6,8 +6,11 @@ export const ChevronUpIcon: React.FC<Omit<IconProps, "children" | "svg">> = (
 ) => (
   <Icon viewBox="0 0 24 24" {...props}>
     <path
-      fill="currentColor"
-      d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="m4.5 15.75 7.5-7.5 7.5 7.5"
     />
   </Icon>
 );
