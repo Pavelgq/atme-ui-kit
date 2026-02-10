@@ -10,14 +10,25 @@ const ThemeWrapper: React.FC<{ themeMode: ThemeMode; children: React.ReactNode }
   children,
 }) => {
   const theme = themeMode === 'dark' ? darkTheme : lightTheme;
-  const backgroundColor = themeMode === 'dark' ? darkTheme.palette.background.default : lightTheme.palette.background.default;
+  const backgroundColor =
+    themeMode === 'dark'
+      ? darkTheme.palette.background.default
+      : lightTheme.palette.background.default;
 
   useEffect(() => {
-    // Обновляем background документа при смене темы
+    // Обновляем background документа и атрибуты темы при смене режима
     const root = document.documentElement;
     root.style.backgroundColor = backgroundColor;
     document.body.style.backgroundColor = backgroundColor;
-  }, [backgroundColor]);
+
+    if (themeMode === 'dark') {
+      root.setAttribute('data-theme', 'dark');
+      root.setAttribute('data-color-scheme', 'dark');
+    } else {
+      root.removeAttribute('data-theme');
+      root.removeAttribute('data-color-scheme');
+    }
+  }, [backgroundColor, themeMode]);
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };

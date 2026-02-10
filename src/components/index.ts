@@ -1,5 +1,8 @@
 export type { BaseComponentProps } from './types';
 
+export { AtmeRoot } from './primitives/AtmeRoot';
+export type { AtmeRootProps } from './primitives/AtmeRoot';
+
 export { Typography } from './primitives/Typography';
 export type { TypographyProps, TypographyVariant, TypographySize } from './primitives/Typography';
 
@@ -35,3 +38,6 @@ export type { GridProps, GridColumns, GridGap } from './layout/Grid';
 
 export { ArticlePreview } from './content/ArticlePreview';
 export type { ArticlePreviewProps, ArticlePreviewView } from './content/ArticlePreview';
+
+export { Markdown, markdownProcessor, processMarkdown } from './content/Markdown';
+export type { MarkdownProps } from './content/Markdown';
