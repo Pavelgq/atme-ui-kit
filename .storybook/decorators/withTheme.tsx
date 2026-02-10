@@ -16,7 +16,6 @@ const ThemeWrapper: React.FC<{ themeMode: ThemeMode; children: React.ReactNode }
       : lightTheme.palette.background.default;
 
   useEffect(() => {
-    // Обновляем background документа и атрибуты темы при смене режима
     const root = document.documentElement;
     root.style.backgroundColor = backgroundColor;
     document.body.style.backgroundColor = backgroundColor;
