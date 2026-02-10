@@ -1,33 +1,44 @@
 ---
-description: Добавлять data-atme-ui на корень новых компонентов
+description: Использовать AtmeRoot для корня всех компонентов
 globs: src/components/**/*.tsx
 alwaysApply: false
 ---
 
-# data-atme-ui на корневом элементе компонента
+# data-atme-ui через обёртку AtmeRoot
 
-Каждый новый компонент библиотеки должен иметь атрибут `data-atme-ui` на корневом DOM-элементе. Это нужно для изолированного сброса стилей (`box-sizing: border-box` и др.) только внутри компонентов, без влияния на страницу потребителя.
+Корневой DOM-элемент каждого компонента библиотеки должен быть обёрнут в **AtmeRoot**. Компонент сам добавляет атрибут `data-atme-ui` и пробрасывает `className`, `testId` → `data-testid`. Это даёт изолированный сброс стилей (`box-sizing: border-box` и др.) только внутри компонентов.
 
-## Как добавить
+## Как использовать
 
-На корневой JSX-элемент компонента:
+Импорт и использование на корневом элементе:
 
 ```tsx
-// Для обычных элементов
+import { AtmeRoot } from '@components/primitives/AtmeRoot';
+
+// Обычный корень (div)
 return (
-  <button data-atme-ui className={cn(styles.button, className)} {...props}>
+  <AtmeRoot className={cn(styles.root, className)} testId={testId}>
     {children}
-  </button>
+  </AtmeRoot>
 );
 
-// Для polymorphic-компонентов — через пропсы
-const rootProps = { ...props, "data-atme-ui": true };
-return <TagRoot ref={ref} {...rootProps} />;
+// Корень — другой тег (button, a, span и т.д.)
+return (
+  <AtmeRoot as="button" className={cn(styles.button, className)} testId={testId} type="button" {...props}>
+    {children}
+  </AtmeRoot>
+);
+```
+
+Если нужно пробросить ref и все пропсы на корень (polymorphic), передавайте их в AtmeRoot:
+
+```tsx
+<AtmeRoot ref={ref} as={as} className={cn(styles.tag, className)} testId={testId} {...props} />
 ```
 
 ## Где применяется
 
-- Primitives: Button, Input, Badge, Tag, Icon, Typography и т.д.
+- Primitives: Button, Input, Badge, Tag, Icon, Typography, Markdown и т.д.
 - Layout: Grid, Stack, Island, WindowFrame
 - Content: ArticlePreview
 - Navigation: SideMenu, SideMenuItem
