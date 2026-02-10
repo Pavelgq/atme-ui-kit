@@ -1,0 +1,36 @@
+---
+description: Git commit message conventions
+globs: .
+alwaysApply: false
+---
+
+# Git commits
+
+Коммиты в этом репозитории оформляем в формате **conventional commits** (см. `.commitlintrc.json`):
+
+```txt
+<type>(<scope>): <short, lowercase subject>
+```
+
+- **type**: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`
+- **scope**: короткий модуль/область (например, `markdown`, `root`, `button`, `docs`), без пробелов
+- **subject**:
+  - на английском
+  - коротко и в нижнем регистре
+  - описывает *что* сделали, без точки в конце
+
+## Примеры
+
+```txt
+feat(root): add AtmeRoot wrapper
+feat(markdown): add Markdown component
+fix(markdown): sync code block theme
+docs(readme): add usage examples
+```
+
+## Общее
+
+- Один логический блок изменений — один коммит.
+- Если есть сомнения, коммиты лучше делать **меньше и понятнее**, чем «один огромный».
+- Текст тела коммита (второй и далее абзацы) опционален, если заголовка достаточно.
+
