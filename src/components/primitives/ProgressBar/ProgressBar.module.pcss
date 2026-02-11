@@ -1,0 +1,97 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+  width: 100%;
+}
+
+.root--sm {
+  --progress-segment-height: 24px;
+  --progress-segment-radius: var(--border-radius-sm);
+  --progress-track-padding: spacing(1.5);
+}
+
+.root--md {
+  --progress-segment-height: 30px;
+  --progress-segment-radius: var(--border-radius-base);
+  --progress-track-padding: spacing(2);
+}
+
+.root--lg {
+  --progress-segment-height: 38px;
+  --progress-segment-radius: var(--border-radius-md);
+  --progress-track-padding: spacing(2.5);
+}
+
+.track {
+  width: 100%;
+  border: var(--border-base) solid var(--palette-border-strong);
+  border-radius: var(--border-radius-2xl);
+  padding: var(--progress-track-padding);
+  background-color: var(--palette-background-default);
+}
+
+.segments {
+  display: flex;
+  gap: spacing(1);
+}
+
+.segment {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: var(--progress-segment-height);
+  border-radius: var(--progress-segment-radius);
+  background-color: var(--palette-border-subtle);
+  transition: background-color var(--transitions-duration-base)
+    var(--transitions-easing-easeInOut);
+}
+
+.segment--primary {
+  --segment-active-color: var(--palette-primary-main);
+}
+
+.segment--secondary {
+  --segment-active-color: var(--palette-secondary-main);
+}
+
+.segment--success {
+  --segment-active-color: var(--palette-success-main);
+}
+
+.segment--warning {
+  --segment-active-color: var(--palette-warning-main);
+}
+
+.segment--active:not(.segment--sequential) {
+  background-color: var(--segment-active-color);
+}
+
+.segment--active.segment--sequential::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--segment-active-color);
+  opacity: 0;
+  animation: segment-reveal var(--transitions-duration-fast) ease-out forwards;
+  animation-delay: var(--segment-delay, 0ms);
+}
+
+@keyframes segment-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.valueLabel {
+  align-self: flex-end;
+  font-family: var(--typography-font-family);
+  color: var(--palette-text-secondary);
+  font-size: var(--typography-font-size-sm);
+  font-weight: var(--typography-font-weight-semibold);
+  line-height: var(--typography-line-height-tight);
+  letter-spacing: 0.01em;
+}
