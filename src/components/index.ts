@@ -18,6 +18,19 @@ export type { ButtonProps, ButtonVariant, ButtonSize } from './primitives/Button
 export { Input } from './primitives/Input';
 export type { InputProps, InputSize } from './primitives/Input';
 
+export { SelectableControl } from './primitives/SelectableControl';
+export type {
+  SelectableControlProps,
+  SelectableControlType,
+  SelectableControlSize,
+} from './primitives/SelectableControl';
+
+export { ProgressBar } from './primitives/ProgressBar';
+export type { ProgressBarProps, ProgressBarSize, ProgressBarTone } from './primitives/ProgressBar';
+
+export { Card } from './primitives/Card';
+export type { CardProps, CardSize, CardVariant, CardElevation } from './primitives/Card';
+
 export { Badge } from './primitives/Badge';
 export type { BadgeProps, BadgeVariant, BadgeSize } from './primitives/Badge';
 
@@ -35,6 +48,9 @@ export type { StackProps, StackDirection, StackAlign, StackJustify, StackWrap, S
 
 export { Grid } from './layout/Grid';
 export type { GridProps, GridColumns, GridGap } from './layout/Grid';
+
+export { Island } from './layout/Island';
+export type { IslandProps, IslandSize, IslandVariant, IslandElevation } from './layout/Island';
 
 export { ArticlePreview } from './content/ArticlePreview';
 export type { ArticlePreviewProps, ArticlePreviewView } from './content/ArticlePreview';
