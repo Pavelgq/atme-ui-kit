@@ -1,0 +1,139 @@
+.root {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: spacing(3);
+  color: var(--palette-text-primary);
+  cursor: pointer;
+  font-family: var(--typography-font-family);
+}
+
+.root--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.control {
+  position: relative;
+  flex-shrink: 0;
+  border: var(--border-base) solid var(--palette-border-default);
+  background-color: var(--palette-background-paper);
+  transition: all var(--transitions-duration-base)
+    var(--transitions-easing-easeInOut);
+}
+
+.control::after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  transition: opacity var(--transitions-duration-base)
+      var(--transitions-easing-easeInOut),
+    transform var(--transitions-duration-base) var(--transitions-easing-easeInOut);
+}
+
+.control--sm {
+  width: 16px;
+  height: 16px;
+}
+
+.control--md {
+  width: 20px;
+  height: 20px;
+}
+
+.control--lg {
+  width: 24px;
+  height: 24px;
+}
+
+.control--checkbox {
+  border-radius: var(--border-radius-md);
+}
+
+.control--radio {
+  border-radius: var(--border-radius-full);
+}
+
+.input:focus-visible + .control {
+  outline: 2px solid var(--palette-primary-main);
+  outline-offset: 2px;
+}
+
+.root:hover .input:not(:disabled) + .control {
+  border-color: var(--palette-primary-main);
+}
+
+.input:checked + .control--checkbox {
+  border-color: var(--palette-primary-main);
+  background-color: var(--palette-background-paper);
+}
+
+.input:checked + .control--checkbox::after {
+  left: 24%;
+  top: 24%;
+  width: 52%;
+  height: 52%;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--palette-primary-main);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.input:indeterminate + .control--checkbox {
+  background-color: var(--palette-primary-main);
+  border-color: var(--palette-primary-main);
+}
+
+.input:indeterminate + .control--checkbox::after {
+  left: 20%;
+  top: 43%;
+  width: 60%;
+  height: 2px;
+  background-color: var(--palette-primary-contrast-text);
+  border-radius: var(--border-radius-full);
+  transform: none;
+  opacity: 1;
+}
+
+.input:checked + .control--radio {
+  border-color: var(--palette-primary-main);
+}
+
+.input:checked + .control--radio::after {
+  width: 48%;
+  height: 48%;
+  left: 26%;
+  top: 26%;
+  border-radius: var(--border-radius-full);
+  background-color: var(--palette-primary-main);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.content {
+  display: inline-flex;
+  flex-direction: column;
+  gap: spacing(1);
+}
+
+.label {
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-medium);
+  line-height: var(--typography-line-height-normal);
+}
+
+.description {
+  font-size: var(--typography-font-size-sm);
+  line-height: var(--typography-line-height-normal);
+  color: var(--palette-text-secondary);
+}
