@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.11...v0.1.12) (2026-02-11)
+
+### Features
+
+- **Card:** add surface component for content blocks ([af03615](https://github.com/Pavelgq/atme-ui-kit/commit/af036155fc4a6832a2c2f1cebfae2aaf9a765d1d))
+- **components:** export new primitives and Island layout ([b00184c](https://github.com/Pavelgq/atme-ui-kit/commit/b00184c67f2d4449e5164d07193514f944d7d6cd))
+- **markdown:** add Markdown component ([f045999](https://github.com/Pavelgq/atme-ui-kit/commit/f0459995dc4be405ca82d23b9d12ff44682028a4))
+- **ProgressBar:** add segmented progress component ([c07e814](https://github.com/Pavelgq/atme-ui-kit/commit/c07e8140f9ca3d4e31efbcfaca1eda4a22e1ac02))
+- **root:** add AtmeRoot wrapper ([18aad53](https://github.com/Pavelgq/atme-ui-kit/commit/18aad53b63f710a63d5c637ecd220830e77573b9))
+- **SelectableControl:** add unified checkbox and radio control ([510207d](https://github.com/Pavelgq/atme-ui-kit/commit/510207d86ec1ca261abeb00aeb5aa2ed21b400a5))
+
+### Bug Fixes
+
+- **ChevronUpIcon:** update icon to use stroke properties and add source comment ([0990f97](https://github.com/Pavelgq/atme-ui-kit/commit/0990f9789dab04a48727c54d5832f34b2158b50f))
+
+### Documentation
+
+- **git:** add commit message conventions ([7cb1386](https://github.com/Pavelgq/atme-ui-kit/commit/7cb13869cfe708dbe77949f5b59af75c9579acc1))
+
+### Chores
+
+- **tsconfig:** remove unused path mappings for components and utilities ([6347cd4](https://github.com/Pavelgq/atme-ui-kit/commit/6347cd481479ee26e673c77e07571f3ea27f944a))
+
 ### [0.1.11](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.10...v0.1.11) (2026-02-08)
 
 ### Features
