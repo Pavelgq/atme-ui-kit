@@ -46,6 +46,9 @@ export type { LikeButtonProps } from './primitives/LikeButton';
 export { Link } from './primitives/Link';
 export type { LinkProps } from './primitives/Link';
 
+export { Quote } from './primitives/Quote';
+export type { QuoteProps } from './primitives/Quote';
+
 export { Stack } from './layout/Stack';
 export type { StackProps, StackDirection, StackAlign, StackJustify, StackWrap, StackGap } from './layout/Stack';
 
