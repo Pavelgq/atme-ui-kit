@@ -1,0 +1,44 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(1);
+  color: var(--palette-text-primary);
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  font-family: var(--typography-font-family);
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 2px;
+    background-color: var(--palette-primary-main);
+    opacity: 1;
+    transition: opacity 0.4s var(--transitions-easing-easeInOut, ease-in-out);
+  }
+
+  &:hover::after {
+    opacity: 0;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--palette-primary-main);
+    outline-offset: 2px;
+  }
+}
+
+.linkText {
+  display: inline-flex;
+  align-items: center;
+}
+
+.linkIcon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+}
