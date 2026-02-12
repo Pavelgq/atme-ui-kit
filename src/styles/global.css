@@ -14,7 +14,8 @@ html {
 }
 
 body {
-
+  font-family: var(--typography-font-family, "Martian Grotesk", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
 }
 
 button {
