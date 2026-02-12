@@ -49,6 +49,9 @@ export type { LinkProps } from './primitives/Link';
 export { Quote } from './primitives/Quote';
 export type { QuoteProps } from './primitives/Quote';
 
+export { CodeBlock } from './primitives/CodeBlock';
+export type { CodeBlockProps } from './primitives/CodeBlock';
+
 export { Stack } from './layout/Stack';
 export type { StackProps, StackDirection, StackAlign, StackJustify, StackWrap, StackGap } from './layout/Stack';
 

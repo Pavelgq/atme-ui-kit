@@ -1,0 +1,54 @@
+.root {
+  margin: 0.75em 0;
+  border-radius: var(--border-radius-base);
+  overflow: hidden;
+  box-shadow: var(--shadows-sm);
+}
+
+.filename {
+  padding: 0.5em 1em;
+  background: var(--palette-background-accent);
+  color: var(--palette-text-secondary);
+  border-bottom: 1px solid var(--palette-border-subtle);
+}
+
+.code {
+  overflow-x: auto;
+  padding: 1em;
+  font-size: var(--typography-font-size-sm);
+  line-height: 1.6;
+}
+
+.code :global(pre) {
+  margin: 0;
+  padding: 0;
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
+}
+
+.code :global(code) {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+}
+
+/* Светлая тема — дефолт от Shiki (github-light) */
+.root :global(.shiki) {
+  background-color: var(--shiki-light-bg, transparent) !important;
+}
+
+/* Тёмная тема — по атрибуту контейнера */
+[data-color-scheme="dark"] .root :global(.shiki),
+[data-color-scheme="dark"] .root :global(.shiki span),
+[data-theme="dark"] .root :global(.shiki),
+[data-theme="dark"] .root :global(.shiki span),
+.dark .root :global(.shiki),
+.dark .root :global(.shiki span) {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+.error {
+  padding: 1em;
+  background: var(--palette-background-accent);
+  color: var(--palette-error-main);
+}
