@@ -112,6 +112,8 @@
     "vitest": "^4.0.16"
   },
   "dependencies": {
+    "framer-motion": "^11.15.0",
+    "lucide-react": "^0.468.0",
     "@shikijs/rehype": "^1.0.0",
     "classnames": "^2.5.1",
     "rehype-stringify": "^10.0.0",

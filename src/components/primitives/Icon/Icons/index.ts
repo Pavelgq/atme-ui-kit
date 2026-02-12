@@ -1,7 +1,10 @@
-export { DocumentIcon } from './DocumentIcon';
-export { CloseIcon } from './CloseIcon';
-export { ChevronUpIcon } from './ChevronUpIcon';
-export { HomeIcon } from './HomeIcon';
-export { FullscreenIcon } from './FullscreenIcon';
-export { HeartIcon } from './HeartIcon';
-export type { HeartIconProps } from './HeartIcon';
+export { DocumentIcon } from './design';
+export {
+  ChevronUpIcon,
+  CloseIcon,
+  FullscreenIcon,
+  HeartIcon,
+  HomeIcon,
+} from './lucide';
+export type { HeartIconProps } from './lucide';
+export { LinkIcon } from './custom';

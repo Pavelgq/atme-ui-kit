@@ -1,0 +1,43 @@
+.root {
+  width: 1em;
+  height: 1em;
+
+  [data-chain="left"],
+  [data-chain="right"] {
+    transition: transform var(--transitions-duration-base)
+      var(--transitions-easing-easeInOut);
+  }
+}
+
+/* Звенья цепи расходятся при наведении родителя (Link) */
+[data-link]:hover .root [data-chain="left"] {
+  animation: linkIconAnimationLeft 0.3s var(--transitions-easing-easeOut, ease-out) 2;
+}
+
+[data-link]:hover .root [data-chain="right"] {
+  animation: linkIconAnimationRight 0.3s var(--transitions-easing-easeIn, ease-in) 2;
+}
+
+@keyframes linkIconAnimationLeft {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes linkIconAnimationRight {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-1px, 1px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
