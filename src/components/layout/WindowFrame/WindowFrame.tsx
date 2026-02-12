@@ -22,8 +22,16 @@ export const WindowFrame: FC<WindowFrameProps> = ({
   const defaultActions = useMemo(
     () => (
       <Stack gap={1.5}>
-        <ActionButton icon={<CloseIcon />} hint="Закрыть" />
-        <ActionButton icon={<FullscreenIcon />} hint="Полноэкранный режим" />
+        <ActionButton
+          icon={<CloseIcon size={10} strokeWidth={2.5} />}
+          hint="Закрыть"
+          variant="close"
+        />
+        <ActionButton
+          icon={<FullscreenIcon size={8} strokeWidth={2.5} />}
+          hint="Полноэкранный режим"
+          variant="expand"
+        />
       </Stack>
     ),
     []

@@ -15,7 +15,7 @@ type Story = StoryObj<typeof WindowFrame>;
 
 export const Default: Story = {
   args: {
-    title: "Заголовок",
+    title: "Загрузка...",
     children: <div style={{ height: "100px" }}></div>,
   },
 };
