@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.13...v0.1.14) (2026-02-12)
+
+### Features
+
+- **build:** enable tree-shaking with sideEffects and preserveModules ([ec0435d](https://github.com/Pavelgq/atme-ui-kit/commit/ec0435d7ba1ada170d79a1e96a1ea91dde6f39ac))
+
 ### [0.1.13](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.12...v0.1.13) (2026-02-12)
 
 ### Features

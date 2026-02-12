@@ -1,9 +1,11 @@
 {
   "name": "@atme-lab/ui-kit",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Component library for personal projects",
   "type": "module",
-  "sideEffects": ["**/*.css"],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
