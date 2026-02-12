@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.12...v0.1.13) (2026-02-12)
+
+### Features
+
+- **icons:** reorganize icons into design, lucide, custom folders ([97eb574](https://github.com/Pavelgq/atme-ui-kit/commit/97eb5747f1bc908f13dae6d3614bdc8f343e4cd6))
+- **link:** add link component with animated chain icon ([2e301dd](https://github.com/Pavelgq/atme-ui-kit/commit/2e301dd773c497abd4d554f3c26b6d4891ac7785))
+- **link:** add link component with animated chain icon ([0a3e0c4](https://github.com/Pavelgq/atme-ui-kit/commit/0a3e0c4a3636936fcea7b3cac41969410e108e54))
+- **quote:** add quote component for blockquote ([62878f2](https://github.com/Pavelgq/atme-ui-kit/commit/62878f2b2062142735462b170b01cc289108aa74))
+- **storybook:** separate icon stories, add default font ([39e23f7](https://github.com/Pavelgq/atme-ui-kit/commit/39e23f73ac8f320955c3e3f4a3c33283435b6442))
+- **tag:** add icon support, darker colors, link hover ([22b415d](https://github.com/Pavelgq/atme-ui-kit/commit/22b415dd5a76e3eaad3f5b29b08120a904035b9d))
+- **typography:** add article story and mdx mapping ([6daccc7](https://github.com/Pavelgq/atme-ui-kit/commit/6daccc784be855d5a344621e105249e2ba079ceb))
+- **window-frame:** enhance action buttons with variants and styling ([351f869](https://github.com/Pavelgq/atme-ui-kit/commit/351f869276c131bc162b7e56cd0a3ec7b8c8cb50))
+
 ### [0.1.12](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.11...v0.1.12) (2026-02-11)
 
 ### Features
