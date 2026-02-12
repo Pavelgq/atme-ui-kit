@@ -3,16 +3,28 @@
   align-items: center;
   gap: spacing(1);
   border-radius: var(--border-radius-base);
-  border: 2px solid var(--palette-border-strong);
+  border: 2px solid transparent;
   font-family: var(--typography-font-family);
   font-weight: var(--typography-font-weight-medium);
   line-height: 1;
   white-space: nowrap;
+  transition: transform var(--transitions-duration-base) var(--transitions-easing-easeInOut);
+}
+
+.tag a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .tag--link {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
+}
+
+.tag--link:hover,
+.tag:has(a:hover) {
+  transform: scale(1.05);
 }
 
 .tag--link:focus-visible {
@@ -29,6 +41,12 @@
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  font-size: 1em;
+}
+
+.tagIcon svg {
+  width: 1em;
+  height: 1em;
 }
 
 .tagClose {
@@ -72,34 +90,45 @@
   font-size: var(--typography-font-size-base);
 }
 
-/* Variants */
 .tag--primary {
-  background-color: var(--palette-primary-main);
-  color: var(--palette-secondary-contrastText);
+  --tag-bg: var(--palette-primary-main);
+  background-color: var(--tag-bg);
+  color: color-mix(in srgb, var(--tag-bg) 55%, black);
+  border-color: color-mix(in srgb, var(--tag-bg) 55%, black);
 }
 
 .tag--secondary {
-  background-color: var(--palette-secondary-main);
-  color: var(--palette-secondary-contrastText);
+  --tag-bg: var(--palette-secondary-main);
+  background-color: var(--tag-bg);
+  color: color-mix(in srgb, var(--tag-bg) 55%, black);
+  border-color: color-mix(in srgb, var(--tag-bg) 55%, black);
 }
 
 .tag--success {
-  background-color: var(--palette-success-main);
-  color: #ffffff;
+  --tag-bg: var(--palette-success-main);
+  background-color: var(--tag-bg);
+  color: color-mix(in srgb, var(--tag-bg) 45%, black);
+  border-color: color-mix(in srgb, var(--tag-bg) 45%, black);
 }
 
 .tag--warning {
-  background-color: var(--palette-warning-main);
-  color: #ffffff;
+  --tag-bg: var(--palette-warning-main);
+  background-color: var(--tag-bg);
+  color: color-mix(in srgb, var(--tag-bg) 45%, black);
+  border-color: color-mix(in srgb, var(--tag-bg) 45%, black);
 }
 
 .tag--error {
-  background-color: var(--palette-error-main);
-  color: #ffffff;
+  --tag-bg: var(--palette-error-main);
+  background-color: var(--tag-bg);
+  color: color-mix(in srgb, var(--tag-bg) 45%, black);
+  border-color: color-mix(in srgb, var(--tag-bg) 45%, black);
 }
 
 .tag--neutral {
-  background-color: var(--palette-border-default);
-  color: var(--palette-text-primary);
+  --tag-bg: var(--palette-border-default);
+  background-color: var(--tag-bg);
+  color: color-mix(in srgb, var(--tag-bg) 45%, black);
+  border-color: color-mix(in srgb, var(--tag-bg) 45%, black);
 }
 

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Tag } from './Tag';
+import { HeartIcon, HomeIcon } from '../Icon/Icons';
 
 const meta: Meta<typeof Tag> = {
   title: 'Primitives/Tag',
@@ -59,11 +60,11 @@ export const Sizes: Story = {
 export const WithIcon: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-      <Tag icon="★" iconPosition="left">
-        With icon left
+      <Tag icon={<HeartIcon />} iconPosition="left">
+        С иконкой слева
       </Tag>
-      <Tag icon="★" iconPosition="right">
-        With icon right
+      <Tag icon={<HomeIcon />} iconPosition="right">
+        С иконкой справа
       </Tag>
     </div>
   ),
@@ -81,6 +82,26 @@ export const Closeable: Story = {
       </Tag>
     </div>
   ),
+};
+
+export const AsLink: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+      <Tag href="#" variant="primary">
+        Тег-ссылка
+      </Tag>
+      <Tag href="/" variant="success">
+        Hover для scale
+      </Tag>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'При href тег рендерится как ссылка. Без подчёркивания, с лёгким увеличением при наведении.',
+      },
+    },
+  },
 };
 
 export const Playground: Story = {
