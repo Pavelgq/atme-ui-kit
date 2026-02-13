@@ -1,9 +1,13 @@
 import type { Theme } from './types';
 import { deepMerge } from '../utils';
 
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
+
 export function mergeTheme(
   baseTheme: Theme,
-  overrides: Partial<Theme>
+  overrides: DeepPartial<Theme>
 ): Theme {
   return deepMerge(baseTheme, overrides);
 }

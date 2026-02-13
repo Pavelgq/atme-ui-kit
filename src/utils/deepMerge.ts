@@ -1,4 +1,6 @@
-export function deepMerge<T>(target: T, source: Partial<T>): T {
+type DeepPartial<T> = { [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P] };
+
+export function deepMerge<T>(target: T, source: DeepPartial<T>): T {
   if (source === null || source === undefined) {
     return target;
   }

@@ -15,5 +15,5 @@ export type {
   ZIndex,
 } from './tokens/types';
 export { baseTheme, lightTheme, darkTheme } from './tokens/themes';
-export { mergeTheme } from './tokens/utils';
+export { mergeTheme, type DeepPartial } from './tokens/utils';
 export { themeToCssVars } from './tokens/generate-css-vars';
