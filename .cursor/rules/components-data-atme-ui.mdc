@@ -38,7 +38,7 @@ return (
 
 ## Где применяется
 
-- Primitives: Button, Input, Badge, Tag, Icon, Typography, Markdown и т.д.
+- Primitives: Button, Input, Badge, Tag, Icon, Typography и т.д.
 - Layout: Grid, Stack, Island, WindowFrame
 - Content: ArticlePreview
 - Navigation: SideMenu, SideMenuItem
