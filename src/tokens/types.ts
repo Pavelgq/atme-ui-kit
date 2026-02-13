@@ -102,6 +102,7 @@ export interface Transitions {
     fast: string;
     base: string;
     slow: string;
+    verySlow: string;
   };
   easing: {
     easeInOut: string;

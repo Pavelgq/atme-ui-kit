@@ -4,7 +4,20 @@ export { AtmeRoot } from './primitives/AtmeRoot';
 export type { AtmeRootProps } from './primitives/AtmeRoot';
 
 export { Typography } from './primitives/Typography';
-export type { TypographyProps, TypographyVariant, TypographySize } from './primitives/Typography';
+export type {
+  TypographyProps,
+  TypographyVariant,
+  TypographySize,
+  TypographyColor,
+} from './primitives/Typography';
+
+export { Heading } from './primitives/Heading';
+export type {
+  HeadingProps,
+  HeadingVariant,
+  HeadingSize,
+  HeadingColor,
+} from './primitives/Heading';
 
 export { Tag } from './primitives/Tag';
 export type { TagProps, TagVariant, TagSize } from './primitives/Tag';

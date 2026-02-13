@@ -7,4 +7,4 @@ export {
   HomeIcon,
 } from './lucide';
 export type { HeartIconProps } from './lucide';
-export { LinkIcon } from './custom';
+export { HashIcon, LinkIcon } from './custom';

@@ -57,6 +57,7 @@ export const baseTheme: Omit<Theme, 'palette'> = {
       fast: '150ms',
       base: '200ms',
       slow: '300ms',
+      verySlow: '500ms',
     },
     easing: {
       easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
