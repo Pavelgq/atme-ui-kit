@@ -31,14 +31,9 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
-        banner: (chunk) => {
-          const isIndex = chunk.fileName?.startsWith('index.');
-          const isEsm = chunk.fileName?.includes('.esm.');
-          const base = "'use client';";
-          if (isIndex && isEsm) return `${base}\nimport "./ui-kit.css";`;
-          if (isIndex && !isEsm) return `${base}\nrequire("./ui-kit.css");`;
-          return base;
-        },
+        banner: () => "'use client';",
+        assetFileNames: (assetInfo) =>
+          assetInfo.name?.endsWith('.css') ? 'ui-kit.css' : 'assets/[name]-[hash][extname]',
       },
     },
     cssCodeSplit: false,

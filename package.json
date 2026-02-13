@@ -3,9 +3,7 @@
   "version": "0.1.14",
   "description": "Component library for personal projects",
   "type": "module",
-  "sideEffects": [
-    "**/*.css"
-  ],
+  "sideEffects": false,
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
@@ -28,7 +26,7 @@
     "prepare": "husky",
     "prepublishOnly": "npm run build",
     "dev": "vite --config .configs/vite.config.ts",
-    "build": "tsc && vite build --config .configs/vite.config.ts && cp src/styles/global.css dist/styles.css",
+    "build": "tsc && vite build --config .configs/vite.config.ts && cat src/styles/global.css dist/ui-kit.css > dist/styles.css",
     "type-check": "tsc --noEmit",
     "test": "vitest --config .configs/vitest.config.ts",
     "test:ui": "vitest --config .configs/vitest.config.ts --ui",

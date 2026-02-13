@@ -23,6 +23,7 @@ import {
   Button,
   Typography,
 } from "@atme-lab/ui-kit";
+import "@atme-lab/ui-kit/styles.css";
 
 function App() {
   return (
@@ -34,7 +35,9 @@ function App() {
 }
 ```
 
-Styles are loaded automatically when you import from `@atme-lab/ui-kit`. To load only the styles (e.g. to control load order), use `import '@atme-lab/ui-kit/styles.css'`.
+```tsx
+import "@atme-lab/ui-kit/styles.css";
+```
 
 ## Component Documentation
 
