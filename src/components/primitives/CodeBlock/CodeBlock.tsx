@@ -3,7 +3,6 @@ import cn from "classnames";
 import { AtmeRoot } from "../AtmeRoot";
 import { Typography } from "../Typography";
 import { BaseComponentProps } from "@components/types";
-import { codeToHtml } from "shiki";
 import styles from "./CodeBlock.module.pcss";
 
 export interface CodeBlockProps extends BaseComponentProps {
@@ -29,13 +28,16 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
     let cancelled = false;
     setError(null);
 
-    codeToHtml(code, {
-      lang,
-      themes: {
-        light: "github-light",
-        dark: "github-dark",
-      },
-    })
+    import("shiki")
+      .then(({ codeToHtml }) =>
+        codeToHtml(code, {
+          lang,
+          themes: {
+            light: "github-light",
+            dark: "github-dark",
+          },
+        })
+      )
       .then((result) => {
         if (!cancelled) setHtml(result);
       })
