@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.16](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.15...v0.1.16) (2026-02-14)
+
+### Features
+
+- **article-preview:** improve card layout, add hover effects and icon animations ([4d76801](https://github.com/Pavelgq/atme-ui-kit/commit/4d7680196ec141bc32e17df221370cc368274e65))
+- **content:** add DecorativeFrame component ([7813e53](https://github.com/Pavelgq/atme-ui-kit/commit/7813e53e83e2a788a7a5099305cf37a633f88f5c))
+
+### Build System
+
+- add jsdom dep and [@tokens](https://github.com/tokens) vitest alias ([363d5ab](https://github.com/Pavelgq/atme-ui-kit/commit/363d5ab358084eb1fabe307bbaf88cbb4a7ab67d))
+
+### Styles
+
+- **dark-theme:** improve palette contrast and vibrancy ([1d117af](https://github.com/Pavelgq/atme-ui-kit/commit/1d117af2ab23f30594b1d8ba6e8991a760d259aa))
+- **tag:** darken text and border for primary and secondary variants ([ef140f8](https://github.com/Pavelgq/atme-ui-kit/commit/ef140f829e2cbe3328b132da6070f08c8e8aa517))
+
+### Tests
+
+- fix component tests for root wrapper structure ([b597c49](https://github.com/Pavelgq/atme-ui-kit/commit/b597c494b7a9bd48e013f6bc50e3a407d5840096))
+- **patternGenerator:** simplify test structure by removing unnecessary parameters ([6cef187](https://github.com/Pavelgq/atme-ui-kit/commit/6cef187ddcb894924d1e0b644e5d3032bbf9e56f))
+
 ### [0.1.15](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.14...v0.1.15) (2026-02-14)
 
 ### Features
