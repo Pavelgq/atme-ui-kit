@@ -65,6 +65,11 @@
   object-fit: cover;
   display: block;
   vertical-align: middle;
+  transition: filter var(--transitions-duration-base, 200ms) var(--transitions-easing-easeOut);
+}
+
+.content--card:hover .previewImage {
+  filter: brightness(0.82) contrast(1.08);
 }
 
 .previewPlaceholder {
@@ -216,11 +221,77 @@
   opacity: 0.8;
 }
 
+.content--card .readingTime .clockIcon {
+  transform-box: fill-box;
+}
+
+.content--card .readingTime :global(.clock-hour-hand) {
+  transform-origin: 12px 12px;
+}
+
+.content--card .readingTime :global(.clock-minute-hand) {
+  transform-origin: 12px 12px;
+}
+
+.content--card .readingTime:hover :global(.clock-hour-hand) {
+  animation: clock-hour-spin 1.2s ease-in-out forwards;
+}
+
+.content--card .readingTime:hover :global(.clock-minute-hand) {
+  animation: clock-minute-spin 0.5s ease-in-out forwards;
+}
+
+@keyframes clock-hour-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes clock-minute-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.content--card .views .eyeIcon {
+  overflow: visible;
+}
+
+.content--card .views :global(.eye-pupil) {
+  transform-origin: 12px 12px;
+  transition: transform 0.15s ease-out;
+}
+
+.content--card .views:hover :global(.eye-pupil) {
+  animation: eye-pupil-dilate 0.5s ease-in-out;
+}
+
+@keyframes eye-pupil-dilate {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.4);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+}
+
 .content--card .previewWrap {
-  width: 200px;
-  min-width: 200px;
-  aspect-ratio: 1;
+  width: 240px;
+  min-width: 240px;
+  aspect-ratio: 16 / 9;
   flex-shrink: 0;
+  margin: spacing(2);
+  border-radius: var(--border-radius-base);
   background-color: var(--palette-background-default);
   overflow: hidden;
 }

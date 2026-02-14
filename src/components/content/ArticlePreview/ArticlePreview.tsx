@@ -88,8 +88,9 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
         viewsCount={viewsCount}
         readingTimeMinutes={readingTimeMinutes}
         author={author}
-        imageUrl={imageUrl}
-        imageAlt={imageAlt}
+        {...(imageUrl != null
+          ? { imageUrl, imageAlt: imageAlt || title }
+          : {})}
         formattedDate={formattedDate}
         view={view}
         tags={tags}

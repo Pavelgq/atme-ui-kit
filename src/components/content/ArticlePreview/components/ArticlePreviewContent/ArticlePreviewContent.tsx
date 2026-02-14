@@ -1,8 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 import { Typography } from '../../../../primitives/Typography';
-import { ClockIcon, EyeIcon, FileTextIcon } from '../../../../primitives/Icon/Icons';
+import { EyeIcon, FileTextIcon } from '../../../../primitives/Icon/Icons';
+import { AnimatedEyeIcon } from './AnimatedEyeIcon';
 import type { ArticlePreviewAuthor } from '../../ArticlePreview';
+import { AnimatedClockIcon } from './AnimatedClockIcon';
 import styles from './ArticlePreviewContent.module.pcss';
 
 export type ArticlePreviewContentView = 'card' | 'row';
@@ -13,8 +15,8 @@ export interface ArticlePreviewContentProps {
   viewsCount?: number;
   readingTimeMinutes?: number;
   author?: ArticlePreviewAuthor;
-  imageUrl?: string | undefined;
-  imageAlt: string;
+  imageUrl?: string;
+  imageAlt?: string;
   formattedDate: string;
   view: ArticlePreviewContentView;
   tags?: React.ReactNode;
@@ -124,13 +126,13 @@ export function ArticlePreviewContent({
             <div className={styles.meta}>
               {readingTimeMinutes != null && (
                 <span className={styles.readingTime} title="Время чтения">
-                  <ClockIcon size={14} strokeWidth={2} />
+                  <AnimatedClockIcon size={14} className={styles.clockIcon} />
                   <span>{formatReadingTime(readingTimeMinutes)}</span>
                 </span>
               )}
               {viewsCount != null && (
                 <span className={styles.views} title="Просмотры">
-                  <EyeIcon size={14} strokeWidth={2} />
+                  <AnimatedEyeIcon size={14} className={styles.eyeIcon} />
                   <span>{formatViews(viewsCount)}</span>
                 </span>
               )}

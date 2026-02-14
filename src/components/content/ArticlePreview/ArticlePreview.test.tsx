@@ -18,19 +18,19 @@ describe('ArticlePreview', () => {
   it('рендерит с вариантом card по умолчанию', () => {
     const { container } = render(<ArticlePreview {...defaultProps} />);
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveClass('root--card');
+    expect(root.getAttribute('class')).toMatch(/root--card/);
   });
 
   it('рендерит с вариантом row', () => {
     const { container } = render(<ArticlePreview {...defaultProps} view="row" />);
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveClass('root--row');
+    expect(root.getAttribute('class')).toMatch(/root--row/);
   });
 
   it('рендерит с вариантом card', () => {
     const { container } = render(<ArticlePreview {...defaultProps} view="card" />);
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveClass('root--card');
+    expect(root.getAttribute('class')).toMatch(/root--card/);
   });
 
   it('показывает описание при переданном description', () => {
