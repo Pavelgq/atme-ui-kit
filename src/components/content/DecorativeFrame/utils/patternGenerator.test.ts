@@ -282,9 +282,9 @@ describe('TRIANGLE_TEMPLATES', () => {
   });
 
   it('каждый шаблон — массив из 3 точек [x, y]', () => {
-    TRIANGLE_TEMPLATES.forEach((template, i) => {
+    TRIANGLE_TEMPLATES.forEach((template) => {
       expect(template).toHaveLength(3);
-      template.forEach((pt, j) => {
+      template.forEach((pt) => {
         expect(pt).toHaveLength(2);
         expect(typeof pt[0]).toBe('number');
         expect(typeof pt[1]).toBe('number');
