@@ -11,7 +11,7 @@ const meta: Meta<typeof ArticlePreview> = {
     docs: {
       description: {
         component:
-          'Карточка превью статьи блога: изображение (или мок без изображения для SSR), заголовок с обрезкой и подсказкой при наведении, дата публикации. Варианты: плитка (tile) или в строку (row). При наведении карточка выделяется, cursor: pointer при наличии onClick.',
+          'Карточка превью статьи: card — контент слева, картинка справа (опц.); row — как файл в ОС (иконка, заголовок, теги, дата, просмотры). Без transform при hover.',
       },
     },
   },
@@ -19,7 +19,7 @@ const meta: Meta<typeof ArticlePreview> = {
   argTypes: {
     view: {
       control: 'select',
-      options: ['tile', 'row', 'file'],
+      options: ['card', 'row'],
       description: 'Вариант отображения',
     },
     title: {
@@ -32,14 +32,14 @@ const meta: Meta<typeof ArticlePreview> = {
     },
     imageUrl: {
       control: 'text',
-      description: 'URL превью (не задан — мок-плейсхолдер)',
+      description: 'URL превью (card: опц.; row: не используется)',
     },
     href: {
       control: 'text',
       description: 'URL карточки (вся карточка — ссылка)',
     },
     tags: {
-      description: 'Слот для тегов (плитка: левый верхний угол, строка: над заголовком)',
+      description: 'Слот для тегов (card: в футере; row: над заголовком)',
     },
     description: {
       control: 'text',
@@ -48,6 +48,13 @@ const meta: Meta<typeof ArticlePreview> = {
     viewsCount: {
       control: 'number',
       description: 'Количество просмотров',
+    },
+    readingTimeMinutes: {
+      control: 'number',
+      description: 'Время чтения в минутах (card view)',
+    },
+    author: {
+      description: 'Автор (avatarUrl, name). Для card view — опционально.',
     },
   },
 };
@@ -84,7 +91,7 @@ export const MockNoImage: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Без imageUrl показывается плейсхолдер (удобно для SSR или когда изображения нет).',
+        story: 'Без imageUrl контент занимает всю ширину карточки.',
       },
     },
   },
@@ -105,43 +112,34 @@ export const LongTitle: Story = {
   },
 };
 
-export const ViewTile: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-      <ArticlePreview
-        title="Плитка с картинкой"
-        publishedAt={defaultDate}
-        imageUrl="https://picsum.photos/400/250"
-        view="tile"
-        onClick={() => alert('Клик по карточке')}
-      />
-      <ArticlePreview
-        title="Плитка без картинки"
-        publishedAt={defaultDate}
-        view="tile"
-        onClick={() => alert('Клик')}
-      />
-    </div>
-  ),
-};
-
 export const ViewRow: Story = {
   render: () => (
-    <Stack direction="column" gap={3} style={{ maxWidth: 560 }}>
+    <Stack direction="column" gap={2} style={{ maxWidth: 480 }}>
       <ArticlePreview
-        title="Превью в строку с изображением"
+        title="Статья как файл в папке"
         publishedAt={defaultDate}
-        imageUrl="https://picsum.photos/200/200"
         view="row"
-        onClick={() => {}}
+        viewsCount={567}
+        tags={exampleTags}
+        href="/blog/post-1"
       />
       <ArticlePreview
-        title="Превью в строку без изображения (мок)"
+        title="Ещё один документ"
         publishedAt="2024-12-01"
         view="row"
+        viewsCount={12000}
       />
+      <ArticlePreview title="Минимальный вариант" publishedAt="2025-01-01" view="row" />
     </Stack>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Вариант «row» — как файл в ОС. Иконка документа, заголовок, теги, дата и просмотры.',
+      },
+    },
+  },
 };
 
 export const Interactive: Story = {
@@ -189,33 +187,14 @@ const exampleTags = (
   />
 );
 
-export const WithTagsTile: Story = {
-  args: {
-    title: shortTitle,
-    publishedAt: defaultDate,
-    imageUrl: 'https://picsum.photos/400/250',
-    view: 'tile',
-    href: '/blog/post-1',
-    tags: exampleTags,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Слот для TagGroup: теги в левом верхнем углу. Ссылки/обработчики передаются в данных тега (TagGroupItem.href / TagGroupItem.onClick).',
-      },
-    },
-  },
-};
-
 export const WithTagsRow: Story = {
   args: {
     title: shortTitle,
     publishedAt: defaultDate,
-    imageUrl: 'https://picsum.photos/200/200',
     view: 'row',
     href: '/blog/post-1',
     tags: exampleTags,
+    viewsCount: 100,
   },
   parameters: {
     docs: {
@@ -244,29 +223,38 @@ export const WithDescriptionAndViews: Story = {
   },
 };
 
-export const ViewFile: Story = {
+export const ViewCard: Story = {
   render: () => (
-    <Stack direction="column" gap={2} style={{ maxWidth: 480 }}>
+    <Stack direction="column" gap={3} style={{ maxWidth: 680 }}>
       <ArticlePreview
-        title="Статья как файл в папке"
-        publishedAt={defaultDate}
-        description="Компактный вид без превью в стиле файлового менеджера"
-        viewsCount={567}
-        view="file"
+        title="Designing a responsive landing page design in Figma"
+        publishedAt="2025-02-12"
+        description="Sakhi is a conceptual e-library platform for people who love to read, discuss and share their favourite books with others."
+        view="card"
+        imageUrl="https://picsum.photos/300/300"
+        author={{ name: 'Piyush Kumar', avatarUrl: 'https://i.pravatar.cc/64?img=12' }}
+        readingTimeMinutes={8}
+        viewsCount={1234}
+        tags={exampleTags}
         href="/blog/post-1"
       />
       <ArticlePreview
-        title="Ещё один документ"
-        publishedAt="2024-11-20"
-        description="Краткое описание"
-        viewsCount={12000}
-        view="file"
-        href="/blog/post-2"
+        title="Карточка без автора и без картинки"
+        publishedAt="2025-02-10"
+        description="Когда нет изображения и автора, контент занимает всю ширину карточки."
+        view="card"
+        readingTimeMinutes={5}
+        viewsCount={567}
+        tags={exampleTags}
       />
       <ArticlePreview
-        title="Минимальный вариант"
-        publishedAt="2025-01-01"
-        view="file"
+        title="Карточка с автором и без картинки"
+        publishedAt="2025-02-08"
+        description="Автор с плейсхолдером аватара (первая буква имени)."
+        view="card"
+        author={{ name: 'Иван Петров' }}
+        readingTimeMinutes={12}
+        viewsCount={89}
       />
     </Stack>
   ),
@@ -274,7 +262,7 @@ export const ViewFile: Story = {
     docs: {
       description: {
         story:
-          'Вариант «file» — без превью, в стиле файла в папке ОС. Иконка документа, заголовок, описание, дата и просмотры.',
+          'Вариант «card» — контент слева, картинка справа. Без imageUrl текст на всю ширину. author опционален.',
       },
     },
   },
@@ -287,9 +275,11 @@ export const Playground: Story = {
     description: 'Краткое описание статьи',
     viewsCount: 999,
     imageUrl: 'https://picsum.photos/400/250',
-    view: 'tile',
+    view: 'card',
     imageAlt: 'Превью',
     href: '/blog/post-1',
     onClick: () => {},
+    readingTimeMinutes: 7,
+    author: { name: 'Автор Статьи', avatarUrl: 'https://i.pravatar.cc/64?img=33' },
   },
 };
