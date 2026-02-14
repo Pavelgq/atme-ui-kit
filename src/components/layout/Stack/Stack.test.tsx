@@ -28,13 +28,13 @@ describe("Stack", () => {
 
   it("applies testId attribute", () => {
     render(
-      <Stack testId="test-stack" data-testid="stack">
+      <Stack testId="test-stack">
         <div>Item</div>
       </Stack>
     );
 
-    const stack = screen.getByTestId("stack");
-    expect(stack).toHaveAttribute("data-testid", "test-stack");
+    const stack = screen.getByTestId("test-stack");
+    expect(stack).toBeInTheDocument();
   });
 
   it("renders with custom tag", () => {
@@ -56,7 +56,7 @@ describe("Stack", () => {
     );
 
     let stack = screen.getByTestId("stack");
-    expect(stack).toHaveClass("stack--direction-column");
+    expect(stack.getAttribute("class")).toMatch(/stack--direction-column/);
 
     rerender(
       <Stack direction="row" data-testid="stack">
@@ -65,7 +65,7 @@ describe("Stack", () => {
     );
 
     stack = screen.getByTestId("stack");
-    expect(stack).toHaveClass("stack--direction-row");
+    expect(stack.getAttribute("class")).toMatch(/stack--direction-row/);
   });
 
   it("applies gap style with spacing multiplier", () => {

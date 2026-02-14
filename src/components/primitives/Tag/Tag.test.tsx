@@ -12,14 +12,16 @@ describe('Tag', () => {
 
   it('renders with variant', () => {
     render(<Tag variant="success">Success tag</Tag>);
-    const tag = screen.getByText('Success tag').closest('.tag');
-    expect(tag).toHaveClass('tag--success');
+    const tag = screen.getByText('Success tag').closest('[data-atme-ui]');
+    expect(tag).toBeInTheDocument();
+    expect(tag!.className).toMatch(/tag--success/);
   });
 
   it('renders with size', () => {
     render(<Tag size="lg">Large tag</Tag>);
-    const tag = screen.getByText('Large tag').closest('.tag');
-    expect(tag).toHaveClass('tag--lg');
+    const tag = screen.getByText('Large tag').closest('[data-atme-ui]');
+    expect(tag).toBeInTheDocument();
+    expect(tag!.className).toMatch(/tag--lg/);
   });
 
   it('renders with icon on left', () => {
@@ -69,7 +71,9 @@ describe('Tag', () => {
 
   it('applies custom className', () => {
     render(<Tag className="custom-class">Test</Tag>);
-    expect(screen.getByText('Test').closest('.tag')).toHaveClass('custom-class');
+    const tag = screen.getByText('Test').closest('[data-atme-ui]');
+    expect(tag).toBeInTheDocument();
+    expect(tag).toHaveClass('custom-class');
   });
 });
 

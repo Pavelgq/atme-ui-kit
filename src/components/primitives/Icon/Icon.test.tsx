@@ -56,14 +56,15 @@ describe('Icon', () => {
   });
 
   it('renders decorative icon (hidden from screen readers)', () => {
-    render(
+    const { container } = render(
       <Icon decorative>
         <circle cx="12" cy="12" r="10" />
       </Icon>
     );
-    const svg = screen.getByRole('img', { hidden: true });
-    expect(svg).toHaveAttribute('aria-hidden', 'true');
-    expect(svg).not.toHaveAttribute('aria-label');
+    const svg = container.querySelector('svg');
+    expect(svg).not.toBeNull();
+    expect(svg!).toHaveAttribute('aria-hidden', 'true');
+    expect(svg!).not.toHaveAttribute('aria-label');
   });
 
   it('renders non-decorative icon with name', () => {
@@ -82,7 +83,7 @@ describe('Icon', () => {
     render(<Icon svg={customSvg} name="Custom icon" />);
     const svg = screen.getByRole('img');
     expect(svg).toBeInTheDocument();
-    expect(svg).toHaveClass('icon--custom');
+    expect(svg.getAttribute('class')).toMatch(/icon--custom/);
   });
 
   it('forwards ref', () => {

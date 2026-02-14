@@ -12,20 +12,20 @@ describe('Button', () => {
 
   it('renders with variant', () => {
     render(<Button variant="secondary">Secondary</Button>);
-    const button = screen.getByText('Secondary');
-    expect(button).toHaveClass('button--secondary');
+    const button = screen.getByRole('button');
+    expect(button.getAttribute('class')).toMatch(/button--secondary/);
   });
 
   it('renders with size', () => {
     render(<Button size="lg">Large</Button>);
-    const button = screen.getByText('Large');
-    expect(button).toHaveClass('button--lg');
+    const button = screen.getByRole('button');
+    expect(button.getAttribute('class')).toMatch(/button--lg/);
   });
 
   it('renders with fullWidth', () => {
     render(<Button fullWidth>Full Width</Button>);
-    const button = screen.getByText('Full Width');
-    expect(button).toHaveClass('button--fullWidth');
+    const button = screen.getByRole('button');
+    expect(button.getAttribute('class')).toMatch(/button--fullWidth/);
   });
 
   it('renders with startIcon', () => {
@@ -44,7 +44,7 @@ describe('Button', () => {
     render(<Button loading>Loading</Button>);
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-busy', 'true');
-    expect(button).toHaveClass('button--loading');
+    expect(button.getAttribute('class')).toMatch(/button--loading/);
     expect(button).toBeDisabled();
   });
 

@@ -28,13 +28,13 @@ describe("Grid", () => {
 
   it("applies testId attribute", () => {
     render(
-      <Grid testId="test-grid" data-testid="grid">
+      <Grid testId="test-grid">
         <div>Item</div>
       </Grid>
     );
 
-    const grid = screen.getByTestId("grid");
-    expect(grid).toHaveAttribute("data-testid", "test-grid");
+    const grid = screen.getByTestId("test-grid");
+    expect(grid).toBeInTheDocument();
   });
 
   it("renders with custom tag", () => {

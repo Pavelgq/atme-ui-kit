@@ -13,7 +13,7 @@ describe('Typography', () => {
     render(<Typography variant="h1">Heading</Typography>);
     const heading = screen.getByText('Heading');
     expect(heading.tagName).toBe('H1');
-    expect(heading).toHaveClass('typography--h1');
+    expect(heading.className).toMatch(/typography--h1/);
   });
 
   it('renders with custom as prop', () => {
@@ -28,7 +28,7 @@ describe('Typography', () => {
 
   it('renders with size', () => {
     render(<Typography size="lg">Large Text</Typography>);
-    expect(screen.getByText('Large Text')).toHaveClass('typography--lg');
+    expect(screen.getByText('Large Text').className).toMatch(/typography--lg/);
   });
 
   it('forwards ref', () => {
