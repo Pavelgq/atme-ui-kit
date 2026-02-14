@@ -15,9 +15,9 @@ export const darkTheme = {
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#a855f7',
-      hover: '#c084fc',
-      active: '#9333ea',
+      main: '#8b9a5e',
+      hover: '#9daa72',
+      active: '#7a8a50',
       contrastText: '#ffffff',
     },
     error: {
