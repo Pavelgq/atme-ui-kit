@@ -1,0 +1,29 @@
+---
+description: Использовать spacing() для отступов в стилях
+globs: "**/*.pcss"
+alwaysApply: false
+---
+
+# spacing() в PCSS
+
+При написании стилей всегда используй функцию **spacing()** вместо raw `calc(var(--spacing-unit...)` или `var(--spacing-unit...)`.
+
+PostCSS-функция заменяет вызов на `calc(var(--spacing-unit, 4) * N * 1px)` — это единица дизайн-системы (4px по умолчанию).
+
+## Как использовать
+
+```pcss
+/* ❌ Плохо */
+gap: var(--spacing-unit, 4px);
+padding: calc(var(--spacing-unit, 4px) * 0.5) 0;
+margin-left: calc(var(--spacing-unit, 4px) * 2);
+
+/* ✅ Хорошо */
+gap: spacing(1);
+padding: spacing(0.5) 0;
+margin-left: spacing(2);
+```
+
+- `spacing(1)` = 4px (1 единица)
+- `spacing(0.5)` = 2px
+- `spacing(2)` = 8px
