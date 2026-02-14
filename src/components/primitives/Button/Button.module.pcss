@@ -81,14 +81,14 @@
 
 /* Variants */
 .button--primary {
-  background-color: var(--palette-primary-hover);
-  color: var(--palette-text-primary);
-  border-color: var(--palette-primary-hover);
+  background-color: var(--palette-primary-main);
+  color: var(--palette-primary-contrast-text);
+  border-color: var(--palette-primary-main);
   box-shadow: var(--shadows-sm);
 
   &:hover:not(:disabled):not([aria-disabled="true"]) {
-    background-color: var(--palette-primary-main);
-    border-color: var(--palette-primary-main);
+    background-color: var(--palette-primary-hover);
+    border-color: var(--palette-primary-hover);
     color: var(--palette-primary-contrast-text);
     box-shadow: var(--shadows-base);
     transform: translateY(-1px);
