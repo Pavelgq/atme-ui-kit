@@ -1,4 +1,5 @@
 export { ChevronUpIcon } from './ChevronUpIcon';
+export { ClockIcon } from './ClockIcon';
 export { CloseIcon } from './CloseIcon';
 export { EyeIcon } from './EyeIcon';
 export { FileTextIcon } from './FileTextIcon';
