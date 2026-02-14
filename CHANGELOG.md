@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.15](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.14...v0.1.15) (2026-02-14)
+
+### Features
+
+- **article-preview:** add description, viewsCount, file view and icons ([fb1c791](https://github.com/Pavelgq/atme-ui-kit/commit/fb1c791ed8662362a0600112ac7be57e2c9b2151))
+- **content:** add TableOfContents with useActiveSection scroll tracking ([36cce3e](https://github.com/Pavelgq/atme-ui-kit/commit/36cce3e12ff0822c515c6309db090a9680c7de76))
+- **heading:** introduce Heading component with anchor support and HashIcon ([ea28afa](https://github.com/Pavelgq/atme-ui-kit/commit/ea28afaad792c9b45bbca192cafbd9873fdeeb1c))
+- **icon:** add ClockIcon ([75e9e6a](https://github.com/Pavelgq/atme-ui-kit/commit/75e9e6af2c51ba6354c5eae974dc45fede9afbb0))
+- **theme:** DeepPartial for mergeTheme overrides ([d6e4cb1](https://github.com/Pavelgq/atme-ui-kit/commit/d6e4cb17c907318c9f8a6dd82f7f96d8c5935fee))
+
+### Bug Fixes
+
+- **build:** explicit styles import for Next.js SSR ([58f81d5](https://github.com/Pavelgq/atme-ui-kit/commit/58f81d51b8626992477711cc134924bdf0cadedd))
+- **ssr:** dynamic shiki import in CodeBlock ([057843f](https://github.com/Pavelgq/atme-ui-kit/commit/057843fd4bb7ba8f9d2d4f8776fc6088b3dccc43))
+- **theme:** unify dark secondary to olive per design review ([1721876](https://github.com/Pavelgq/atme-ui-kit/commit/1721876aa1824ea4893f62cf5fb2bb62ad289a34))
+
+### Chores
+
+- add tsconfig path aliases ([97c69cc](https://github.com/Pavelgq/atme-ui-kit/commit/97c69cc3464e3bb1fe46c420359255d144675cdb))
+- remove Markdown component ([2847546](https://github.com/Pavelgq/atme-ui-kit/commit/284754675799bfed5ebf526562e3a47edc3c4160))
+
+### Styles
+
+- **spacing:** add fallback and cursor rule for spacing() ([f80fb5f](https://github.com/Pavelgq/atme-ui-kit/commit/f80fb5fae6e7f0deccd194a630f7a92a6da52393))
+
+### Code Refactoring
+
+- **ArticlePreview:** add card and row views, remove tile and file ([cd5725b](https://github.com/Pavelgq/atme-ui-kit/commit/cd5725b076291e6c775cecbbcaa0e464bfe9b856))
+- **root:** rename AtmeRoot to Root ([f693390](https://github.com/Pavelgq/atme-ui-kit/commit/f693390ad5243592b09ee3ee61aca83d6786b230))
+
+### Tests
+
+- **ArticlePreview:** update tests for card and row views ([411f4e5](https://github.com/Pavelgq/atme-ui-kit/commit/411f4e548956fbc878b4d8e24320f3a188131909))
+
+### Documentation
+
+- add design review ([a3ed0a6](https://github.com/Pavelgq/atme-ui-kit/commit/a3ed0a6b19b96ac968192c4e22e59619ec813ab9))
+- add design review ([b3592f0](https://github.com/Pavelgq/atme-ui-kit/commit/b3592f011b920f1b3e9ebf6f2b06890827642b0e))
+- **ArticlePreview:** update stories for card and row views ([567e275](https://github.com/Pavelgq/atme-ui-kit/commit/567e27507dcd6fc7ad5579594cb8496d28afed89))
+- **rules:** add english, short, incremental commit guidelines ([0055652](https://github.com/Pavelgq/atme-ui-kit/commit/0055652236a8262e58b498aa38fce89430ffc04d))
+
 ### [0.1.14](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.13...v0.1.14) (2026-02-12)
 
 ### Features
