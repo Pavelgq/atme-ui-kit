@@ -4,73 +4,59 @@
   width: 100%;
 }
 
-/* Плитка: превью сверху, контент снизу */
-.content--tile .previewWrap {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  flex-shrink: 0;
-}
-
-.content--tile .body {
-  padding: spacing(3) spacing(4);
-  display: flex;
-  flex-direction: column;
-  gap: spacing(1);
-}
-
-.content--tile .meta,
-.content--row .meta {
-  display: flex;
-  align-items: center;
-  gap: spacing(2);
-  flex-wrap: wrap;
-}
-
-/* В строку: превью слева, контент справа */
-.content--row {
-  flex-direction: row;
-}
-
-.content--row .previewWrap {
-  width: 160px;
-  min-width: 160px;
-  aspect-ratio: 1;
-  flex-shrink: 0;
-}
-
-.content--row .body {
-  padding: spacing(3) spacing(4);
-  display: flex;
-  flex-direction: column;
-  gap: spacing(1);
-  min-width: 0;
-  flex: 1;
-}
-
 .previewWrap {
   position: relative;
   background-color: var(--palette-background-default);
   overflow: hidden;
 }
 
-.tagsSlotTile {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+/* Row view — стиль строки как в ОС (файл в папке) */
+.content--row {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: spacing(3);
   padding: spacing(2) spacing(3);
+}
+
+.content--row .rowIcon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--palette-primary-main);
+}
+
+.content--row .rowBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: spacing(1);
+}
+
+.content--row .tagsSlotRow {
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
   gap: spacing(1);
   pointer-events: auto;
 }
 
-.tagsSlotRow {
+.content--row .title {
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+.content--row .rowMeta {
   display: flex;
+  align-items: center;
+  gap: spacing(2);
   flex-wrap: wrap;
-  gap: spacing(1);
-  margin-bottom: spacing(1);
-  pointer-events: auto;
+  margin-top: spacing(0.5);
 }
 
 .previewImage {
@@ -136,55 +122,115 @@
   opacity: 0.8;
 }
 
-/* File view — стиль файла в папке ОС */
-.content--file {
+/* --- Card view: контент слева, картинка справа. Без картинки — контент на всю ширину --- */
+.content--card {
   flex-direction: row;
-  align-items: flex-start;
-  gap: spacing(3);
-  padding: spacing(2) spacing(3);
+  align-items: stretch;
+  min-height: 180px;
 }
 
-.content--file .fileIcon {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--palette-background-accent);
-  border-radius: var(--border-radius-base);
-  color: var(--palette-primary-main);
-}
-
-.content--file .fileBody {
+.content--card .cardBody {
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: spacing(1);
+  gap: spacing(2);
+  padding: spacing(4);
+  justify-content: center;
 }
 
-.content--file .tagsSlotFile {
+.content--card-no-image .cardBody {
+  padding: spacing(4);
+}
+
+.content--card .author {
+  display: flex;
+  align-items: center;
+  gap: spacing(2);
+}
+
+.content--card .authorAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-full, 9999px);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.content--card .authorAvatarPlaceholder {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-full, 9999px);
+  background-color: var(--palette-primary-main);
+  color: var(--palette-primary-contrast-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--typography-font-size-sm);
+  font-weight: var(--typography-font-weight-semibold);
+  flex-shrink: 0;
+}
+
+.content--card .authorName {
+  color: var(--palette-text-primary);
+  font-weight: var(--typography-font-weight-medium);
+  margin: 0;
+}
+
+.content--card .cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: spacing(2);
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: spacing(1);
+}
+
+.content--card .tagsSlotCard {
   display: flex;
   flex-wrap: wrap;
   gap: spacing(1);
   pointer-events: auto;
 }
 
-.content--file .title {
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
-}
-
-.content--file .description {
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
-}
-
-.content--file .fileMeta {
+.content--card .meta {
   display: flex;
   align-items: center;
   gap: spacing(2);
   flex-wrap: wrap;
-  margin-top: spacing(0.5);
+  margin-left: auto;
+}
+
+.content--card .readingTime {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(1);
+  color: var(--palette-text-secondary);
+  font-size: var(--typography-font-size-xs);
+  line-height: var(--typography-line-height-normal);
+}
+
+.content--card .readingTime svg {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.content--card .previewWrap {
+  width: 200px;
+  min-width: 200px;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  background-color: var(--palette-background-default);
+  overflow: hidden;
+}
+
+.content--card .title {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.content--card .description {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 }

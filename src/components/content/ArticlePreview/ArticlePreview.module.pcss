@@ -8,10 +8,8 @@
   text-decoration: none;
   color: inherit;
   transition:
-    transform var(--transitions-duration-slow) var(--transitions-easing-easeInOut),
-    box-shadow var(--transitions-duration-slow) var(--transitions-easing-easeInOut),
-    border-color var(--transitions-duration-slow) var(--transitions-easing-easeInOut),
-    background-color var(--transitions-duration-slow) var(--transitions-easing-easeInOut);
+    box-shadow var(--transitions-duration-verySlow, 500ms) var(--transitions-easing-easeInOut),
+    background-color var(--transitions-duration-verySlow, 500ms) var(--transitions-easing-easeInOut);
 }
 
 .root--interactive {
@@ -19,9 +17,7 @@
 }
 
 .root--interactive:hover {
-  transform: translateY(-2px);
   box-shadow: var(--shadows-lg);
-  border-color: var(--palette-border-default);
   background-color: var(--palette-background-default);
 }
 
@@ -30,23 +26,13 @@
   outline-offset: 2px;
 }
 
-.root--tile {
-  max-width: 360px;
-}
-
-.root--row {
+.root--card {
   max-width: 100%;
 }
 
-/* File view — компактный вид без превью, стиль файла в папке */
-.root--file {
+.root--row {
   max-width: 100%;
   border-radius: var(--border-radius-base);
   border-color: var(--palette-border-subtle);
 }
 
-.root--file:hover.root--interactive {
-  transform: none;
-  border-color: var(--palette-border-default);
-  background-color: var(--palette-background-default);
-}

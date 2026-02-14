@@ -1,15 +1,18 @@
 import React from 'react';
 import cn from 'classnames';
 import { Typography } from '../../../../primitives/Typography';
-import { EyeIcon, FileTextIcon } from '../../../../primitives/Icon/Icons';
+import { ClockIcon, EyeIcon, FileTextIcon } from '../../../../primitives/Icon/Icons';
+import type { ArticlePreviewAuthor } from '../../ArticlePreview';
 import styles from './ArticlePreviewContent.module.pcss';
 
-export type ArticlePreviewContentView = 'tile' | 'row' | 'file';
+export type ArticlePreviewContentView = 'card' | 'row';
 
 export interface ArticlePreviewContentProps {
   title: string;
   description?: string;
   viewsCount?: number;
+  readingTimeMinutes?: number;
+  author?: ArticlePreviewAuthor;
   imageUrl?: string | undefined;
   imageAlt: string;
   formattedDate: string;
@@ -23,37 +26,41 @@ function formatViews(count: number): string {
   return String(count);
 }
 
+function formatReadingTime(minutes: number): string {
+  if (minutes < 60) return `${minutes} мин`;
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return m > 0 ? `${h} ч ${m} мин` : `${h} ч`;
+}
+
 export function ArticlePreviewContent({
   title,
   description,
   viewsCount,
+  readingTimeMinutes,
+  author,
   imageUrl,
   imageAlt,
   formattedDate,
   view,
   tags,
 }: ArticlePreviewContentProps) {
-  if (view === 'file') {
+  if (view === 'row') {
     return (
-      <div className={cn(styles.content, styles['content--file'])}>
-        <div className={styles.fileIcon} aria-hidden>
+      <div className={cn(styles.content, styles['content--row'])}>
+        <div className={styles.rowIcon} aria-hidden>
           <FileTextIcon size={24} strokeWidth={2} />
         </div>
-        <div className={styles.fileBody}>
+        <div className={styles.rowBody}>
           {tags && (
-            <div className={styles.tagsSlotFile} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.tagsSlotRow} onClick={(e) => e.stopPropagation()}>
               {tags}
             </div>
           )}
           <Typography variant="h5" as="h2" className={styles.title} title={title}>
             {title}
           </Typography>
-          {description && (
-            <Typography variant="caption" className={styles.description}>
-              {description}
-            </Typography>
-          )}
-          <div className={styles.fileMeta}>
+          <div className={styles.rowMeta}>
             <Typography variant="caption" className={styles.date}>
               {formattedDate}
             </Typography>
@@ -69,54 +76,83 @@ export function ArticlePreviewContent({
     );
   }
 
-  return (
-    <div className={cn(styles.content, styles[`content--${view}`])}>
-      <div className={styles.previewWrap}>
-        {tags && view === 'tile' && (
-          <div className={styles.tagsSlotTile} onClick={(e) => e.stopPropagation()}>
-            {tags}
-          </div>
-        )}
-        {imageUrl ? (
-          <img
-            src={imageUrl}
-            alt={imageAlt || title}
-            className={styles.previewImage}
-            decoding="async"
-            loading="lazy"
-          />
-        ) : (
-          <div className={styles.previewPlaceholder} aria-hidden="true" />
-        )}
-      </div>
-      <div className={styles.body}>
-        {tags && view === 'row' && (
-          <div className={styles.tagsSlotRow} onClick={(e) => e.stopPropagation()}>
-            {tags}
-          </div>
-        )}
-        <Typography variant="h5" as="h2" className={styles.title} title={title}>
-          {title}
-        </Typography>
-        {description && (view === 'tile' || view === 'row') && (
-          <Typography variant="caption" className={styles.description}>
-            {description}
-          </Typography>
-        )}
-        <div className={styles.meta}>
-          <Typography variant="caption" className={styles.date}>
-            {formattedDate}
-          </Typography>
-          {viewsCount != null && (
-            <span className={styles.views} title="Просмотры">
-              <EyeIcon size={14} strokeWidth={2} />
-              <span>{formatViews(viewsCount)}</span>
-            </span>
+  if (view === 'card') {
+    return (
+      <div className={cn(styles.content, styles['content--card'], !imageUrl && styles['content--card-no-image'])}>
+        <div className={styles.cardBody}>
+          {author ? (
+            <div className={styles.author} onClick={(e) => e.stopPropagation()}>
+              {author.avatarUrl ? (
+                <img
+                  src={author.avatarUrl}
+                  alt=""
+                  className={styles.authorAvatar}
+                  width={32}
+                  height={32}
+                />
+              ) : (
+                <div className={styles.authorAvatarPlaceholder} aria-hidden>
+                  {author.name.charAt(0).toUpperCase()}
+                </div>
+              )}
+              <Typography variant="caption" className={styles.authorName}>
+                {author.name}
+              </Typography>
+              <Typography variant="caption" className={styles.date}>
+                {formattedDate}
+              </Typography>
+            </div>
+          ) : (
+            <Typography variant="caption" className={styles.date}>
+              {formattedDate}
+            </Typography>
           )}
+          <Typography variant="h5" as="h2" className={styles.title} title={title}>
+            {title}
+          </Typography>
+          {description && (
+            <Typography variant="caption" className={styles.description}>
+              {description}
+            </Typography>
+          )}
+          <div className={styles.cardFooter}>
+            {tags && (
+              <div className={styles.tagsSlotCard} onClick={(e) => e.stopPropagation()}>
+                {tags}
+              </div>
+            )}
+            <div className={styles.meta}>
+              {readingTimeMinutes != null && (
+                <span className={styles.readingTime} title="Время чтения">
+                  <ClockIcon size={14} strokeWidth={2} />
+                  <span>{formatReadingTime(readingTimeMinutes)}</span>
+                </span>
+              )}
+              {viewsCount != null && (
+                <span className={styles.views} title="Просмотры">
+                  <EyeIcon size={14} strokeWidth={2} />
+                  <span>{formatViews(viewsCount)}</span>
+                </span>
+              )}
+            </div>
+          </div>
         </div>
+        {imageUrl && (
+          <div className={styles.previewWrap}>
+            <img
+              src={imageUrl}
+              alt={imageAlt || title}
+              className={styles.previewImage}
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
+        )}
       </div>
-    </div>
-  );
+    );
+  }
+
+  return null;
 }
 
 ArticlePreviewContent.displayName = 'ArticlePreviewContent';

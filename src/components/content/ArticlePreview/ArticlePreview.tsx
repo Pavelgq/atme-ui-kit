@@ -1,10 +1,17 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, useCallback, useMemo } from 'react';
 import cn from 'classnames';
 import { BaseComponentProps } from '@components/types';
 import { ArticlePreviewContent } from './components/ArticlePreviewContent';
 import styles from './ArticlePreview.module.pcss';
 
-export type ArticlePreviewView = 'tile' | 'row' | 'file';
+export type ArticlePreviewView = 'card' | 'row';
+
+export interface ArticlePreviewAuthor {
+  /** URL аватара автора */
+  avatarUrl?: string;
+  /** Имя автора (например, «Иван Иванов») */
+  name: string;
+}
 
 export interface ArticlePreviewProps
   extends BaseComponentProps,
@@ -15,6 +22,10 @@ export interface ArticlePreviewProps
   description?: string;
   /** Количество просмотров */
   viewsCount?: number;
+  /** Время чтения в минутах */
+  readingTimeMinutes?: number;
+  /** Автор (опционально). Если не указан — блок автора не отображается */
+  author?: ArticlePreviewAuthor;
   imageUrl?: string;
   view?: ArticlePreviewView;
   imageAlt?: string;
@@ -38,8 +49,10 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
       publishedAt,
       description,
       viewsCount,
+      readingTimeMinutes,
+      author,
       imageUrl,
-      view = 'tile',
+      view = 'card',
       imageAlt = '',
       href,
       tags,
@@ -53,13 +66,13 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
   ) => {
     const formattedDate = useMemo(() => formatDate(publishedAt), [publishedAt]);
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+    const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLElement>) => {
       if (!href && onClick && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
         onClick(e as unknown as React.MouseEvent<HTMLDivElement>);
       }
       (onKeyDown as React.KeyboardEventHandler<HTMLElement>)?.(e);
-    };
+    },[]);
 
     const isInteractive = Boolean(href || onClick);
     const sharedClassName = cn(
@@ -68,49 +81,40 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
       isInteractive && styles['root--interactive'],
       className
     );
-    const sharedProps = {
+    const content = (
+      <ArticlePreviewContent
+        title={title}
+        description={description}
+        viewsCount={viewsCount}
+        readingTimeMinutes={readingTimeMinutes}
+        author={author}
+        imageUrl={imageUrl}
+        imageAlt={imageAlt}
+        formattedDate={formattedDate}
+        view={view}
+        tags={tags}
+      />
+    );
+
+    const wrapperProps = {
       className: sharedClassName,
       onClick,
       onKeyDown: isInteractive ? handleKeyDown : onKeyDown,
       'data-atme-ui': true,
       'data-testid': testId,
+      ...(href
+        ? { href }
+        : { role: isInteractive ? 'button' : undefined, tabIndex: isInteractive ? 0 : undefined }),
       ...props,
     };
 
-    if (href) {
-      return (
-        <a ref={ref as React.Ref<HTMLAnchorElement>} href={href} {...sharedProps}>
-          <ArticlePreviewContent
-            title={title}
-            description={description}
-            viewsCount={viewsCount}
-            imageUrl={imageUrl}
-            imageAlt={imageAlt}
-            formattedDate={formattedDate}
-            view={view}
-            tags={tags}
-          />
-        </a>
-      );
-    }
-
-    return (
-      <div
-        ref={ref as React.Ref<HTMLDivElement>}
-        role={isInteractive ? 'button' : undefined}
-        tabIndex={isInteractive ? 0 : undefined}
-        {...sharedProps}
-      >
-        <ArticlePreviewContent
-          title={title}
-          description={description}
-          viewsCount={viewsCount}
-          imageUrl={imageUrl}
-          imageAlt={imageAlt}
-          formattedDate={formattedDate}
-          view={view}
-          tags={tags}
-        />
+    return href ? (
+      <a ref={ref as React.Ref<HTMLAnchorElement>} {...wrapperProps}>
+        {content}
+      </a>
+    ) : (
+      <div ref={ref as React.Ref<HTMLDivElement>} {...wrapperProps}>
+        {content}
       </div>
     );
   }
