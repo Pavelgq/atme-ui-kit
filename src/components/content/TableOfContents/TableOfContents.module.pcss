@@ -1,0 +1,70 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(1);
+}
+
+.title {
+  margin: 0;
+  color: var(--palette-text-secondary);
+  padding-left: spacing(6);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  padding: spacing(4);
+  list-style: none;
+}
+
+.item {
+  margin: 0;
+  padding: 0;
+}
+
+.item:not(:last-child) {
+  border-bottom: 1px solid var(--palette-border-subtle);
+}
+
+.link {
+  position: relative;
+  display: block;
+  padding: spacing(2) 0;
+  text-decoration: none;
+  transition:
+    color var(--transitions-duration-fast, 150ms) var(--transitions-easing-easeInOut, 0.15s),
+    background-color var(--transitions-duration-fast, 150ms) var(--transitions-easing-easeInOut);
+
+  &:hover {
+    color: var(--palette-text-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--palette-primary-main);
+    outline-offset: 2px;
+  }
+}
+
+.link--active .linkText {
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.link::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * spacing(4));
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--palette-border-subtle);
+  border-radius: var(--border-radius-full, 9999px);
+}
+
+.link--active::before {
+  background-color: var(--palette-primary-active);
+}
+
+.item:has(~ .item .link--active) .link::before {
+  background-color: var(--palette-primary-main);
+}
+

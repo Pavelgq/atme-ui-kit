@@ -1,4 +1,2 @@
-export { ArticlePreview } from './ArticlePreview';
 export { TableOfContents } from './TableOfContents';
 export type { TableOfContentsProps, TableOfContentsItem } from './TableOfContents';
-export type { ArticlePreviewProps, ArticlePreviewView } from './ArticlePreview';
