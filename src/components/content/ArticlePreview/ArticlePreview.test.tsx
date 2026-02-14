@@ -15,10 +15,10 @@ describe('ArticlePreview', () => {
     expect(screen.getByText(/5 февраля 2025/)).toBeInTheDocument();
   });
 
-  it('рендерит с вариантом tile по умолчанию', () => {
+  it('рендерит с вариантом card по умолчанию', () => {
     const { container } = render(<ArticlePreview {...defaultProps} />);
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveClass('root--tile');
+    expect(root).toHaveClass('root--card');
   });
 
   it('рендерит с вариантом row', () => {
@@ -27,10 +27,10 @@ describe('ArticlePreview', () => {
     expect(root).toHaveClass('root--row');
   });
 
-  it('рендерит с вариантом file', () => {
-    const { container } = render(<ArticlePreview {...defaultProps} view="file" />);
+  it('рендерит с вариантом card', () => {
+    const { container } = render(<ArticlePreview {...defaultProps} view="card" />);
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveClass('root--file');
+    expect(root).toHaveClass('root--card');
   });
 
   it('показывает описание при переданном description', () => {
@@ -43,10 +43,10 @@ describe('ArticlePreview', () => {
     expect(screen.getByText('1.2K')).toBeInTheDocument();
   });
 
-  it('показывает плейсхолдер при отсутствии imageUrl', () => {
-    const { container } = render(<ArticlePreview {...defaultProps} />);
-    const placeholder = container.querySelector('[aria-hidden="true"]');
-    expect(placeholder).toBeInTheDocument();
+  it('не показывает превью при отсутствии imageUrl в card', () => {
+    const { container } = render(<ArticlePreview {...defaultProps} view="card" />);
+    const img = container.querySelector('img');
+    expect(img).not.toBeInTheDocument();
   });
 
   it('показывает изображение при переданном imageUrl', () => {
@@ -117,11 +117,11 @@ describe('ArticlePreview', () => {
     expect(screen.getByTestId('card-1').tagName).toBe('A');
   });
 
-  it('рендерит слот tags в плитке (левый верхний угол)', () => {
+  it('рендерит слот tags в карточке', () => {
     render(
       <ArticlePreview
         {...defaultProps}
-        view="tile"
+        view="card"
         tags={<span data-testid="card-tags">Метка</span>}
       />
     );
