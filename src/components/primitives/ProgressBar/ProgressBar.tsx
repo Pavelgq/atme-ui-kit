@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { AtmeRoot } from "../AtmeRoot";
+import { Root } from "../Root";
 import { BaseComponentProps } from "@components/types";
 import styles from "./ProgressBar.module.pcss";
 
@@ -50,7 +50,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     : null;
 
   return (
-    <AtmeRoot className={cn(styles.root, styles[`root--${size}`], className)} testId={testId} {...props}>
+    <Root className={cn(styles.root, styles[`root--${size}`], className)} testId={testId} {...props}>
       <div
         className={styles.track}
         role="progressbar"
@@ -82,7 +82,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
         </div>
       </div>
       {renderedValueLabel && <span className={styles.valueLabel}>{renderedValueLabel}</span>}
-    </AtmeRoot>
+    </Root>
   );
 };
 

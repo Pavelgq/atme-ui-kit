@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { AtmeRoot } from "../AtmeRoot";
+import { Root } from "../Root";
 import { Typography } from "../Typography";
 import { BaseComponentProps } from "@components/types";
 import styles from "./Quote.module.pcss";
@@ -22,7 +22,7 @@ export const Quote: React.FC<QuoteProps> = ({
   ...props
 }) => {
   return (
-    <AtmeRoot
+    <Root
       as="blockquote"
       cite={cite}
       className={cn(styles.quote, className)}
@@ -37,7 +37,7 @@ export const Quote: React.FC<QuoteProps> = ({
           — {author}
         </Typography>
       )}
-    </AtmeRoot>
+    </Root>
   );
 };
 

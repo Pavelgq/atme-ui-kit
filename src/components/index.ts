@@ -1,7 +1,7 @@
 export type { BaseComponentProps } from './types';
 
-export { AtmeRoot } from './primitives/AtmeRoot';
-export type { AtmeRootProps } from './primitives/AtmeRoot';
+export { Root } from './primitives/Root';
+export type { RootProps } from './primitives/Root';
 
 export { Typography } from './primitives/Typography';
 export type {
@@ -76,3 +76,6 @@ export type { IslandProps, IslandSize, IslandVariant, IslandElevation } from './
 
 export { ArticlePreview } from './content/ArticlePreview';
 export type { ArticlePreviewProps, ArticlePreviewView } from './content/ArticlePreview';
+
+export { TableOfContents } from './content/TableOfContents';
+export type { TableOfContentsProps, TableOfContentsItem } from './content/TableOfContents';

@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { AtmeRoot } from "../AtmeRoot";
+import { Root } from "../Root";
 import { BaseComponentProps } from "@components/types";
 import styles from "./Card.module.pcss";
 
@@ -29,7 +29,7 @@ export const Card: React.FC<CardProps> = ({
   ...props
 }) => {
   return (
-    <AtmeRoot
+    <Root
       as={as}
       className={cn(
         styles.card,
@@ -43,7 +43,7 @@ export const Card: React.FC<CardProps> = ({
       {...props}
     >
       {children}
-    </AtmeRoot>
+    </Root>
   );
 };
 

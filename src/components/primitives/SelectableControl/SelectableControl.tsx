@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useRef } from "react";
 import cn from "classnames";
-import { AtmeRoot } from "../AtmeRoot";
+import { Root } from "../Root";
 import { BaseComponentProps } from "@components/types";
 import styles from "./SelectableControl.module.pcss";
 
@@ -50,7 +50,7 @@ export const SelectableControl = forwardRef<HTMLInputElement, SelectableControlP
     };
 
     return (
-      <AtmeRoot
+      <Root
         as="label"
         testId={testId}
         className={cn(
@@ -71,7 +71,7 @@ export const SelectableControl = forwardRef<HTMLInputElement, SelectableControlP
             {description && <span className={styles.description}>{description}</span>}
           </span>
         )}
-      </AtmeRoot>
+      </Root>
     );
   }
 );

@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import cn from "classnames";
-import { AtmeRoot } from "../AtmeRoot";
+import { Root } from "../Root";
 import { LinkIcon } from "../Icon/Icons";
 import { BaseComponentProps } from "@components/types";
 import styles from "./Link.module.pcss";
@@ -14,7 +14,7 @@ export interface LinkProps
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   ({ children, showIcon = true, className, testId, ...props }, ref) => (
-<AtmeRoot
+<Root
         ref={ref as React.Ref<HTMLAnchorElement>}
         as="a"
         testId={testId}
@@ -28,7 +28,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
           <LinkIcon decorative />
         </span>
       )}
-    </AtmeRoot>
+    </Root>
   )
 );
 

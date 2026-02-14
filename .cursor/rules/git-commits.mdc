@@ -22,7 +22,7 @@ alwaysApply: false
 ## Примеры
 
 ```txt
-feat(root): add AtmeRoot wrapper
+feat(root): add Root wrapper
 feat(markdown): add Markdown component
 fix(markdown): sync code block theme
 docs(readme): add usage examples

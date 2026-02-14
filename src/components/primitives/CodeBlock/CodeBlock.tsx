@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import cn from "classnames";
-import { AtmeRoot } from "../AtmeRoot";
+import { Root } from "../Root";
 import { Typography } from "../Typography";
 import { BaseComponentProps } from "@components/types";
 import styles from "./CodeBlock.module.pcss";
@@ -52,7 +52,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
 
   if (error) {
     return (
-      <AtmeRoot
+      <Root
         as="div"
         className={cn(styles.root, styles.error)}
         testId={testId}
@@ -61,12 +61,12 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
         <Typography variant="caption" as="span" color="secondary">
           Ошибка подсветки: {error.message}
         </Typography>
-      </AtmeRoot>
+      </Root>
     );
   }
 
   return (
-    <AtmeRoot className={cn(styles.root, className)} testId={testId}>
+    <Root className={cn(styles.root, className)} testId={testId}>
       {filename != null && (
         <Typography variant="caption" as="div" className={styles.filename}>
           {filename}
@@ -84,7 +84,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           </pre>
         )}
       </div>
-    </AtmeRoot>
+    </Root>
   );
 };
 

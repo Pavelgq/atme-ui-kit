@@ -1,39 +1,39 @@
 ---
-description: Использовать AtmeRoot для корня всех компонентов
+description: Использовать Root для корня всех компонентов
 globs: src/components/**/*.tsx
 alwaysApply: false
 ---
 
-# data-atme-ui через обёртку AtmeRoot
+# data-atme-ui через обёртку Root
 
-Корневой DOM-элемент каждого компонента библиотеки должен быть обёрнут в **AtmeRoot**. Компонент сам добавляет атрибут `data-atme-ui` и пробрасывает `className`, `testId` → `data-testid`. Это даёт изолированный сброс стилей (`box-sizing: border-box` и др.) только внутри компонентов.
+Корневой DOM-элемент каждого компонента библиотеки должен быть обёрнут в **Root**. Компонент сам добавляет атрибут `data-atme-ui` и пробрасывает `className`, `testId` → `data-testid`. Это даёт изолированный сброс стилей (`box-sizing: border-box` и др.) только внутри компонентов.
 
 ## Как использовать
 
 Импорт и использование на корневом элементе:
 
 ```tsx
-import { AtmeRoot } from '@components/primitives/AtmeRoot';
+import { Root } from '@components/primitives/Root';
 
 // Обычный корень (div)
 return (
-  <AtmeRoot className={cn(styles.root, className)} testId={testId}>
+  <Root className={cn(styles.root, className)} testId={testId}>
     {children}
-  </AtmeRoot>
+  </Root>
 );
 
 // Корень — другой тег (button, a, span и т.д.)
 return (
-  <AtmeRoot as="button" className={cn(styles.button, className)} testId={testId} type="button" {...props}>
+  <Root as="button" className={cn(styles.button, className)} testId={testId} type="button" {...props}>
     {children}
-  </AtmeRoot>
+  </Root>
 );
 ```
 
-Если нужно пробросить ref и все пропсы на корень (polymorphic), передавайте их в AtmeRoot:
+Если нужно пробросить ref и все пропсы на корень (polymorphic), передавайте их в Root:
 
 ```tsx
-<AtmeRoot ref={ref} as={as} className={cn(styles.tag, className)} testId={testId} {...props} />
+<Root ref={ref} as={as} className={cn(styles.tag, className)} testId={testId} {...props} />
 ```
 
 ## Где применяется

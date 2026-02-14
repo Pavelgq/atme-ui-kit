@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 import { BaseComponentProps } from '@components/types';
 
-export interface AtmeRootProps extends BaseComponentProps {
+export interface RootProps extends BaseComponentProps {
   as?: React.ElementType;
   children?: React.ReactNode;
 }
 
-export const AtmeRoot = forwardRef<HTMLElement, AtmeRootProps & Record<string, unknown>>(
+export const Root = forwardRef<HTMLElement, RootProps & Record<string, unknown>>(
   ({ as, className, testId, children, ...props }, ref) => {
     const Component = (as ?? 'div') as React.ElementType;
     return (
@@ -23,4 +23,4 @@ export const AtmeRoot = forwardRef<HTMLElement, AtmeRootProps & Record<string, u
   }
 );
 
-AtmeRoot.displayName = 'AtmeRoot';
+Root.displayName = 'Root';
