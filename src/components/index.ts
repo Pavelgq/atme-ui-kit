@@ -79,3 +79,10 @@ export type { ArticlePreviewProps, ArticlePreviewView } from './content/ArticleP
 
 export { TableOfContents } from './content/TableOfContents';
 export type { TableOfContentsProps, TableOfContentsItem } from './content/TableOfContents';
+
+export { DecorativeFrame } from './content/DecorativeFrame';
+export type {
+  DecorativeFrameProps,
+  DecorativeFrameEdge,
+  DecorativeFrameDirection,
+} from './content/DecorativeFrame';

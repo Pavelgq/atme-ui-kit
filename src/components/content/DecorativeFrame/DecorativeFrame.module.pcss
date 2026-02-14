@@ -1,0 +1,57 @@
+.root {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.root--edge-top {
+  flex-direction: column;
+}
+
+.root--edge-bottom {
+  flex-direction: column;
+}
+
+.root--edge-left {
+  flex-direction: row;
+}
+
+.root--edge-right {
+  flex-direction: row;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+.strip {
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  contain: layout paint;
+}
+
+.strip--top,
+.strip--bottom {
+  width: 100%;
+}
+
+/* Высота из flex stretch — height: 100% ломает процентный расчёт в row */
+.strip--left,
+.strip--right {
+  align-self: stretch;
+}
+
+/* internal: паттерн зеркально развёрнут (пробелы направлены внутрь к контенту) */
+.stripMirror.strip--left,
+.stripMirror.strip--right {
+  transform: scaleX(-1);
+}
+
+.stripMirror.strip--top,
+.stripMirror.strip--bottom {
+  transform: scaleY(-1);
+}

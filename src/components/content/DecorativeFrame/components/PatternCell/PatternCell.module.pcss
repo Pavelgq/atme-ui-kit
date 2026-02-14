@@ -1,0 +1,89 @@
+.cell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform-origin: var(--cell-transform-origin, 0 0);
+  animation: cellReveal var(--cell-duration, 450ms)
+    var(--transitions-easing-easeOut, ease-out) forwards;
+  animation-delay: var(--cell-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cell {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+@keyframes cellReveal {
+  from {
+    opacity: 0;
+    transform: scale(var(--cell-scale-from, 0.9));
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+}
+
+.shapeCircle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.shapeDot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.shapeTriangle {
+  position: absolute;
+  inset: 0;
+}
+
+.shapeDiamond {
+  position: absolute;
+  inset: 12%;
+  transform: rotate(45deg);
+}
+
+.shapeCross {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crossBar {
+  position: absolute;
+  width: 28%;
+  height: 100%;
+  left: 36%;
+}
+
+.crossBarVertical {
+  position: absolute;
+  width: 100%;
+  height: 28%;
+  top: 36%;
+}
+
+.stripes {
+  position: absolute;
+  inset: 0;
+}
+
+.stripe {
+  position: absolute;
+}
