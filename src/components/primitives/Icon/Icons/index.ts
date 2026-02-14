@@ -2,6 +2,8 @@ export { DocumentIcon } from './design';
 export {
   ChevronUpIcon,
   CloseIcon,
+  EyeIcon,
+  FileTextIcon,
   FullscreenIcon,
   HeartIcon,
   HomeIcon,

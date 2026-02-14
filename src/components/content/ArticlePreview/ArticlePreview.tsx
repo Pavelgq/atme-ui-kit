@@ -4,13 +4,17 @@ import { BaseComponentProps } from '@components/types';
 import { ArticlePreviewContent } from './components/ArticlePreviewContent';
 import styles from './ArticlePreview.module.pcss';
 
-export type ArticlePreviewView = 'tile' | 'row';
+export type ArticlePreviewView = 'tile' | 'row' | 'file';
 
 export interface ArticlePreviewProps
   extends BaseComponentProps,
     Omit<React.AnchorHTMLAttributes<HTMLAnchorElement> & React.HTMLAttributes<HTMLDivElement>, 'title'> {
   title: string;
   publishedAt: Date | string;
+  /** Краткое описание статьи */
+  description?: string;
+  /** Количество просмотров */
+  viewsCount?: number;
   imageUrl?: string;
   view?: ArticlePreviewView;
   imageAlt?: string;
@@ -32,6 +36,8 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
     {
       title,
       publishedAt,
+      description,
+      viewsCount,
       imageUrl,
       view = 'tile',
       imageAlt = '',
@@ -76,6 +82,8 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
         <a ref={ref as React.Ref<HTMLAnchorElement>} href={href} {...sharedProps}>
           <ArticlePreviewContent
             title={title}
+            description={description}
+            viewsCount={viewsCount}
             imageUrl={imageUrl}
             imageAlt={imageAlt}
             formattedDate={formattedDate}
@@ -95,6 +103,8 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
       >
         <ArticlePreviewContent
           title={title}
+          description={description}
+          viewsCount={viewsCount}
           imageUrl={imageUrl}
           imageAlt={imageAlt}
           formattedDate={formattedDate}

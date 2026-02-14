@@ -18,6 +18,14 @@
   gap: spacing(1);
 }
 
+.content--tile .meta,
+.content--row .meta {
+  display: flex;
+  align-items: center;
+  gap: spacing(2);
+  flex-wrap: wrap;
+}
+
 /* В строку: превью слева, контент справа */
 .content--row {
   flex-direction: row;
@@ -101,4 +109,82 @@
 .date {
   margin: 0;
   flex-shrink: 0;
+}
+
+.description {
+  margin: 0;
+  color: var(--palette-text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+}
+
+.views {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(1);
+  color: var(--palette-text-secondary);
+  font-size: var(--typography-font-size-xs);
+  line-height: var(--typography-line-height-normal);
+}
+
+.views svg {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+/* File view — стиль файла в папке ОС */
+.content--file {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: spacing(3);
+  padding: spacing(2) spacing(3);
+}
+
+.content--file .fileIcon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--palette-background-accent);
+  border-radius: var(--border-radius-base);
+  color: var(--palette-primary-main);
+}
+
+.content--file .fileBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: spacing(1);
+}
+
+.content--file .tagsSlotFile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(1);
+  pointer-events: auto;
+}
+
+.content--file .title {
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+.content--file .description {
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+.content--file .fileMeta {
+  display: flex;
+  align-items: center;
+  gap: spacing(2);
+  flex-wrap: wrap;
+  margin-top: spacing(0.5);
 }

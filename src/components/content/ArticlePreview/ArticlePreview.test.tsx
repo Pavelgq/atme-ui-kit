@@ -27,6 +27,22 @@ describe('ArticlePreview', () => {
     expect(root).toHaveClass('root--row');
   });
 
+  it('рендерит с вариантом file', () => {
+    const { container } = render(<ArticlePreview {...defaultProps} view="file" />);
+    const root = container.firstChild as HTMLElement;
+    expect(root).toHaveClass('root--file');
+  });
+
+  it('показывает описание при переданном description', () => {
+    render(<ArticlePreview {...defaultProps} description="Краткое описание" />);
+    expect(screen.getByText('Краткое описание')).toBeInTheDocument();
+  });
+
+  it('показывает счётчик просмотров при переданном viewsCount', () => {
+    render(<ArticlePreview {...defaultProps} viewsCount={1234} />);
+    expect(screen.getByText('1.2K')).toBeInTheDocument();
+  });
+
   it('показывает плейсхолдер при отсутствии imageUrl', () => {
     const { container } = render(<ArticlePreview {...defaultProps} />);
     const placeholder = container.querySelector('[aria-hidden="true"]');

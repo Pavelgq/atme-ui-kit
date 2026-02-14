@@ -37,3 +37,16 @@
 .root--row {
   max-width: 100%;
 }
+
+/* File view — компактный вид без превью, стиль файла в папке */
+.root--file {
+  max-width: 100%;
+  border-radius: var(--border-radius-base);
+  border-color: var(--palette-border-subtle);
+}
+
+.root--file:hover.root--interactive {
+  transform: none;
+  border-color: var(--palette-border-default);
+  background-color: var(--palette-background-default);
+}

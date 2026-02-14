@@ -19,7 +19,7 @@ const meta: Meta<typeof ArticlePreview> = {
   argTypes: {
     view: {
       control: 'select',
-      options: ['tile', 'row'],
+      options: ['tile', 'row', 'file'],
       description: 'Вариант отображения',
     },
     title: {
@@ -40,6 +40,14 @@ const meta: Meta<typeof ArticlePreview> = {
     },
     tags: {
       description: 'Слот для тегов (плитка: левый верхний угол, строка: над заголовком)',
+    },
+    description: {
+      control: 'text',
+      description: 'Краткое описание статьи',
+    },
+    viewsCount: {
+      control: 'number',
+      description: 'Количество просмотров',
     },
   },
 };
@@ -218,10 +226,66 @@ export const WithTagsRow: Story = {
   },
 };
 
+export const WithDescriptionAndViews: Story = {
+  args: {
+    title: shortTitle,
+    publishedAt: defaultDate,
+    description: 'Краткое описание статьи, которое помогает пользователю понять содержание до перехода.',
+    viewsCount: 1234,
+    imageUrl: 'https://picsum.photos/400/250',
+    href: '/blog/post-1',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'С описанием и счётчиком просмотров.',
+      },
+    },
+  },
+};
+
+export const ViewFile: Story = {
+  render: () => (
+    <Stack direction="column" gap={2} style={{ maxWidth: 480 }}>
+      <ArticlePreview
+        title="Статья как файл в папке"
+        publishedAt={defaultDate}
+        description="Компактный вид без превью в стиле файлового менеджера"
+        viewsCount={567}
+        view="file"
+        href="/blog/post-1"
+      />
+      <ArticlePreview
+        title="Ещё один документ"
+        publishedAt="2024-11-20"
+        description="Краткое описание"
+        viewsCount={12000}
+        view="file"
+        href="/blog/post-2"
+      />
+      <ArticlePreview
+        title="Минимальный вариант"
+        publishedAt="2025-01-01"
+        view="file"
+      />
+    </Stack>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Вариант «file» — без превью, в стиле файла в папке ОС. Иконка документа, заголовок, описание, дата и просмотры.',
+      },
+    },
+  },
+};
+
 export const Playground: Story = {
   args: {
     title: shortTitle,
     publishedAt: defaultDate,
+    description: 'Краткое описание статьи',
+    viewsCount: 999,
     imageUrl: 'https://picsum.photos/400/250',
     view: 'tile',
     imageAlt: 'Превью',
