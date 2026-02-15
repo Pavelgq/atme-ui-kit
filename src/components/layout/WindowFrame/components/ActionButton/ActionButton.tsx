@@ -35,7 +35,7 @@ export const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>(
         {...props}
       >
         <motion.span
-          style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+          className={styles.icon}
           initial={false}
           whileHover={disabled ? undefined : { rotate: 360, scale: 1.2 }}
           transition={{ duration: 0.35, ease: "easeInOut" }}

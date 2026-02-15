@@ -96,7 +96,8 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
             role="button"
             tabIndex={0}
             aria-label={`Показать еще ${hiddenCount} тегов`}
-            style={{ cursor: "pointer", ...overflowTagProps?.style }}
+            className={cn(styles.tagInteractive, overflowTagProps?.className)}
+            style={overflowTagProps?.style}
           >
             +{hiddenCount}
           </Tag>
@@ -111,7 +112,8 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
             role="button"
             tabIndex={0}
             aria-label={collapseText}
-            style={{ cursor: "pointer", ...collapseTagProps?.style }}
+            className={cn(styles.tagInteractive, collapseTagProps?.className)}
+            style={collapseTagProps?.style}
           >
             <ChevronUpIcon decorative width={16} height={16} />
           </Tag>

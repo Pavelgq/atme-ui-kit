@@ -1,6 +1,8 @@
 import React, { useCallback } from "react";
+import cn from "classnames";
 import { Tag } from "../../Tag";
 import type { TagGroupItem, TagGroupBaseTagProps } from "../types";
+import styles from "../TagGroup.module.pcss";
 
 const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
 
@@ -35,7 +37,7 @@ export function TagGroupItemButton({ tag, baseTagProps }: TagGroupItemButtonProp
       tabIndex={0}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
-      style={{ cursor: "pointer" }}
+      className={cn(styles.tagInteractive, baseTagProps?.className)}
     >
       {tag.label}
     </Tag>
