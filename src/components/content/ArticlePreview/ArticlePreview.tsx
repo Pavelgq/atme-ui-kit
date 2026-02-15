@@ -1,6 +1,7 @@
 import React, { forwardRef, useCallback, useMemo } from 'react';
 import cn from 'classnames';
 import { BaseComponentProps } from '@components/types';
+import { formatDateRu } from '@utils/date/formatDate';
 import { ArticlePreviewContent } from './components/ArticlePreviewContent';
 import styles from './ArticlePreview.module.pcss';
 
@@ -18,6 +19,7 @@ export interface ArticlePreviewProps
     Omit<React.AnchorHTMLAttributes<HTMLAnchorElement> & React.HTMLAttributes<HTMLDivElement>, 'title'> {
   title: string;
   publishedAt: Date | string;
+  formattedDate?: string;
   /** Краткое описание статьи */
   description?: string;
   /** Количество просмотров */
@@ -33,20 +35,12 @@ export interface ArticlePreviewProps
   tags?: React.ReactNode;
 }
 
-function formatDate(value: Date | string): string {
-  const date = typeof value === 'string' ? new Date(value) : value;
-  return date.toLocaleDateString('ru-RU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
-}
-
 export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, ArticlePreviewProps>(
   (
     {
       title,
       publishedAt,
+      formattedDate: formattedDateProp,
       description,
       viewsCount,
       readingTimeMinutes,
@@ -64,7 +58,10 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
     },
     ref
   ) => {
-    const formattedDate = useMemo(() => formatDate(publishedAt), [publishedAt]);
+    const formattedDate = useMemo(
+      () => formattedDateProp ?? formatDateRu(publishedAt),
+      [formattedDateProp, publishedAt]
+    );
 
     const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLElement>) => {
       if (!href && onClick && (e.key === 'Enter' || e.key === ' ')) {
