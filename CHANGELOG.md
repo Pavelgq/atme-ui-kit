@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.17](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.16...v0.1.17) (2026-02-15)
+
+### Features
+
+- **server:** add server entry with getCriticalThemeCss for rsc ([918ee45](https://github.com/Pavelgq/atme-ui-kit/commit/918ee45bedfa529338dab03f0fcabe9135add2c4))
+
+### Bug Fixes
+
+- **article-preview:** use formatDateRu for ssr-safe date formatting ([d3edb7e](https://github.com/Pavelgq/atme-ui-kit/commit/d3edb7e0e1f81c7a9e4faaa6e51e80453cc4fdff))
+
+### Code Refactoring
+
+- **components:** replace inline style with className ([2faa9d0](https://github.com/Pavelgq/atme-ui-kit/commit/2faa9d0e991bf52c90b9d383e73b57bf9764fbc4))
+- **theme-provider:** use data-theme and style in render for ssr ([4272200](https://github.com/Pavelgq/atme-ui-kit/commit/427220098008d436c416dee3088aec97cb01c515))
+
+### Styles
+
+- **tag:** remove border ([138c2ef](https://github.com/Pavelgq/atme-ui-kit/commit/138c2ef918bf68b585e0fa8f6c814468052af2a8))
+
+### Build System
+
+- **vitest:** add [@utils](https://github.com/utils) and [@components](https://github.com/components) aliases ([a46e658](https://github.com/Pavelgq/atme-ui-kit/commit/a46e658dad6f3df5070e6d339cfac82ca29cb670))
+
 ### [0.1.16](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.15...v0.1.16) (2026-02-14)
 
 ### Features
