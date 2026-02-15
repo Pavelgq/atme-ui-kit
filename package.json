@@ -13,6 +13,11 @@
       "import": "./dist/index.esm.js",
       "require": "./dist/index.cjs.js"
     },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.esm.js",
+      "require": "./dist/server.cjs.js"
+    },
     "./tokens": {
       "types": "./dist/tokens/index.d.ts",
       "import": "./dist/tokens/index.js"
@@ -26,7 +31,7 @@
     "prepare": "husky",
     "prepublishOnly": "npm run build",
     "dev": "vite --config .configs/vite.config.ts",
-    "build": "tsc && vite build --config .configs/vite.config.ts && cat src/styles/global.css dist/ui-kit.css > dist/styles.css",
+    "build": "tsc && vite build --config .configs/vite.config.ts && vite build --config .configs/vite.config.server.ts && cat src/styles/global.css dist/ui-kit.css > dist/styles.css",
     "type-check": "tsc --noEmit",
     "test": "vitest --config .configs/vitest.config.ts",
     "test:ui": "vitest --config .configs/vitest.config.ts --ui",
