@@ -12,6 +12,7 @@ export { isTagGroupItem } from "./types";
 export interface TagGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   tags: TagGroupTag[];
   maxVisible?: number;
+  tagProps?: Omit<TagProps, "children">;
   overflowTagProps?: Omit<TagProps, "children">;
   collapseTagProps?: Omit<TagProps, "children">;
   collapseText?: string;
@@ -24,6 +25,7 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
     {
       tags,
       maxVisible = 5,
+      tagProps,
       overflowTagProps,
       collapseTagProps,
       collapseText = "Свернуть",
@@ -75,10 +77,11 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
 
     const baseTagProps = useMemo(
       () => ({
+        ...tagProps,
         ...(size && { size }),
         ...(variant && { variant }),
       }),
-      [size, variant]
+      [tagProps, size, variant]
     );
 
     return (

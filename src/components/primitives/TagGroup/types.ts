@@ -12,4 +12,4 @@ export function isTagGroupItem(tag: TagGroupTag): tag is TagGroupItem {
   return typeof tag === "object" && tag !== null && "label" in tag;
 }
 
-export type TagGroupBaseTagProps = Partial<Pick<TagProps, "size" | "variant">>;
+export type TagGroupBaseTagProps = Partial<Omit<TagProps, "children">>;
