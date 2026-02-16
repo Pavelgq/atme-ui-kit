@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.18](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.17...v0.1.18) (2026-02-16)
+
+### Features
+
+- **tag-group:** add tagProps to customize tag properties ([eb3851c](https://github.com/Pavelgq/atme-ui-kit/commit/eb3851c1e7ef5c799eb519cdf75cf9fbcb1b6440))
+
 ### [0.1.17](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.16...v0.1.17) (2026-02-15)
 
 ### Features
