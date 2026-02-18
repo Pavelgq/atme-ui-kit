@@ -1,4 +1,4 @@
-import React, { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import cn from 'classnames';
 import { Root } from '@components/primitives/Root';
 import { BaseComponentProps } from '@components/types';
@@ -20,11 +20,10 @@ export interface DecorativeFrameProps
     Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
   /** Сторона для декоративной полосы */
   edge?: DecorativeFrameEdge;
-  /** external — наружу, internal — внутрь */
   direction?: DecorativeFrameDirection;
   /** Размер ячейки паттерна (px) */
   boxSize?: number;
-  /** Ячеек по толщине полосы (1–8). Ячейка 24×24 */
+  /** Ячеек по толщине полосы (1–8).*/
   stripDensity?: number;
   /** Палитра цветов */
   colors?: string[];
@@ -104,12 +103,11 @@ export function DecorativeFrame({
   }, [edge]);
 
   const cells = useMemo(() => {
+    if (!stripSize) return [];
     const { width, height } = getStripDimensions(stripSize, isVertical, thickness);
     const rng = createSeededRandom(baseSeedRef.current);
     return generatePattern(width, height, boxSize, colors.length, rng, edge, safeDensity);
   }, [boxSize, safeDensity, colors.length, edge, stripSize, isVertical, thickness]);
-
-  const deferredCells = useDeferredValue(cells);
 
   const stripStyle = isVertical
     ? { height: thickness }
@@ -122,7 +120,7 @@ export function DecorativeFrame({
       style={stripStyle}
       aria-hidden
     >
-      {deferredCells.map((cell) => (
+      {cells.map((cell) => (
         <PatternCell key={`${cell.x}-${cell.y}`} cell={cell} colors={colors} />
       ))}
     </div>
