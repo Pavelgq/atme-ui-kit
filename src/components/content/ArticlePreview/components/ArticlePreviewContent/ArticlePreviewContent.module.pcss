@@ -127,7 +127,6 @@
   opacity: 0.8;
 }
 
-/* --- Card view: контент слева, картинка справа. Без картинки — контент на всю ширину --- */
 .content--card {
   flex-direction: row;
   align-items: stretch;
@@ -304,4 +303,41 @@
 .content--card .description {
   -webkit-line-clamp: 2;
   line-clamp: 2;
+}
+
+@container article-preview (max-width: 480px) {
+  .content--card {
+    flex-direction: column;
+    min-height: unset;
+    gap: spacing(2);
+    padding: spacing(4);
+  }
+
+  .content--card .previewWrap {
+    order: -1;
+    width: 100%;
+    min-width: unset;
+    aspect-ratio: 16 / 9;
+    margin: 0;
+    border-radius: var(--border-radius-base);
+  }
+
+  .content--card .cardBody {
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .content--card .author {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: spacing(2);
+  }
+
+  .content--card .author .authorName {
+    min-width: 0;
+  }
+
+  .content--card .author .date {
+    justify-self: end;
+  }
 }
