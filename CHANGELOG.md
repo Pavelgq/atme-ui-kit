@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.19](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.18...v0.1.19) (2026-02-19)
+
+### Styles
+
+- **article-preview:** add container queries for responsive layout adjustments ([a0e5e5b](https://github.com/Pavelgq/atme-ui-kit/commit/a0e5e5b29b7fa822e71d06b86eb9fe756845cb68))
+
+### Code Refactoring
+
+- **decorative-frame:** remove useDeferredValue and simplify cell rendering ([d344da5](https://github.com/Pavelgq/atme-ui-kit/commit/d344da59030871793b7c9fd5ed71f9515daca8c0))
+
 ### [0.1.18](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.17...v0.1.18) (2026-02-16)
 
 ### Features
