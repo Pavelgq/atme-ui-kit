@@ -14,8 +14,8 @@ export const baseTheme: Omit<Theme, 'palette'> = {
       lg: '1.125rem',
       xl: '1.25rem',
       '2xl': '1.5rem',
-      '3xl': '1.875rem',
-      '4xl': '2.25rem',
+      '3xl': '1.75rem',
+      '4xl': '2.5rem',
     },
     fontWeight: {
       normal: 400,
