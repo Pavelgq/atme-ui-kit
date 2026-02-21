@@ -3,16 +3,43 @@
   top: 0;
   left: 0;
   opacity: 0;
-  transform-origin: var(--cell-transform-origin, 0 0);
+  transform-origin: var(--cell-transform-origin, center center);
   animation: cellReveal var(--cell-duration, 450ms)
     var(--transitions-easing-easeOut, ease-out) forwards;
   animation-delay: var(--cell-delay, 0ms);
+}
+
+.cellInner {
+  position: absolute;
+  inset: 0;
+  transform-origin: center center;
+}
+
+// Animation
+.cellInner.cellBreathes {
+  animation: cellBreathe 7s ease-in-out
+    calc(var(--cell-delay, 0ms) + var(--cell-duration, 450ms) + var(--cell-animation-phase, 0ms)) infinite;
+}
+
+.cellInner.cellPulses {
+  animation: cellPulse 6s ease-in-out
+    calc(var(--cell-delay, 0ms) + var(--cell-duration, 450ms) + var(--cell-animation-phase, 0ms)) infinite;
+}
+
+.cellInner.cellOpacity {
+  animation: cellOpacity 6s ease-in-out
+    calc(var(--cell-delay, 0ms) + var(--cell-duration, 450ms) + var(--cell-animation-phase, 0ms)) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .cell {
     animation: none;
     opacity: 1;
+  }
+  .cellInner.cellBreathes,
+  .cellInner.cellPulses,
+  .cellInner.cellOpacity {
+    animation: none;
   }
 }
 
@@ -24,6 +51,39 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes cellBreathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1.05);
+  }
+  66% {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes cellPulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  33% {
+    filter: brightness(0.8);
+  }
+  66% {
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes cellOpacity {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
   }
 }
 

@@ -32,6 +32,8 @@ export interface CellConfig {
   animationDuration: number;
   animationScaleFrom?: number;
   dotScale?: number;
+  animationType?: 'breathe' | 'pulse' | 'opacity';
+  animationPhase?: number;
 }
 
 const RNG_MULTIPLIER = 9301;
@@ -52,6 +54,11 @@ const ANIM_DURATION_MIN = 320;
 const ANIM_DURATION_RANGE = 300;
 const ANIM_SCALE_FROM_MIN = 0.8;
 const ANIM_SCALE_FROM_RANGE = 0.17;
+// Animation
+const ANIM_BREATHE_CHANCE = 0.25;
+const ANIM_PULSE_CHANCE = 0.25;
+const ANIM_OPACITY_CHANCE = 0.25;
+const ANIM_PHASE_MAX = 7000;
 const STRIPE_COUNT_MIN = 2;
 const STRIPE_COUNT_MAX = 5;
 const STRIPE_VISIBLE_CHANCE = 0.75;
@@ -192,6 +199,12 @@ function pushCell(
 
   const shape = pickShapeType(rng);
 
+  const roll = rng();
+  let animationType: 'breathe' | 'pulse' | 'opacity' | undefined;
+  if (roll < ANIM_BREATHE_CHANCE) animationType = 'breathe';
+  else if (roll < ANIM_BREATHE_CHANCE + ANIM_PULSE_CHANCE) animationType = 'pulse';
+  else if (roll < ANIM_BREATHE_CHANCE + ANIM_PULSE_CHANCE + ANIM_OPACITY_CHANCE) animationType = 'opacity';
+
   cells.push({
     x,
     y,
@@ -208,5 +221,7 @@ function pushCell(
     animationDuration: ANIM_DURATION_MIN + Math.floor(rng() * ANIM_DURATION_RANGE),
     animationScaleFrom: ANIM_SCALE_FROM_MIN + rng() * ANIM_SCALE_FROM_RANGE,
     dotScale: shape.dotScale,
+    animationType,
+    animationPhase: animationType ? Math.floor(rng() * ANIM_PHASE_MAX) : undefined,
   });
 }

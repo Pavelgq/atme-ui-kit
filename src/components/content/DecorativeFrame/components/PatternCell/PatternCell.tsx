@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import type { CellConfig, Point2D } from '../../utils/patternGenerator';
 import { TRIANGLE_TEMPLATES } from '../../utils/patternGenerator';
 import styles from './PatternCell.module.pcss';
@@ -31,6 +32,8 @@ export function PatternCell({ cell, colors }: PatternCellProps) {
     animationDuration,
     animationScaleFrom = 0.9,
     dotScale = 0.45,
+    animationType,
+    animationPhase = 0,
   } = cell;
 
   const stripeWidth =
@@ -48,17 +51,22 @@ export function PatternCell({ cell, colors }: PatternCellProps) {
     '--cell-delay': `${animationDelay}ms`,
     '--cell-duration': `${animationDuration}ms`,
     '--cell-scale-from': animationScaleFrom,
+    '--cell-animation-phase': `${animationPhase}ms`,
   } as React.CSSProperties;
 
   return (
-    <div
-      className={styles.cell}
-      style={cellStyle}
-      aria-hidden
-    >
-      <div className={styles.bg} style={{ backgroundColor: bgColor }} />
+    <div className={styles.cell} style={cellStyle} aria-hidden>
+      <div
+        className={cn(
+          styles.cellInner,
+          animationType === 'breathe' && styles.cellBreathes,
+          animationType === 'pulse' && styles.cellPulses,
+          animationType === 'opacity' && styles.cellOpacity
+        )}
+      >
+        <div className={styles.bg} style={{ backgroundColor: bgColor }} />
 
-      {shapeType === 'circle' && (
+        {shapeType === 'circle' && (
         <div
           className={styles.shapeCircle}
           style={{ backgroundColor: shapeColor }}
@@ -136,6 +144,7 @@ export function PatternCell({ cell, colors }: PatternCellProps) {
           )}
         </div>
       )}
+      </div>
     </div>
   );
 }
