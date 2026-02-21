@@ -20,6 +20,7 @@ export interface ArticlePreviewContentProps {
   formattedDate: string;
   view: ArticlePreviewContentView;
   tags?: React.ReactNode;
+  href?: string;
 }
 
 function formatViews(count: number): string {
@@ -46,6 +47,7 @@ export function ArticlePreviewContent({
   formattedDate,
   view,
   tags,
+  href,
 }: ArticlePreviewContentProps) {
   if (view === 'row') {
     return (
@@ -123,20 +125,37 @@ export function ArticlePreviewContent({
                 {tags}
               </div>
             )}
-            <div className={styles.meta}>
-              {readingTimeMinutes != null && (
-                <span className={styles.readingTime} title="Время чтения">
-                  <AnimatedClockIcon size={14} className={styles.clockIcon} />
-                  <span>{formatReadingTime(readingTimeMinutes)}</span>
-                </span>
-              )}
-              {viewsCount != null && (
-                <span className={styles.views} title="Просмотры">
-                  <AnimatedEyeIcon size={14} className={styles.eyeIcon} />
-                  <span>{formatViews(viewsCount)}</span>
-                </span>
-              )}
-            </div>
+            {href ? (
+              <a href={href} className={styles.meta}>
+                {readingTimeMinutes != null && (
+                  <span className={styles.readingTime} title="Время чтения">
+                    <AnimatedClockIcon size={14} className={styles.clockIcon} />
+                    <span>{formatReadingTime(readingTimeMinutes)}</span>
+                  </span>
+                )}
+                {viewsCount != null && (
+                  <span className={styles.views} title="Просмотры">
+                    <AnimatedEyeIcon size={14} className={styles.eyeIcon} />
+                    <span>{formatViews(viewsCount)}</span>
+                  </span>
+                )}
+              </a>
+            ) : (
+              <div className={styles.meta}>
+                {readingTimeMinutes != null && (
+                  <span className={styles.readingTime} title="Время чтения">
+                    <AnimatedClockIcon size={14} className={styles.clockIcon} />
+                    <span>{formatReadingTime(readingTimeMinutes)}</span>
+                  </span>
+                )}
+                {viewsCount != null && (
+                  <span className={styles.views} title="Просмотры">
+                    <AnimatedEyeIcon size={14} className={styles.eyeIcon} />
+                    <span>{formatViews(viewsCount)}</span>
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         </div>
         {imageUrl && (

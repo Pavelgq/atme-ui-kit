@@ -91,27 +91,42 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
         formattedDate={formattedDate}
         view={view}
         tags={tags}
+        href={href}
       />
     );
 
-    const wrapperProps = {
+    const rootProps = {
       className: sharedClassName,
-      onClick,
-      onKeyDown: isInteractive ? handleKeyDown : onKeyDown,
       'data-atme-ui': true,
       'data-testid': testId,
-      ...(href
-        ? { href }
-        : { role: isInteractive ? 'button' : undefined, tabIndex: isInteractive ? 0 : undefined }),
       ...props,
     };
 
-    return href ? (
-      <a ref={ref as React.Ref<HTMLAnchorElement>} {...wrapperProps}>
-        {content}
-      </a>
-    ) : (
-      <div ref={ref as React.Ref<HTMLDivElement>} {...wrapperProps}>
+    /* С href: stretched link + z-index — ссылка под контентом, теги/автор/мета поверх (z-index: 2) */
+    if (href) {
+      return (
+        <div ref={ref as React.Ref<HTMLDivElement>} {...rootProps}>
+          <a
+            href={href}
+            className={styles.cardLink}
+            aria-label={`Перейти к статье: ${title}`}
+            onClick={onClick}
+          />
+          {content}
+        </div>
+      );
+    }
+
+    /* Без href: div с onClick (теги с stopPropagation не вызывают переход) */
+    return (
+      <div
+        ref={ref as React.Ref<HTMLDivElement>}
+        {...rootProps}
+        onClick={onClick}
+        onKeyDown={isInteractive ? handleKeyDown : onKeyDown}
+        role={isInteractive ? 'button' : undefined}
+        tabIndex={isInteractive ? 0 : undefined}
+      >
         {content}
       </div>
     );

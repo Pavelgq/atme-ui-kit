@@ -1,4 +1,5 @@
 .root {
+  position: relative;
   display: block;
   background-color: var(--palette-background-paper);
   border: var(--border-base) solid var(--palette-border-subtle);
@@ -14,6 +15,17 @@
 
 .root--interactive {
   cursor: pointer;
+}
+
+.cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cardLink:focus-visible {
+  outline: 2px solid var(--palette-primary-main);
+  outline-offset: 2px;
 }
 
 .root--interactive:hover {
