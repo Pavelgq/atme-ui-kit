@@ -60,8 +60,8 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
     },
     ref
   ) => {
-    // Вычисляем значение gap через утилиту
     const gapValue = getSpacingVar(gap);
+    const { style: styleProp, ...restProps } = props;
 
     return (
       <Component
@@ -75,9 +75,9 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
           styles[`stack--wrap-${wrap}`],
           className
         )}
-        style={{ gap: gapValue, ...props.style }}
+        style={{ ...styleProp, gap: gapValue }}
         {...(testId && { "data-testid": testId })}
-        {...props}
+        {...restProps}
       >
         {children}
       </Component>
