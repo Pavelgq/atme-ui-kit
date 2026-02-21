@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.22](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.20...v0.1.22) (2026-02-21)
+
+### Features
+
+- **article-preview:** make whole card clickable with stretched link pattern ([7adc93a](https://github.com/Pavelgq/atme-ui-kit/commit/7adc93ab83508a1ba9886729daaf3f59b18739d0))
+- **decorative-frame:** add breathe, pulse, opacity animations to cells ([65357c1](https://github.com/Pavelgq/atme-ui-kit/commit/65357c1b09972224741794d10df56cf6c2e8b5a2))
+
+### Bug Fixes
+
+- **stack:** preserve gap when style prop is passed ([c5d723c](https://github.com/Pavelgq/atme-ui-kit/commit/c5d723c602c8354b2a566331ac5e3a010a83b3b3))
+
+### Styles
+
+- **pattern-cell:** update comment for animation section in CSS module ([069c594](https://github.com/Pavelgq/atme-ui-kit/commit/069c59405921aa8ad6e4d9530a2da7012ea9b130))
+
 ### [0.1.21](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.20...v0.1.21) (2026-02-21)
 
 ### Features
