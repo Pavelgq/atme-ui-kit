@@ -18,7 +18,7 @@ const meta: Meta<typeof TableOfContents> = {
   tags: ['autodocs'],
   argTypes: {
     items: {
-      description: 'Список глав: id, href (якорь), label',
+      description: 'Список пунктов: id, href (якорь), label, level (2–6, по умолчанию 2 — раздел, 3+ — подраздел с отступом)',
     },
     activeId: {
       description: 'id активной секции (из useActiveSection)',
@@ -38,6 +38,16 @@ const defaultItems = [
   { id: 'glava-1', href: '#glava-1', label: 'Глава 1. Основы' },
   { id: 'glava-2', href: '#glava-2', label: 'Глава 2. Продвинутые темы' },
   { id: 'zaklyuchenie', href: '#zaklyuchenie', label: 'Заключение' },
+];
+
+const itemsWithHierarchy = [
+  { id: 'intro', href: '#intro', label: 'Введение', level: 2 as const },
+  { id: 'ch1', href: '#ch1', label: 'Глава 1. Основы', level: 2 as const },
+  { id: 'ch1-1', href: '#ch1-1', label: 'Что такое основы', level: 3 as const },
+  { id: 'ch1-2', href: '#ch1-2', label: 'Синтаксис', level: 3 as const },
+  { id: 'ch2', href: '#ch2', label: 'Глава 2. Продвинутые темы', level: 2 as const },
+  { id: 'ch2-1', href: '#ch2-1', label: 'Оптимизация', level: 3 as const },
+  { id: 'outro', href: '#outro', label: 'Заключение', level: 2 as const },
 ];
 
 export const Default: Story = {
@@ -131,6 +141,21 @@ export const WithScrollHighlight: Story = {
       description: {
         story:
           'Скролльте страницу вниз — активный пункт в содержании обновляется. Логика в `useActiveSection`, UI только отображает.',
+      },
+    },
+  },
+};
+
+export const WithHierarchy: Story = {
+  args: {
+    items: itemsWithHierarchy,
+    title: 'Содержание',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Иерархия по level: разделы (level 2) с отступом сверху, подразделы (level 3+) с отступом слева — визуально видно, что раздел, а что подраздел.',
       },
     },
   },

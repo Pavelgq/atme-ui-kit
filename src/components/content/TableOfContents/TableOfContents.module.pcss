@@ -22,6 +22,37 @@
   padding: 0;
 }
 
+.item--level2 {
+  margin-top: spacing(2);
+}
+
+.item--level2:first-child {
+  margin-top: 0;
+}
+
+.item--level3,
+.item--level4,
+.item--level5,
+.item--level6 {
+  margin-top: spacing(0.5);
+}
+
+.item--level3 .link {
+  padding-left: spacing(2);
+}
+
+.item--level4 .link {
+  padding-left: spacing(4);
+}
+
+.item--level5 .link {
+  padding-left: spacing(6);
+}
+
+.item--level6 .link {
+  padding-left: spacing(8);
+}
+
 .item:not(:last-child) {
   border-bottom: 1px solid var(--palette-border-subtle);
 }

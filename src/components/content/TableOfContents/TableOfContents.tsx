@@ -5,10 +5,13 @@ import { Typography } from '@components/primitives/Typography';
 import { BaseComponentProps } from '@components/types';
 import styles from './TableOfContents.module.pcss';
 
+export type TableOfContentsLevel = 2 | 3 | 4 | 5 | 6;
+
 export interface TableOfContentsItem {
   id: string;
   href: string;
   label: string;
+  level?: TableOfContentsLevel;
 }
 
 export interface TableOfContentsProps extends BaseComponentProps {
@@ -42,8 +45,12 @@ export const TableOfContents = forwardRef<HTMLElement, TableOfContentsProps>(
         <ol className={styles.list} role="list">
           {items.map((item) => {
             const isActive = activeId === item.id;
+            const level = item.level ?? 2;
             return (
-              <li key={item.id} className={styles.item}>
+              <li
+                key={item.id}
+                className={cn(styles.item, styles[`item--level${level}`])}
+              >
                 <a
                   href={item.href}
                   className={cn(styles.link, isActive && styles['link--active'])}
