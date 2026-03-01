@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.23](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.22...v0.1.23) (2026-03-01)
+
+### Features
+
+- **table-of-contents:** add TableOfContentsLevel type and export Term component ([cac8149](https://github.com/Pavelgq/atme-ui-kit/commit/cac81494e2f74811d841671089fd8277338d3d68))
+- **table-of-contents:** enhance item hierarchy with levels and styling adjustments ([8bda417](https://github.com/Pavelgq/atme-ui-kit/commit/8bda4173832f87b9eaddad82c653ea597003b0fe))
+- **term:** implement Term component with tooltip functionality and styles ([e40a239](https://github.com/Pavelgq/atme-ui-kit/commit/e40a239a4c11a4018e6d8e41efe3ce1be9bb4fec))
+
 ### [0.1.22](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.20...v0.1.22) (2026-02-21)
 
 ### Features
