@@ -1,0 +1,33 @@
+.wrapper {
+  position: relative;
+  display: inline;
+}
+
+.term {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+  cursor: help;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-0.25em);
+  padding: 0.5em 0.75em;
+  font-size: var(--typography-font-size-sm);
+  line-height: var(--typography-line-height-normal);
+  color: var(--palette-text-primary-inverse, #fff);
+  background: var(--palette-background-overlay, #1a1a1a);
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  white-space: normal;
+  max-width: 280px;
+  pointer-events: none;
+}
+
+.tooltipMeasure {
+  visibility: hidden;
+}
