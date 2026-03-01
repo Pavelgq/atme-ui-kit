@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.24](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.23...v0.1.24) (2026-03-01)
+
+### Code Refactoring
+
+- **term:** simplify Term component by removing tooltip functionality and related styles ([e8ce2d6](https://github.com/Pavelgq/atme-ui-kit/commit/e8ce2d6d8fffdbd0db35fe374659158f72e7156e))
+
 ### [0.1.23](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.22...v0.1.23) (2026-03-01)
 
 ### Features
