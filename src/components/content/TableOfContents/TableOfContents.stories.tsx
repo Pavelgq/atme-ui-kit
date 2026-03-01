@@ -50,6 +50,16 @@ const itemsWithHierarchy = [
   { id: 'outro', href: '#outro', label: 'Заключение', level: 2 as const },
 ];
 
+const itemsForScrollHighlight = [
+  { id: 'vvedenie', href: '#vvedenie', label: 'Введение', level: 2 as const },
+  { id: 'glava-1', href: '#glava-1', label: 'Глава 1. Основы', level: 2 as const },
+  { id: 'glava-1-osnovy', href: '#glava-1-osnovy', label: 'Что такое основы', level: 3 as const },
+  { id: 'glava-1-sintaksis', href: '#glava-1-sintaksis', label: 'Синтаксис', level: 3 as const },
+  { id: 'glava-2', href: '#glava-2', label: 'Глава 2. Продвинутые темы', level: 2 as const },
+  { id: 'glava-2-optimizaciya', href: '#glava-2-optimizaciya', label: 'Оптимизация', level: 3 as const },
+  { id: 'zaklyuchenie', href: '#zaklyuchenie', label: 'Заключение', level: 2 as const },
+];
+
 export const Default: Story = {
   args: {
     items: defaultItems,
@@ -74,7 +84,7 @@ export const WithActiveItem: Story = {
 
 /** Обёртка: страница статьи с боковым содержанием и привязкой к скроллу */
 function ArticleWithTOC() {
-  const sectionIds = defaultItems.map((i) => i.id);
+  const sectionIds = itemsForScrollHighlight.map((i) => i.id);
   const activeId = useActiveSection(sectionIds, { offset: 120 });
 
   return (
@@ -89,7 +99,7 @@ function ArticleWithTOC() {
       }}
     >
       <aside style={{ position: 'sticky', top: 24 }}>
-        <TableOfContents items={defaultItems} activeId={activeId} />
+        <TableOfContents items={itemsForScrollHighlight} activeId={activeId} />
       </aside>
       <article style={{ paddingBottom: '10rem' }}>
         <section id="vvedenie" style={{ marginBottom: '4rem' }}>
@@ -105,19 +115,43 @@ function ArticleWithTOC() {
           <Typography variant="h2" as="h2" style={{ marginBottom: '1rem' }}>
             Глава 1. Основы
           </Typography>
-          <Typography>
+          <Typography style={{ marginBottom: '2rem' }}>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
             Duis aute irure dolor in reprehenderit in voluptate.
           </Typography>
+          <section id="glava-1-osnovy" style={{ marginBottom: '2rem' }}>
+            <Typography variant="h3" as="h3" style={{ marginBottom: '0.5rem' }}>
+              Что такое основы
+            </Typography>
+            <Typography>
+              Раздел о базовых понятиях и принципах.
+            </Typography>
+          </section>
+          <section id="glava-1-sintaksis" style={{ marginBottom: '2rem' }}>
+            <Typography variant="h3" as="h3" style={{ marginBottom: '0.5rem' }}>
+              Синтаксис
+            </Typography>
+            <Typography>
+              Правила написания и оформления кода.
+            </Typography>
+          </section>
         </section>
         <section id="glava-2" style={{ marginBottom: '4rem' }}>
           <Typography variant="h2" as="h2" style={{ marginBottom: '1rem' }}>
             Глава 2. Продвинутые темы
           </Typography>
-          <Typography>
+          <Typography style={{ marginBottom: '2rem' }}>
             Excepteur sint occaecat cupidatat non proident. Sunt in culpa qui
             officia deserunt mollit anim id est laborum.
           </Typography>
+          <section id="glava-2-optimizaciya" style={{ marginBottom: '2rem' }}>
+            <Typography variant="h3" as="h3" style={{ marginBottom: '0.5rem' }}>
+              Оптимизация
+            </Typography>
+            <Typography>
+              Приёмы ускорения и уменьшения объёма.
+            </Typography>
+          </section>
         </section>
         <section id="zaklyuchenie">
           <Typography variant="h2" as="h2" style={{ marginBottom: '1rem' }}>
@@ -155,7 +189,7 @@ export const WithHierarchy: Story = {
     docs: {
       description: {
         story:
-          'Иерархия по level: разделы (level 2) с отступом сверху, подразделы (level 3+) с отступом слева — визуально видно, что раздел, а что подраздел.',
+          'Иерархия по level: подразделы (level 3+) с отступом слева — визуально видно, что раздел, а что подраздел.',
       },
     },
   },

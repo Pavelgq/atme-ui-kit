@@ -11,7 +11,6 @@ const meta: Meta<typeof Term> = {
   tags: ["autodocs"],
   argTypes: {
     definition: { control: "text" },
-    tooltipWidth: { control: "text" },
   },
 };
 
@@ -38,19 +37,3 @@ export const InText: Story = {
   },
 };
 
-export const CustomWidth: Story = {
-  args: {
-    definition:
-      "Очень длинное пояснение, которое не должно растягивать тултип на всю ширину экрана. Максимальная ширина задана в 200 пикселей.",
-    children: "узкий тултип",
-    tooltipWidth: 200,
-  },
-};
-
-export const CustomWidthRem: Story = {
-  args: {
-    definition: "Ширина тултипа может быть задана в rem, например 18rem.",
-    children: "ширина 18rem",
-    tooltipWidth: "18rem",
-  },
-};
