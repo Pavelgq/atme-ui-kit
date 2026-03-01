@@ -62,6 +62,9 @@ export type { LinkProps } from './primitives/Link';
 export { Quote } from './primitives/Quote';
 export type { QuoteProps } from './primitives/Quote';
 
+export { Term } from './primitives/Term';
+export type { TermProps } from './primitives/Term';
+
 export { CodeBlock } from './primitives/CodeBlock';
 export type { CodeBlockProps } from './primitives/CodeBlock';
 
@@ -78,7 +81,11 @@ export { ArticlePreview } from './content/ArticlePreview';
 export type { ArticlePreviewProps, ArticlePreviewView } from './content/ArticlePreview';
 
 export { TableOfContents } from './content/TableOfContents';
-export type { TableOfContentsProps, TableOfContentsItem } from './content/TableOfContents';
+export type {
+  TableOfContentsProps,
+  TableOfContentsItem,
+  TableOfContentsLevel,
+} from './content/TableOfContents';
 
 export { DecorativeFrame } from './content/DecorativeFrame';
 export type {
