@@ -33,6 +33,7 @@ export interface ArticlePreviewProps
   imageAlt?: string;
   href?: string;
   tags?: React.ReactNode;
+  contentClassName?: string;
 }
 
 export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, ArticlePreviewProps>(
@@ -51,6 +52,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
       href,
       tags,
       className,
+      contentClassName,
       testId,
       onClick,
       onKeyDown,
@@ -92,6 +94,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
         view={view}
         tags={tags}
         href={href}
+        className={contentClassName}
       />
     );
 

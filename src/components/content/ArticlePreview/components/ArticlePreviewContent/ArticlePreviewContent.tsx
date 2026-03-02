@@ -21,6 +21,7 @@ export interface ArticlePreviewContentProps {
   view: ArticlePreviewContentView;
   tags?: React.ReactNode;
   href?: string;
+  className?: string;
 }
 
 function formatViews(count: number): string {
@@ -48,10 +49,11 @@ export function ArticlePreviewContent({
   view,
   tags,
   href,
+  className,
 }: ArticlePreviewContentProps) {
   if (view === 'row') {
     return (
-      <div className={cn(styles.content, styles['content--row'])}>
+      <div className={cn(styles.content, styles['content--row'], className)}>
         <div className={styles.rowIcon} aria-hidden>
           <FileTextIcon size={24} strokeWidth={2} />
         </div>
@@ -82,7 +84,14 @@ export function ArticlePreviewContent({
 
   if (view === 'card') {
     return (
-      <div className={cn(styles.content, styles['content--card'], !imageUrl && styles['content--card-no-image'])}>
+      <div
+        className={cn(
+          styles.content,
+          styles['content--card'],
+          !imageUrl && styles['content--card-no-image'],
+          className
+        )}
+      >
         <div className={styles.cardBody}>
           {author ? (
             <div className={styles.author} onClick={(e) => e.stopPropagation()}>

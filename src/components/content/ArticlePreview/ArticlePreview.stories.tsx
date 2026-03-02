@@ -268,6 +268,58 @@ export const ViewCard: Story = {
   },
 };
 
+export const CardsGridEqualHeight: Story = {
+  render: () => (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+        gap: 24,
+        alignItems: 'stretch',
+      }}
+    >
+      <ArticlePreview
+        title="Короткая статья"
+        publishedAt={defaultDate}
+        description="Совсем немного описания."
+        view="card"
+        imageUrl="https://picsum.photos/300/200?random=1"
+        readingTimeMinutes={3}
+        viewsCount={120}
+      />
+      <ArticlePreview
+        title="Средняя по объёму статья"
+        publishedAt="2025-02-10"
+        description="Описание в несколько предложений, чтобы карточка стала чуть выше и можно было увидеть, как работает расширяющийся отступ перед футером."
+        view="card"
+        imageUrl="https://picsum.photos/300/220?random=2"
+        readingTimeMinutes={8}
+        viewsCount={3456}
+        tags={exampleTags}
+      />
+      <ArticlePreview
+        title="Очень длинная и подробная статья с большим количеством текста"
+        publishedAt="2025-02-15"
+        description="Здесь уже много строчек описания, которое должно обрезаться и при этом футер с мета‑информацией внизу остаётся на одной линии с другими карточками в сетке."
+        view="card"
+        imageUrl="https://picsum.photos/300/240?random=3"
+        readingTimeMinutes={25}
+        viewsCount={12345}
+        author={{ name: 'Автор Подробной Статьи', avatarUrl: 'https://i.pravatar.cc/64?img=45' }}
+        tags={exampleTags}
+      />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Несколько карточек в сетке с разным количеством контента. За счёт растягивания карточки и футера снизу визуально выравниваются по высоте.',
+      },
+    },
+  },
+};
+
 export const Playground: Story = {
   args: {
     title: shortTitle,
