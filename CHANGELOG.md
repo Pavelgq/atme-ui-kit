@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.25](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.24...v0.1.25) (2026-03-02)
+
+### Features
+
+- **article-preview:** enhance ArticlePreview component ([80802c7](https://github.com/Pavelgq/atme-ui-kit/commit/80802c7df3991785ae0f92d1792520243521eec6))
+
 ### [0.1.24](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.23...v0.1.24) (2026-03-01)
 
 ### Code Refactoring
