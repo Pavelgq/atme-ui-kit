@@ -62,6 +62,9 @@ export type { LinkProps } from './primitives/Link';
 export { Quote } from './primitives/Quote';
 export type { QuoteProps } from './primitives/Quote';
 
+export { Callout } from './primitives/Callout';
+export type { CalloutProps, CalloutTone } from './primitives/Callout';
+
 export { Term } from './primitives/Term';
 export type { TermProps } from './primitives/Term';
 

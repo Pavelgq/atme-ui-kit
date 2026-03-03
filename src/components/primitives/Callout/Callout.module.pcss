@@ -1,0 +1,59 @@
+.callout {
+  --callout-border-color: var(--palette-border-subtle);
+  --callout-icon-border-color: var(--palette-primary-main);
+  --callout-icon-bg-color: var(--palette-background-default);
+  --callout-icon-color: var(--palette-primary-main);
+
+  display: flex;
+  align-items: flex-start;
+  gap: spacing(3);
+  padding: spacing(3) spacing(4);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--palette-background-paper);
+  border: var(--border-base) solid var(--callout-border-color);
+}
+
+.callout--tone-info {
+  --callout-border-color: var(--palette-border-subtle);
+  --callout-icon-border-color: var(--palette-primary-main);
+  --callout-icon-bg-color: var(--palette-background-default);
+  --callout-icon-color: var(--palette-primary-main);
+}
+
+.callout--tone-warning {
+  --callout-border-color: var(--palette-warning-main);
+  --callout-icon-border-color: var(--palette-warning-main);
+  --callout-icon-bg-color: var(--palette-background-default);
+  --callout-icon-color: var(--palette-warning-main);
+}
+
+.callout--tone-success {
+  --callout-border-color: var(--palette-success-main);
+  --callout-icon-border-color: var(--palette-success-main);
+  --callout-icon-bg-color: var(--palette-background-default);
+  --callout-icon-color: var(--palette-success-main);
+}
+
+.icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: spacing(6);
+  height: spacing(6);
+  border-radius: var(--border-radius-full, 9999px);
+  border: var(--border-base) solid var(--callout-icon-border-color);
+  background-color: var(--callout-icon-bg-color);
+}
+
+.iconSvg {
+  width: spacing(4);
+  height: spacing(4);
+  color: var(--callout-icon-color);
+}
+
+.text {
+  margin: 0;
+  color: var(--palette-text-primary);
+}
+
