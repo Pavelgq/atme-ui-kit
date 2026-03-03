@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.26](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.25...v0.1.26) (2026-03-03)
+
+### Features
+
+- **callout:** add Callout component with styles and stories ([2fd0ebf](https://github.com/Pavelgq/atme-ui-kit/commit/2fd0ebf494d7d9b617e5e96647329a05644127fe))
+
+### Code Refactoring
+
+- **button:** refactored button styles ([424e235](https://github.com/Pavelgq/atme-ui-kit/commit/424e23596d2eff8e17fff1e9a80f525c700de18d))
+
 ### [0.1.25](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.24...v0.1.25) (2026-03-02)
 
 ### Features
