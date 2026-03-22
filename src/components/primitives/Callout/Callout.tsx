@@ -12,6 +12,7 @@ export interface CalloutProps
   extends BaseComponentProps,
     React.HTMLAttributes<HTMLElement> {
   tone?: CalloutTone;
+  textAs?: React.ElementType;
   children: React.ReactNode;
 }
 
@@ -103,6 +104,7 @@ export const Callout: React.FC<CalloutProps> = ({
   testId,
   children,
   tone = "info",
+  textAs = "div",
   ...props
 }) => {
   return (
@@ -113,7 +115,7 @@ export const Callout: React.FC<CalloutProps> = ({
       {...props}
     >
       <div className={styles.icon}>{renderIcon(tone)}</div>
-      <Typography variant="body" as="p" className={styles.text}>
+      <Typography variant="body" as={textAs} className={styles.text}>
         {children}
       </Typography>
     </Root>
