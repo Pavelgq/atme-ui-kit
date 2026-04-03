@@ -39,28 +39,28 @@
 }
 
 .button--close {
-  background-color: #dc6464;
-  color: #333;
+  background-color: var(--palette-error-main);
+  color: var(--palette-error-contrast-text);
 
   &:hover:not(:disabled) {
-    background-color: #d05555;
+    background-color: var(--palette-error-hover);
   }
 
   &:active:not(:disabled) {
-    background-color: #c44a4a;
+    background-color: var(--palette-error-active);
   }
 }
 
 .button--expand {
-  background-color: #78be78;
-  color: #333;
+  background-color: var(--palette-success-main);
+  color: var(--palette-success-contrast-text);
 
   &:hover:not(:disabled) {
-    background-color: #6ab06a;
+    background-color: var(--palette-success-hover);
   }
 
   &:active:not(:disabled) {
-    background-color: #5da55d;
+    background-color: var(--palette-success-active);
   }
 }
 
@@ -71,25 +71,5 @@
 
   &:active:not(:disabled) {
     background-color: rgba(255, 255, 255, 0.2);
-  }
-}
-
-[data-color-scheme='dark'] .button--close {
-  &:hover:not(:disabled) {
-    background-color: #e07070;
-  }
-
-  &:active:not(:disabled) {
-    background-color: #c44a4a;
-  }
-}
-
-[data-color-scheme='dark'] .button--expand {
-  &:hover:not(:disabled) {
-    background-color: #85c985;
-  }
-
-  &:active:not(:disabled) {
-    background-color: #5da55d;
   }
 }
