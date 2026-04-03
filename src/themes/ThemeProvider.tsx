@@ -55,10 +55,10 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ theme = 'light', childre
 
     const customBlock =
       name === 'custom'
-        ? `[data-theme="custom"]{${cssVarsToBlock(themeToCssVars(resolved))}}`
+        ? `[data-color-scheme="custom"]{${cssVarsToBlock(themeToCssVars(resolved))}}`
         : '';
 
-    const styles = `[data-theme="light"]{${LIGHT_VARS}}[data-theme="dark"]{${DARK_VARS}}${customBlock}`;
+    const styles = `[data-color-scheme="light"]{${LIGHT_VARS}}[data-color-scheme="dark"]{${DARK_VARS}}${customBlock}`;
 
     return { fullTheme: resolved, themeName: name, themeStyles: styles };
   }, [theme]);
@@ -66,7 +66,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ theme = 'light', childre
   const contextValue = useMemo(() => ({ theme: fullTheme }), [fullTheme]);
 
   return (
-    <div data-theme={themeName} className={styles.wrapper}>
+    <div data-color-scheme={themeName} className={styles.wrapper}>
       <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
       <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>
     </div>

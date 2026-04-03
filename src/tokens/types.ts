@@ -15,16 +15,19 @@ export interface Palette {
     main: string;
     hover: string;
     active: string;
+    contrastText: string;
   };
   warning: {
     main: string;
     hover: string;
     active: string;
+    contrastText: string;
   };
   success: {
     main: string;
     hover: string;
     active: string;
+    contrastText: string;
   };
   text: {
     primary: string;
