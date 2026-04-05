@@ -42,6 +42,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           styles.button,
           styles[`button--${variant}`],
           styles[`button--${size}`],
+          startIcon && !loading && styles["button--hasStartIcon"],
+          endIcon && !loading && styles["button--hasEndIcon"],
           fullWidth && styles["button--fullWidth"],
           loading && styles["button--loading"],
           className
