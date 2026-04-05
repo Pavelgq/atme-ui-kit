@@ -52,6 +52,7 @@ export interface Spacing {
 
 export interface Typography {
   fontFamily: string;
+  fontFamilyContent?: string;
   fontSize: {
     xs: string;
     sm: string;

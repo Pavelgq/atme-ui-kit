@@ -7,6 +7,7 @@ export const baseTheme: Omit<Theme, 'palette'> = {
   },
   typography: {
     fontFamily: '"Martian Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamilyContent: '"Lora", "Palatino Linotype", "Book Antiqua", Georgia, serif',
     fontSize: {
       xs: '0.75rem',
       sm: '0.875rem',
