@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.28](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.27...v0.1.28) (2026-04-05)
+
+### Features
+
+- **ArticlePreview:** add showPlaceholder prop and enhance image handling in ArticlePreviewContent ([6a678ad](https://github.com/Pavelgq/atme-ui-kit/commit/6a678ad9dff220c0d9546caf929456c4cdd00143))
+- **Button:** enhance button styles and add icon support; refactor button size adjustments ([6b6f26a](https://github.com/Pavelgq/atme-ui-kit/commit/6b6f26a15f77cc7fd59ece0848e2d99e54f3db60))
+- **DismissIcon:** add DismissIcon component and integrate into Tag component ([ec5eef5](https://github.com/Pavelgq/atme-ui-kit/commit/ec5eef58ec69c0da9e2c3b3e1da4aa89964aa6d1))
+- **Quote:** integrate QuoteIcon and improve layout with title bar ([4c02e4a](https://github.com/Pavelgq/atme-ui-kit/commit/4c02e4ac4233378f9062da2dcc9d74b15149c633))
+- **theme:** update color scheme and enhance theme variables for light and dark themes ([cd573b2](https://github.com/Pavelgq/atme-ui-kit/commit/cd573b2d6e9db2be576bed9925e442c1edb60bf2))
+- **Typography:** add font overrides for UI and content typography ([21475b4](https://github.com/Pavelgq/atme-ui-kit/commit/21475b49802ed6de0ac703cf0a34f9abe39e983f))
+- **typography:** add font property to Typography component and update theme types ([54837b6](https://github.com/Pavelgq/atme-ui-kit/commit/54837b6bf711e18fe88474db83bfcdb8440d582f))
+
+### Code Refactoring
+
+- **styles:** update color variables for buttons, badges, and code blocks ([b950bfb](https://github.com/Pavelgq/atme-ui-kit/commit/b950bfb8bd6d788139d8a763e7c84a9c3abfb409))
+
 ### [0.1.27](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.26...v0.1.27) (2026-03-22)
 
 ### Features
