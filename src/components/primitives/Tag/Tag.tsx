@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
 import cn from "classnames";
 import styles from "./Tag.module.pcss";
+import { DismissIcon } from "../Icon/Icons/custom/DismissIcon/DismissIcon";
+import { HashIcon } from "../Icon/Icons/custom/HashIcon/HashIcon";
 
 export type TagVariant =
   | "primary"
@@ -18,6 +20,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   iconPosition?: "left" | "right";
   closeable?: boolean;
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  hashtag?: boolean;
   children: React.ReactNode;
   href?: string;
 }
@@ -43,6 +46,7 @@ export const Tag = forwardRef<TagRootElement, TagProps>(
       iconPosition = "left",
       closeable = false,
       onClose,
+      hashtag = false,
       children,
       className,
       href,
@@ -58,16 +62,26 @@ export const Tag = forwardRef<TagRootElement, TagProps>(
     const rootProps = href
       ? { ...props, href, as: "a" as const, "data-atme-ui": true }
       : { ...props, as: "span" as const, "data-atme-ui": true };
+    const hasLeadingIcon = hashtag || (!!icon && iconPosition === "left");
+    const hasTrailingIcon = closeable || (!!icon && iconPosition === "right");
+
     const classNameComputed = cn(
       styles.tag,
       styles[`tag--${variant}`],
       styles[`tag--${size}`],
       href && styles["tag--link"],
+      hasLeadingIcon && styles["tag--hasLeadingIcon"],
+      hasTrailingIcon && styles["tag--hasTrailingIcon"],
       className
     );
 
     return (
       <TagRoot ref={ref} className={classNameComputed} {...rootProps}>
+        {hashtag && (
+          <span className={styles.tagHashIcon}>
+            <HashIcon width="0.85em" height="0.85em" />
+          </span>
+        )}
         {icon && iconPosition === "left" && (
           <span className={styles.tagIcon}>{icon}</span>
         )}
@@ -82,7 +96,7 @@ export const Tag = forwardRef<TagRootElement, TagProps>(
             onClick={handleClose}
             aria-label="Close tag"
           >
-            ×
+            <DismissIcon width="0.7em" height="0.7em" />
           </button>
         )}
       </TagRoot>

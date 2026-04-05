@@ -10,4 +10,5 @@ export {
   HomeIcon,
 } from './lucide';
 export type { HeartIconProps } from './lucide';
-export { HashIcon, LinkIcon } from './custom';
+export { DismissIcon, HashIcon, LinkIcon, QuoteIcon } from './custom';
+export type { DismissIconProps } from './custom';

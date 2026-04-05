@@ -2,12 +2,19 @@
   display: inline-flex;
   align-items: center;
   gap: spacing(1);
-  border-radius: var(--border-radius-base);
+  border: var(--border-base) solid transparent;
+  border-radius: var(--border-radius-md);
   font-family: var(--typography-font-family);
   font-weight: var(--typography-font-weight-medium);
+  letter-spacing: 0.02em;
   line-height: 1;
   white-space: nowrap;
-  transition: transform var(--transitions-duration-base) var(--transitions-easing-easeInOut);
+  transition:
+    background-color var(--transitions-duration-fast) var(--transitions-easing-easeOut),
+    border-color var(--transitions-duration-fast) var(--transitions-easing-easeOut),
+    color var(--transitions-duration-fast) var(--transitions-easing-easeOut),
+    box-shadow var(--transitions-duration-fast) var(--transitions-easing-easeOut),
+    transform var(--transitions-duration-fast) var(--transitions-easing-easeOut);
 }
 
 .tag a {
@@ -21,9 +28,17 @@
   cursor: pointer;
 }
 
-.tag--link:hover,
-.tag:has(a:hover) {
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .tag--link:hover,
+  .tag:has(a:hover) {
+    filter: brightness(1.06);
+  }
+
+  .tag--link:active,
+  .tag:has(a:active) {
+    box-shadow: none;
+    transform: translateY(1px);
+  }
 }
 
 .tag--link:focus-visible {
@@ -48,17 +63,24 @@
   height: 1em;
 }
 
+.tagHashIcon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
 .tagClose {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: spacing(1);
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
   padding: 0;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.2em;
-  line-height: 1;
   color: inherit;
   opacity: 0.7;
   transition: opacity var(--transitions-duration-base) var(--transitions-easing-easeInOut);
@@ -72,6 +94,7 @@
     outline-offset: 2px;
   }
 }
+
 
 /* Sizes */
 .tag--sm {
@@ -89,39 +112,56 @@
   font-size: var(--typography-font-size-base);
 }
 
+/* Icon padding adjustments */
+.tag--sm.tag--hasLeadingIcon  { padding-left: spacing(1.5); }
+.tag--md.tag--hasLeadingIcon  { padding-left: spacing(2); }
+.tag--lg.tag--hasLeadingIcon  { padding-left: spacing(3); }
+
+.tag--sm.tag--hasTrailingIcon { padding-right: spacing(1.5); }
+.tag--md.tag--hasTrailingIcon { padding-right: spacing(2); }
+.tag--lg.tag--hasTrailingIcon { padding-right: spacing(3); }
+
+/* Filled — цветной фон с твёрдой тенью снизу, как рельефная наклейка */
 .tag--primary {
-  --tag-bg: var(--palette-primary-main);
-  background-color: var(--tag-bg);
-  color: color-mix(in srgb, var(--tag-bg) 35%, black);
+  background-color: var(--palette-primary-main);
+  color: var(--palette-primary-contrast-text);
+  border-color: var(--palette-primary-active);
+  box-shadow: 0 1px 0 0 var(--palette-primary-active);
 }
 
+/* Outlined — библиотечный ярлычок: бумажный фон, цветная рамка */
 .tag--secondary {
-  --tag-bg: var(--palette-secondary-main);
-  background-color: var(--tag-bg);
-  color: color-mix(in srgb, var(--tag-bg) 35%, black);
+  background-color: var(--palette-background-paper);
+  color: var(--palette-secondary-main);
+  border-color: var(--palette-secondary-main);
+  box-shadow: 0 1px 0 0 var(--palette-secondary-main);
 }
 
 .tag--success {
-  --tag-bg: var(--palette-success-main);
-  background-color: var(--tag-bg);
-  color: color-mix(in srgb, var(--tag-bg) 45%, black);
+  background-color: var(--palette-success-main);
+  color: var(--palette-success-contrast-text);
+  border-color: var(--palette-success-active);
+  box-shadow: 0 1px 0 0 var(--palette-success-active);
 }
 
 .tag--warning {
-  --tag-bg: var(--palette-warning-main);
-  background-color: var(--tag-bg);
-  color: color-mix(in srgb, var(--tag-bg) 45%, black);
+  background-color: var(--palette-warning-main);
+  color: var(--palette-warning-contrast-text);
+  border-color: var(--palette-warning-active);
+  box-shadow: 0 1px 0 0 var(--palette-warning-active);
 }
 
 .tag--error {
-  --tag-bg: var(--palette-error-main);
-  background-color: var(--tag-bg);
-  color: color-mix(in srgb, var(--tag-bg) 45%, black);
+  background-color: var(--palette-error-main);
+  color: var(--palette-error-contrast-text);
+  border-color: var(--palette-error-active);
+  box-shadow: 0 1px 0 0 var(--palette-error-active);
 }
 
 .tag--neutral {
-  --tag-bg: var(--palette-border-default);
-  background-color: var(--tag-bg);
-  color: color-mix(in srgb, var(--tag-bg) 45%, black);
+  background-color: var(--palette-background-paper);
+  color: var(--palette-text-primary);
+  border-color: var(--palette-border-default);
+  box-shadow: 0 1px 0 0 var(--palette-border-default);
 }
 
