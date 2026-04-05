@@ -1,16 +1,39 @@
 .quote {
-  margin: 0.75em 0;
-  padding: 0.5em 1em;
-  border-left: 4px solid var(--palette-border-default);
-  background: var(--palette-background-accent);
-  border-radius: 0 var(--border-radius-base) var(--border-radius-base) 0;
+  margin: 1.5em 0;
+  border: var(--border-base) solid var(--palette-border-strong);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
 }
 
-.text {
-  margin: 0;
+.titleBar {
+  display: flex;
+  align-items: center;
+  gap: spacing(3);
+  padding: spacing(1.5) spacing(3);
+  background: var(--palette-background-accent);
+  border-bottom: var(--border-base) solid var(--palette-border-strong);
+  min-height: spacing(8);
+}
+
+.quoteSign {
+  color: var(--palette-border-strong);
+  flex-shrink: 0;
 }
 
 .author {
-  margin-top: 0.5em;
-  margin-bottom: 0;
+  flex: 1;
+  margin: 0;
+  text-align: right;
+  letter-spacing: 0.025em;
+}
+
+.content {
+  padding: spacing(4) spacing(5);
+}
+
+.text {
+  font-style: italic;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  margin: 0;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { Root } from "../Root";
 import { Typography } from "../Typography";
+import { QuoteIcon } from "../Icon/Icons";
 import { BaseComponentProps } from "@components/types";
 import styles from "./Quote.module.pcss";
 
@@ -29,14 +30,19 @@ export const Quote: React.FC<QuoteProps> = ({
       testId={testId}
       {...props}
     >
-      <Typography variant="body" as="p" color="secondary" className={styles.text}>
-        {children}
-      </Typography>
-      {author != null && (
-        <Typography variant="caption" as="footer" className={styles.author}>
-          — {author}
+      <div className={styles.titleBar}>
+        <QuoteIcon size={18} className={styles.quoteSign} />
+        {author != null && (
+          <Typography variant="caption" as="span" className={styles.author}>
+            — {author}
+          </Typography>
+        )}
+      </div>
+      <div className={styles.content}>
+        <Typography variant="body" as="p" color="secondary" font="content" className={styles.text}>
+          {children}
         </Typography>
-      )}
+      </div>
     </Root>
   );
 };
