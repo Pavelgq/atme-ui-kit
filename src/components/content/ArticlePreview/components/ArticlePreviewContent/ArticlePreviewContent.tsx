@@ -21,6 +21,8 @@ export interface ArticlePreviewContentProps {
   view: ArticlePreviewContentView;
   tags?: React.ReactNode;
   href?: string;
+  /** Показывать ли заглушку если imageUrl не передан. По умолчанию true */
+  showPlaceholder?: boolean;
   className?: string;
 }
 
@@ -49,6 +51,7 @@ export function ArticlePreviewContent({
   view,
   tags,
   href,
+  showPlaceholder = true,
   className,
 }: ArticlePreviewContentProps) {
   if (view === 'row') {
@@ -83,12 +86,28 @@ export function ArticlePreviewContent({
   }
 
   if (view === 'card') {
+    const metaItems = (
+      <>
+        {readingTimeMinutes != null && (
+          <span className={styles.readingTime} title="Время чтения">
+            <AnimatedClockIcon size={14} className={styles.clockIcon} />
+            <span>{formatReadingTime(readingTimeMinutes)}</span>
+          </span>
+        )}
+        {viewsCount != null && (
+          <span className={styles.views} title="Просмотры">
+            <AnimatedEyeIcon size={14} className={styles.eyeIcon} />
+            <span>{formatViews(viewsCount)}</span>
+          </span>
+        )}
+      </>
+    );
+
     return (
       <div
         className={cn(
           styles.content,
           styles['content--card'],
-          !imageUrl && styles['content--card-no-image'],
           className
         )}
       >
@@ -135,39 +154,13 @@ export function ArticlePreviewContent({
               </div>
             )}
             {href ? (
-              <a href={href} className={styles.meta}>
-                {readingTimeMinutes != null && (
-                  <span className={styles.readingTime} title="Время чтения">
-                    <AnimatedClockIcon size={14} className={styles.clockIcon} />
-                    <span>{formatReadingTime(readingTimeMinutes)}</span>
-                  </span>
-                )}
-                {viewsCount != null && (
-                  <span className={styles.views} title="Просмотры">
-                    <AnimatedEyeIcon size={14} className={styles.eyeIcon} />
-                    <span>{formatViews(viewsCount)}</span>
-                  </span>
-                )}
-              </a>
+              <a href={href} className={styles.meta}>{metaItems}</a>
             ) : (
-              <div className={styles.meta}>
-                {readingTimeMinutes != null && (
-                  <span className={styles.readingTime} title="Время чтения">
-                    <AnimatedClockIcon size={14} className={styles.clockIcon} />
-                    <span>{formatReadingTime(readingTimeMinutes)}</span>
-                  </span>
-                )}
-                {viewsCount != null && (
-                  <span className={styles.views} title="Просмотры">
-                    <AnimatedEyeIcon size={14} className={styles.eyeIcon} />
-                    <span>{formatViews(viewsCount)}</span>
-                  </span>
-                )}
-              </div>
+              <div className={styles.meta}>{metaItems}</div>
             )}
           </div>
         </div>
-        {imageUrl && (
+        {imageUrl ? (
           <div className={styles.previewWrap}>
             <img
               src={imageUrl}
@@ -177,7 +170,11 @@ export function ArticlePreviewContent({
               loading="lazy"
             />
           </div>
-        )}
+        ) : showPlaceholder ? (
+          <div className={styles.previewWrap}>
+            <div className={styles.previewPlaceholder} aria-hidden />
+          </div>
+        ) : null}
       </div>
     );
   }

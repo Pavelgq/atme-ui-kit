@@ -34,6 +34,8 @@ export interface ArticlePreviewProps
   href?: string;
   tags?: React.ReactNode;
   contentClassName?: string;
+  /** Показывать ли заглушку если imageUrl не передан. По умолчанию true */
+  showPlaceholder?: boolean;
 }
 
 export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, ArticlePreviewProps>(
@@ -53,6 +55,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
       tags,
       className,
       contentClassName,
+      showPlaceholder,
       testId,
       onClick,
       onKeyDown,
@@ -71,7 +74,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
         onClick(e as unknown as React.MouseEvent<HTMLDivElement>);
       }
       (onKeyDown as React.KeyboardEventHandler<HTMLElement>)?.(e);
-    },[]);
+    }, [href, onClick, onKeyDown]);
 
     const isInteractive = Boolean(href || onClick);
     const sharedClassName = cn(
@@ -94,6 +97,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
         view={view}
         tags={tags}
         href={href}
+        showPlaceholder={showPlaceholder}
         className={contentClassName}
       />
     );
@@ -102,6 +106,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
       className: sharedClassName,
       'data-atme-ui': true,
       'data-testid': testId,
+      ...(isInteractive && { 'data-interactive': true }),
       ...props,
     };
 
