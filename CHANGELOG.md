@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.29](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.28...v0.1.29) (2026-05-24)
+
+### Features
+
+- **Logo:** introduce Logo component ([0fc5a0f](https://github.com/Pavelgq/atme-ui-kit/commit/0fc5a0f5642c886354ded14c74bb3ad467d019a6))
+
 ### [0.1.28](https://github.com/Pavelgq/atme-ui-kit/compare/v0.1.27...v0.1.28) (2026-04-05)
 
 ### Features
