@@ -1,0 +1,560 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  font-family: var(--typography-font-family);
+  color: var(--palette-text-primary);
+  line-height: 1;
+  user-select: none;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: default;
+  isolation: isolate;
+}
+
+.root[href],
+.root[role="button"] {
+  cursor: pointer;
+}
+
+/* ---------- Wordmark ---------- */
+
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  letter-spacing: -0.025em;
+  position: relative;
+}
+
+.wordPrimary {
+  font-weight: 800;
+  font-stretch: 115%;
+  font-size: 1em;
+  color: var(--palette-text-primary);
+  position: relative;
+  transition: text-shadow var(--transitions-duration-base, 200ms)
+    var(--transitions-easing-easeOut, ease-out);
+}
+
+.wordSecondary {
+  font-weight: 500;
+  font-stretch: 88%;
+  font-size: 0.78em;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: var(--palette-text-secondary);
+  margin-left: 0.04em;
+  position: relative;
+  top: -0.04em;
+}
+
+.wordDot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.32em;
+  height: 0.32em;
+  margin: 0 0.1em 0.05em;
+  align-self: flex-end;
+  flex-shrink: 0;
+}
+
+.wordDotInner {
+  position: absolute;
+  inset: 0;
+  background: var(--palette-primary-main);
+  border-radius: 2px;
+  z-index: 2;
+}
+
+/* Деликатный двухтоновый glow: тёплый warning + основной primary, без выхода далеко за границы точки */
+.wordDotGlow {
+  position: absolute;
+  inset: -0.15em;
+  background:
+    radial-gradient(
+      circle at 40% 45%,
+      color-mix(in srgb, var(--palette-warning-main) 45%, transparent) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 55% 55%,
+      color-mix(in srgb, var(--palette-primary-main) 45%, transparent) 0%,
+      transparent 70%
+    );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ---------- Mark (pixel-D) ---------- */
+
+.mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.15em;
+  height: 1.15em;
+  flex-shrink: 0;
+  background: var(--palette-background-accent);
+  border: 1px solid var(--palette-border-default);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--palette-border-default) 40%, transparent),
+    0 0 0.6em -0.2em color-mix(in srgb, var(--palette-primary-main) 45%, transparent);
+}
+
+.markGlyph {
+  position: relative;
+  font-weight: 900;
+  font-stretch: 125%;
+  font-size: 0.78em;
+  line-height: 1;
+  color: var(--palette-text-primary);
+  z-index: 3;
+  letter-spacing: -0.04em;
+}
+
+.markPixel {
+  position: absolute;
+  width: 28%;
+  height: 28%;
+  z-index: 1;
+}
+
+.markPixelTL {
+  top: 0;
+  left: 0;
+  background: var(--palette-primary-main);
+  opacity: 0.95;
+}
+
+.markPixelTR {
+  top: 0;
+  right: 0;
+  background: var(--palette-warning-main);
+  opacity: 0.6;
+}
+
+.markPixelBL {
+  bottom: 0;
+  left: 0;
+  background: var(--palette-secondary-main);
+  opacity: 0.45;
+}
+
+.markPixelBR {
+  bottom: 0;
+  right: 0;
+  background: var(--palette-primary-main);
+  opacity: 0.85;
+}
+
+/* ---------- Keyboard variant ---------- */
+
+.keyboard {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.18em;
+  font-size: 1em;
+  perspective: 600px;
+}
+
+.key {
+  --key-color: var(--palette-primary-main);
+  --key-shadow: var(--palette-border-strong);
+  position: relative;
+  display: inline-flex;
+  width: 1em;
+  height: 1.15em;
+  flex-shrink: 0;
+}
+
+.keyCap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 1em;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--palette-background-paper) 80%, var(--palette-background-accent) 20%) 0%,
+    var(--palette-background-paper) 100%
+  );
+  border: 1px solid var(--palette-border-default);
+  border-radius: 0.14em;
+  box-shadow:
+    0 0.14em 0 0 var(--key-shadow),
+    0 0.14em 0.18em -0.05em rgba(0, 0, 0, 0.4),
+    inset 0 0.05em 0 color-mix(in srgb, var(--palette-text-primary) 8%, transparent);
+  transition:
+    transform var(--transitions-duration-fast, 150ms) var(--transitions-easing-easeOut, ease-out),
+    box-shadow var(--transitions-duration-fast, 150ms) var(--transitions-easing-easeOut, ease-out);
+  overflow: hidden;
+}
+
+.keyLabel {
+  position: relative;
+  font-family: var(--typography-font-family);
+  font-weight: 700;
+  font-stretch: 110%;
+  font-size: 0.52em;
+  line-height: 1;
+  color: var(--palette-text-primary);
+  text-transform: none;
+  letter-spacing: -0.02em;
+  z-index: 2;
+}
+
+/* Цветовая раскраска клавиш — единый паттерн вспышки и плавного затухания к text-primary.
+   dev — primary (оранжевый), точка — warning (жёлтый акцент между словами), lab — success (зелёный). */
+.key--d { --key-color: var(--palette-primary-main); }
+.key--e { --key-color: var(--palette-primary-main); }
+.key--v { --key-color: var(--palette-primary-main); }
+.key--dot { --key-color: var(--palette-warning-main); }
+.key--l { --key-color: var(--palette-success-main); }
+.key--a { --key-color: var(--palette-success-main); }
+.key--b { --key-color: var(--palette-success-main); }
+
+/* Hero-клавиша с точкой — чуть приподнятая и выделенная */
+.keyAccent .keyCap {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--palette-background-accent) 85%, var(--palette-primary-main) 15%) 0%,
+    var(--palette-background-accent) 100%
+  );
+  border-color: color-mix(in srgb, var(--palette-primary-main) 35%, var(--palette-border-default) 65%);
+  box-shadow:
+    0 0.14em 0 0 color-mix(in srgb, var(--palette-primary-active) 70%, var(--palette-border-strong) 30%),
+    0 0.14em 0.25em -0.05em color-mix(in srgb, var(--palette-primary-main) 45%, transparent),
+    inset 0 0.05em 0 color-mix(in srgb, var(--palette-primary-main) 18%, transparent);
+}
+
+.keyAccent .keyLabel {
+  color: var(--palette-primary-main);
+  font-size: 0.6em;
+}
+
+/* ---------- Sizes (drive everything via em) ---------- */
+
+.root--size-sm {
+  font-size: 1rem;
+  gap: 0.45em;
+}
+
+.root--size-md {
+  font-size: 1.5rem;
+}
+
+.root--size-lg {
+  font-size: 2.25rem;
+}
+
+.root--size-xl {
+  font-size: 3.25rem;
+}
+
+/* В keyboard варианте клавиши крупнее за счёт того, что нет крупного wordmark рядом */
+.root--keyboard.root--size-sm { font-size: 1.4rem; }
+.root--keyboard.root--size-md { font-size: 2rem; }
+.root--keyboard.root--size-lg { font-size: 2.75rem; }
+.root--keyboard.root--size-xl { font-size: 3.75rem; }
+
+/* ---------- Tones ---------- */
+
+.root--tone-mono .wordPrimary,
+.root--tone-mono .wordSecondary,
+.root--tone-mono .markGlyph {
+  color: var(--palette-text-primary);
+}
+
+.root--tone-mono .wordDotInner {
+  background: var(--palette-text-primary);
+  box-shadow: none;
+}
+
+.root--tone-mono .wordDotGlow {
+  display: none;
+}
+
+.root--tone-mono .markPixel {
+  background: var(--palette-text-primary);
+  opacity: 0.15;
+}
+
+.root--tone-mono .markPixelTL,
+.root--tone-mono .markPixelBR {
+  opacity: 0.35;
+}
+
+.root--tone-mono .mark {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--palette-border-default) 40%, transparent);
+}
+
+.root--tone-mono .key {
+  --key-color: var(--palette-text-primary);
+}
+
+.root--tone-mono .keyAccent .keyLabel {
+  color: var(--palette-text-primary);
+}
+
+.root--tone-inverse {
+  color: var(--palette-primary-contrast-text);
+}
+
+.root--tone-inverse .wordPrimary,
+.root--tone-inverse .wordSecondary,
+.root--tone-inverse .markGlyph {
+  color: var(--palette-primary-contrast-text);
+}
+
+.root--tone-inverse .wordDotInner {
+  background: var(--palette-primary-contrast-text);
+  box-shadow: 0 0 0.25em color-mix(in srgb, var(--palette-primary-contrast-text) 65%, transparent);
+}
+
+.root--tone-inverse .wordDotGlow {
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--palette-primary-contrast-text) 45%, transparent) 0%,
+    transparent 65%
+  );
+}
+
+.root--tone-inverse .mark {
+  background: color-mix(in srgb, var(--palette-primary-contrast-text) 15%, transparent);
+  border-color: color-mix(in srgb, var(--palette-primary-contrast-text) 40%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--palette-primary-contrast-text) 25%, transparent);
+}
+
+.root--tone-inverse .markPixel {
+  background: var(--palette-primary-contrast-text);
+  opacity: 0.4;
+}
+
+/* ---------- Animations ---------- */
+
+.animated .wordDotInner {
+  animation: logoDotPulse 2.6s ease-in-out infinite;
+}
+
+.animated .wordDotGlow {
+  animation: logoDotGlow 2.6s ease-in-out infinite;
+}
+
+.animated .markPixelTL {
+  animation: logoPixelBlink 4.2s steps(1, end) infinite;
+  animation-delay: 0s;
+}
+
+.animated .markPixelTR {
+  animation: logoPixelBlink 4.2s steps(1, end) infinite;
+  animation-delay: 0.7s;
+}
+
+.animated .markPixelBL {
+  animation: logoPixelBlink 4.2s steps(1, end) infinite;
+  animation-delay: 1.5s;
+}
+
+.animated .markPixelBR {
+  animation: logoPixelBlink 4.2s steps(1, end) infinite;
+  animation-delay: 2.3s;
+}
+
+
+.keyboardPlaying .key .keyCap {
+  animation: keyPress 2.1s ease-in-out 1  forwards;
+}
+
+.keyboardPlaying .key .keyLabel {
+  animation: keyLabelHighlight 2.1s ease-in-out 1 forwards;
+}
+
+.keyboardPlaying .key--d .keyCap,
+.keyboardPlaying .key--d .keyLabel { animation-delay: 0s; }
+
+.keyboardPlaying .key--v .keyCap,
+.keyboardPlaying .key--v .keyLabel { animation-delay: 0.25s; }
+
+.keyboardPlaying .key--a .keyCap,
+.keyboardPlaying .key--a .keyLabel { animation-delay: 0.5s; }
+
+.keyboardPlaying .key--dot .keyCap,
+.keyboardPlaying .key--dot .keyLabel { animation-delay: 0.8s; }
+
+.keyboardPlaying .key--b .keyCap,
+.keyboardPlaying .key--b .keyLabel { animation-delay: 1.05s; }
+
+.keyboardPlaying .key--e .keyCap,
+.keyboardPlaying .key--e .keyLabel { animation-delay: 1.3s; }
+
+.keyboardPlaying .key--l .keyCap,
+.keyboardPlaying .key--l .keyLabel { animation-delay: 1.55s; }
+
+@keyframes logoDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.78);
+    opacity: 0.7;
+  }
+}
+
+@keyframes logoDotGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes logoPixelBlink {
+  0%, 88%, 100% {
+    transform: translate(0, 0);
+    filter: none;
+  }
+  90% {
+    transform: translate(-12%, 0);
+    filter: brightness(1.6);
+  }
+  92% {
+    transform: translate(0, 0);
+  }
+  94% {
+    transform: translate(8%, 5%);
+    filter: brightness(0.4);
+  }
+  96% {
+    transform: translate(0, 0);
+    filter: brightness(1.4);
+  }
+}
+
+.key.keyPressed .keyCap {
+  animation: keyPressOnce 0.4s ease-out 1 forwards;
+}
+
+.key.keyPressed .keyLabel {
+  animation: keyLabelPressOnce 0.4s ease-out 1 forwards;
+}
+
+/* ---------- Keyframes ---------- */
+
+/* Нажатие: резкое опускание клавиши и быстрый возврат, дальнейшая «пауза» —
+   в исходном состоянии. */
+@keyframes keyPress {
+  0%, 6% {
+    transform: translateY(0);
+    box-shadow:
+      0 0.14em 0 0 var(--palette-border-strong),
+      0 0.14em 0.18em -0.05em rgba(0, 0, 0, 0.4),
+      inset 0 0.05em 0 color-mix(in srgb, var(--palette-text-primary) 8%, transparent);
+  }
+  9%, 12% {
+    transform: translateY(0.12em);
+    box-shadow:
+      0 0 0 0 var(--palette-border-strong),
+      0 0.04em 0.08em rgba(0, 0, 0, 0.5);
+  }
+  18%, 100% {
+    transform: translateY(0);
+    box-shadow:
+      0 0.14em 0 0 var(--palette-border-strong),
+      0 0.14em 0.18em -0.05em rgba(0, 0, 0, 0.4),
+      inset 0 0.05em 0 color-mix(in srgb, var(--palette-text-primary) 8%, transparent);
+  }
+}
+
+/* Лейбл: чёрный → быстрая вспышка цветом (момент нажатия) → плавное затухание обратно к чёрному. */
+@keyframes keyLabelHighlight {
+  0%, 7% {
+    color: var(--palette-text-primary);
+  }
+  9%, 12% {
+    color: var(--key-color);
+  }
+  100% {
+    color: var(--palette-text-primary);
+  }
+}
+
+@keyframes keyPressOnce {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow:
+      0 0.14em 0 0 var(--palette-border-strong),
+      0 0.14em 0.18em -0.05em rgba(0, 0, 0, 0.4),
+      inset 0 0.05em 0 color-mix(in srgb, var(--palette-text-primary) 8%, transparent);
+  }
+  40%, 55% {
+    transform: translateY(0.12em);
+    box-shadow:
+      0 0 0 0 var(--palette-border-strong),
+      0 0.04em 0.08em rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes keyLabelPressOnce {
+  0%, 100% {
+    color: var(--palette-text-primary);
+  }
+  40%, 55% {
+    color: var(--key-color);
+  }
+}
+
+/* ---------- Hover glitch (только когда логотип кликабелен) ---------- */
+
+.root[href]:hover .wordPrimary,
+.root[role="button"]:hover .wordPrimary {
+  text-shadow:
+    -0.025em 0 0 color-mix(in srgb, var(--palette-primary-main) 80%, transparent),
+    0.025em 0 0 color-mix(in srgb, var(--palette-secondary-main) 80%, transparent);
+}
+
+.root[href]:hover .wordDotInner,
+.root[role="button"]:hover .wordDotInner {
+  transform: scale(1.25);
+  background: var(--palette-primary-hover);
+}
+
+.root[href]:focus-visible,
+.root[role="button"]:focus-visible {
+  outline: 2px solid var(--palette-primary-main);
+  outline-offset: spacing(1);
+  border-radius: 2px;
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .animated .wordDotInner,
+  .animated .wordDotGlow,
+  .animated .markPixel,
+  .keyboardPlaying .key .keyCap,
+  .keyboardPlaying .key .keyLabel,
+  .key.keyPressed .keyCap,
+  .key.keyPressed .keyLabel {
+    animation: none;
+  }
+
+  .root[href]:hover .wordPrimary,
+  .root[role="button"]:hover .wordPrimary {
+    text-shadow: none;
+  }
+
+  .root[href]:hover .wordDotInner,
+  .root[role="button"]:hover .wordDotInner {
+    transform: none;
+  }
+}

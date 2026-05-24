@@ -1,0 +1,34 @@
+---
+description: Использовать pnpm для всех команд пакетного менеджера
+alwaysApply: true
+---
+
+# pnpm
+
+В этом репозитории **только pnpm**. Не используй `npm`, `npx` или `yarn` для установки зависимостей, скриптов и CI.
+
+## Команды
+
+| Задача | Команда |
+|--------|---------|
+| Установка | `pnpm install` |
+| Скрипт из package.json | `pnpm <script>` (например `pnpm build`, `pnpm test`, `pnpm type-check`, `pnpm storybook`) |
+| Одноразовый бинарник | `pnpm exec <cmd>` (не `npx`) |
+| Добавить зависимость | `pnpm add <pkg>` / `pnpm add -D <pkg>` |
+
+## Примеры
+
+```bash
+# ✅ Хорошо
+pnpm install
+pnpm run typecheck
+pnpm exec vitest run
+
+# ❌ Плохо
+npm install
+npm run build
+npx vitest
+yarn add react
+```
+
+Lockfile — `pnpm-lock.yaml`. При изменении зависимостей обновляй его через pnpm, не вручную.

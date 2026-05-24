@@ -59,6 +59,9 @@ export type { LikeButtonProps } from './primitives/LikeButton';
 export { Link } from './primitives/Link';
 export type { LinkProps } from './primitives/Link';
 
+export { Logo } from './primitives/Logo';
+export type { LogoProps, LogoVariant, LogoSize, LogoTone } from './primitives/Logo';
+
 export { Quote } from './primitives/Quote';
 export type { QuoteProps } from './primitives/Quote';
 
@@ -96,3 +99,17 @@ export type {
   DecorativeFrameEdge,
   DecorativeFrameDirection,
 } from './content/DecorativeFrame';
+
+export { PixelDustFrame } from './content/PixelDustFrame';
+export type {
+  PixelDustFrameProps,
+  PixelDustFrameEdge,
+  PixelDustFrameDirection,
+  InteractionMode,
+  ParticleLayoutShape,
+  ParticleLayoutConfig,
+  ParticleLayoutMask,
+  ParticleLayoutMaskCell,
+  PaletteColor,
+} from './content/PixelDustFrame';
+export { maskFromRows } from './content/PixelDustFrame';
