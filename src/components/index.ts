@@ -99,17 +99,3 @@ export type {
   DecorativeFrameEdge,
   DecorativeFrameDirection,
 } from './content/DecorativeFrame';
-
-export { PixelDustFrame } from './content/PixelDustFrame';
-export type {
-  PixelDustFrameProps,
-  PixelDustFrameEdge,
-  PixelDustFrameDirection,
-  InteractionMode,
-  ParticleLayoutShape,
-  ParticleLayoutConfig,
-  ParticleLayoutMask,
-  ParticleLayoutMaskCell,
-  PaletteColor,
-} from './content/PixelDustFrame';
-export { maskFromRows } from './content/PixelDustFrame';
