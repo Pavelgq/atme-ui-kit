@@ -38,8 +38,8 @@
     "test:coverage": "vitest --config .configs/vitest.config.ts --coverage",
     "storybook": "storybook dev --port 6006",
     "build-storybook": "storybook build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --config .configs/eslintrc.cjs",
-    "lint:fix": "eslint . --ext ts,tsx --fix --config .configs/eslintrc.cjs",
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0 --config .configs/eslint.config.js",
+    "lint:fix": "eslint . --fix --config .configs/eslint.config.js",
     "format": "prettier --write --config .configs/prettierrc \"**/*.{ts,tsx,js,jsx,json,css,md}\" --ignore-path .prettierignore",
     "format:check": "prettier --check --config .configs/prettierrc \"**/*.{ts,tsx,js,jsx,json,css,md}\" --ignore-path .prettierignore",
     "stylelint": "stylelint --config .configs/stylelintrc.json \"**/*.{css,pcss}\"",
@@ -71,9 +71,9 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "storybook": "^8.3.0",
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.39.2",
     "@storybook/addon-a11y": "^8.3.0",
     "@storybook/addon-essentials": "^8.3.0",
     "@storybook/addon-interactions": "^8.3.0",
@@ -95,12 +95,14 @@
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.17.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "eslint-plugin-storybook": "^0.11.1",
     "globals": "^15.14.0",
     "husky": "^9.1.7",
     "jsdom": "^25.0.1",
+    "lint-staged": "^17.1.0",
     "postcss": "^8.5.6",
     "postcss-functions": "^4.0.2",
     "postcss-mixins": "^12.1.2",
@@ -109,6 +111,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "standard-version": "^9.5.0",
+    "storybook": "^8.3.0",
     "stylelint": "^16.11.0",
     "stylelint-config-standard": "^36.0.1",
     "tsx": "^4.21.0",
@@ -119,9 +122,9 @@
     "vitest": "^4.0.16"
   },
   "dependencies": {
-    "shiki": "^3.0.0",
+    "classnames": "^2.5.1",
     "framer-motion": "^11.15.0",
     "lucide-react": "^0.468.0",
-    "classnames": "^2.5.1"
+    "shiki": "^3.0.0"
   }
 }
