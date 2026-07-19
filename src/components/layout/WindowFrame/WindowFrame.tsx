@@ -1,10 +1,10 @@
-import { FC, ReactNode, useMemo } from "react";
-import cn from "classnames";
-import { BaseComponentProps } from "@components/types";
-import { Stack } from "../Stack";
-import { ActionButton, TitleBar } from "./components";
-import { CloseIcon, FullscreenIcon } from "@components/primitives/Icon/Icons";
-import styles from "./WindowFrame.module.pcss";
+import { type FC, type ReactNode, useMemo } from 'react';
+import cn from 'classnames';
+import { type BaseComponentProps } from '@components/types';
+import { Stack } from '../Stack';
+import { ActionButton, TitleBar } from './components';
+import { CloseIcon, FullscreenIcon } from '@components/primitives/Icon/Icons';
+import styles from './WindowFrame.module.pcss';
 
 export interface WindowFrameProps extends BaseComponentProps {
   children?: ReactNode;
@@ -14,7 +14,7 @@ export interface WindowFrameProps extends BaseComponentProps {
 
 export const WindowFrame: FC<WindowFrameProps> = ({
   children,
-  title = "",
+  title = '',
   className,
   testId,
   actions,

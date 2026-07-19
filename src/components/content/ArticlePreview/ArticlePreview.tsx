@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useMemo } from 'react';
 import cn from 'classnames';
-import { BaseComponentProps } from '@components/types';
+import { type BaseComponentProps } from '@components/types';
 import { formatDateRu } from '@utils/date/formatDate';
 import { ArticlePreviewContent } from './components/ArticlePreviewContent';
 import styles from './ArticlePreview.module.pcss';
@@ -15,8 +15,12 @@ export interface ArticlePreviewAuthor {
 }
 
 export interface ArticlePreviewProps
-  extends BaseComponentProps,
-    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement> & React.HTMLAttributes<HTMLDivElement>, 'title'> {
+  extends
+    BaseComponentProps,
+    Omit<
+      React.AnchorHTMLAttributes<HTMLAnchorElement> & React.HTMLAttributes<HTMLDivElement>,
+      'title'
+    > {
   title: string;
   publishedAt: Date | string;
   formattedDate?: string;
@@ -68,13 +72,16 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
       [formattedDateProp, publishedAt]
     );
 
-    const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLElement>) => {
-      if (!href && onClick && (e.key === 'Enter' || e.key === ' ')) {
-        e.preventDefault();
-        onClick(e as unknown as React.MouseEvent<HTMLDivElement>);
-      }
-      (onKeyDown as React.KeyboardEventHandler<HTMLElement>)?.(e);
-    }, [href, onClick, onKeyDown]);
+    const handleKeyDown = useCallback(
+      (e: React.KeyboardEvent<HTMLElement>) => {
+        if (!href && onClick && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault();
+          onClick(e as unknown as React.MouseEvent<HTMLDivElement>);
+        }
+        (onKeyDown as React.KeyboardEventHandler<HTMLElement>)?.(e);
+      },
+      [href, onClick, onKeyDown]
+    );
 
     const isInteractive = Boolean(href || onClick);
     const sharedClassName = cn(
@@ -90,9 +97,7 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
         viewsCount={viewsCount}
         readingTimeMinutes={readingTimeMinutes}
         author={author}
-        {...(imageUrl != null
-          ? { imageUrl, imageAlt: imageAlt || title }
-          : {})}
+        {...(imageUrl != null ? { imageUrl, imageAlt: imageAlt || title } : {})}
         formattedDate={formattedDate}
         view={view}
         tags={tags}

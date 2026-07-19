@@ -1,31 +1,29 @@
-import { BaseComponentProps } from "@components/types";
-import { FC, useMemo } from "react";
-import { SpacingVariant } from "@typings/design";
-import { getSpacingVar } from "@tokens/utils";
-import cn from "classnames";
-import styles from "./Spacer.module.pcss";
+import { type BaseComponentProps } from '@components/types';
+import { type FC, useMemo } from 'react';
+import { type SpacingVariant } from '@typings/design';
+import { getSpacingVar } from '@tokens/utils';
+import cn from 'classnames';
+import styles from './Spacer.module.pcss';
 
 export interface SpacerProps extends BaseComponentProps {
   size?: SpacingVariant;
   x?: SpacingVariant;
   y?: SpacingVariant;
-  axis?: "x" | "y";
+  axis?: 'x' | 'y';
 }
 
 export const Spacer: FC<SpacerProps> = ({
   size,
   x,
   y,
-  axis = "y",
+  axis = 'y',
   className,
   testId,
   ...props
 }) => {
   const spacingStyles = useMemo(() => {
-    const width = getSpacingVar(x ?? (size && axis === "x" ? size : undefined));
-    const height = getSpacingVar(
-      y ?? (size && axis === "y" ? size : undefined)
-    );
+    const width = getSpacingVar(x ?? (size && axis === 'x' ? size : undefined));
+    const height = getSpacingVar(y ?? (size && axis === 'y' ? size : undefined));
 
     return {
       width,
@@ -38,7 +36,7 @@ export const Spacer: FC<SpacerProps> = ({
       data-atme-ui
       className={cn(styles.spacer, className)}
       style={spacingStyles}
-      {...(testId && { "data-testid": testId })}
+      {...(testId && { 'data-testid': testId })}
       {...props}
     />
   );

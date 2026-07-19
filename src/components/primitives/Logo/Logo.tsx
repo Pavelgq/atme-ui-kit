@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useRef } from 'react';
 import cn from 'classnames';
 import { Root } from '@components/primitives/Root';
-import { BaseComponentProps } from '@components/types';
+import { type BaseComponentProps } from '@components/types';
 import keyClickUrl from './assets/button-click-clear-soft.mp3';
 import styles from './Logo.module.pcss';
 
@@ -10,8 +10,7 @@ export type LogoSize = 'sm' | 'md' | 'lg' | 'xl';
 export type LogoTone = 'primary' | 'mono' | 'inverse';
 
 export interface LogoProps
-  extends BaseComponentProps,
-    Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
+  extends BaseComponentProps, Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   variant?: LogoVariant;
   size?: LogoSize;
   tone?: LogoTone;
@@ -23,7 +22,10 @@ export interface LogoProps
   as?: React.ElementType;
 }
 
-const KEYBOARD_KEYS: ReadonlyArray<{ label: string; tone: 'd' | 'e' | 'v' | 'dot' | 'l' | 'a' | 'b' }> = [
+const KEYBOARD_KEYS: ReadonlyArray<{
+  label: string;
+  tone: 'd' | 'e' | 'v' | 'dot' | 'l' | 'a' | 'b';
+}> = [
   { label: 'D', tone: 'd' },
   { label: 'e', tone: 'e' },
   { label: 'v', tone: 'v' },

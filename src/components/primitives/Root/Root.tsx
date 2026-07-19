@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { BaseComponentProps } from '@components/types';
+import { type BaseComponentProps } from '@components/types';
 
 export interface RootProps extends BaseComponentProps {
   as?: React.ElementType;

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import cn from "classnames";
-import { Root } from "../Root";
-import { Typography } from "../Typography";
-import { BaseComponentProps } from "@components/types";
-import styles from "./CodeBlock.module.pcss";
+import React, { useEffect, useState } from 'react';
+import cn from 'classnames';
+import { Root } from '../Root';
+import { Typography } from '../Typography';
+import { type BaseComponentProps } from '@components/types';
+import styles from './CodeBlock.module.pcss';
 
 export interface CodeBlockProps extends BaseComponentProps {
   /** Исходный код */
@@ -16,25 +16,25 @@ export interface CodeBlockProps extends BaseComponentProps {
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({
   code,
-  lang = "text",
+  lang = 'text',
   filename,
   className,
   testId,
 }) => {
-  const [html, setHtml] = useState<string>("");
+  const [html, setHtml] = useState<string>('');
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     setError(null);
 
-    import("shiki")
+    import('shiki')
       .then(({ codeToHtml }) =>
         codeToHtml(code, {
           lang,
           themes: {
-            light: "github-light",
-            dark: "github-dark",
+            light: 'github-light',
+            dark: 'github-dark',
           },
         })
       )
@@ -52,12 +52,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
 
   if (error) {
     return (
-      <Root
-        as="div"
-        className={cn(styles.root, styles.error)}
-        testId={testId}
-        role="alert"
-      >
+      <Root as="div" className={cn(styles.root, styles.error)} testId={testId} role="alert">
         <Typography variant="caption" as="span" color="secondary">
           Ошибка подсветки: {error.message}
         </Typography>
@@ -74,10 +69,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
       )}
       <div className={styles.code}>
         {html ? (
-          <div
-            dangerouslySetInnerHTML={{ __html: html }}
-            suppressHydrationWarning
-          />
+          <div dangerouslySetInnerHTML={{ __html: html }} suppressHydrationWarning />
         ) : (
           <pre>
             <code>{code}</code>
@@ -88,4 +80,4 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   );
 };
 
-CodeBlock.displayName = "CodeBlock";
+CodeBlock.displayName = 'CodeBlock';

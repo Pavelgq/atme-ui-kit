@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useState, useMemo } from "react";
-import cn from "classnames";
-import { BaseComponentProps } from "@components/types";
-import { useMouseScale } from "@hooks/useMouseScale";
-import { useMenuNavigation } from "@hooks/useMenuNavigation";
-import { useRovingTabIndex } from "@hooks/useRovingTabIndex";
-import { SideMenuItem } from "./SideMenuItem";
-import styles from "./SideMenu.module.pcss";
+import React, { useRef, useEffect, useState, useMemo } from 'react';
+import cn from 'classnames';
+import { type BaseComponentProps } from '@components/types';
+import { useMouseScale } from '@hooks/useMouseScale';
+import { useMenuNavigation } from '@hooks/useMenuNavigation';
+import { useRovingTabIndex } from '@hooks/useRovingTabIndex';
+import { SideMenuItem } from './SideMenuItem';
+import styles from './SideMenu.module.pcss';
 
 export interface SideMenuItem {
   title: string;
@@ -19,7 +19,7 @@ export interface SideMenuProps extends BaseComponentProps {
   defaultItemSize?: number;
   maxScale?: number;
   showTitles?: boolean;
-  orientation?: "horizontal" | "vertical";
+  orientation?: 'horizontal' | 'vertical';
   onItemClick?: (item: SideMenuItem, index: number) => void;
   onNavigate?: (url: string) => void;
 }
@@ -29,7 +29,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
   defaultItemSize = 80,
   maxScale = 1.5,
   showTitles = true,
-  orientation = "horizontal",
+  orientation = 'horizontal',
   className,
   testId,
   onItemClick,
@@ -47,18 +47,16 @@ export const SideMenu: React.FC<SideMenuProps> = ({
     }
   }, [defaultItemSize]);
 
-  const { handleMouseEnter, handleMouseMove, handleMouseLeave } = useMouseScale(
-    {
-      itemRefs: itemRefs as React.RefObject<(HTMLElement | null)[]>,
-      containerRef: containerRef as React.RefObject<HTMLElement>,
-      defaultSize: defaultWidth,
-      maxScale,
-      orientation,
-      ...(styles.easeInAnimation && {
-        animationClassName: styles.easeInAnimation,
-      }),
-    }
-  );
+  const { handleMouseEnter, handleMouseMove, handleMouseLeave } = useMouseScale({
+    itemRefs: itemRefs as React.RefObject<(HTMLElement | null)[]>,
+    containerRef: containerRef as React.RefObject<HTMLElement>,
+    defaultSize: defaultWidth,
+    maxScale,
+    orientation,
+    ...(styles.easeInAnimation && {
+      animationClassName: styles.easeInAnimation,
+    }),
+  });
 
   const { getTabIndex, focusItem } = useRovingTabIndex({
     itemsCount: items.length,
@@ -73,10 +71,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
     },
   });
 
-  const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLElement>,
-    index: number
-  ) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>, index: number) => {
     // Обрабатываем навигацию стрелками
     const nextIndex = handleNavigationKeyDown(e, index);
     if (nextIndex !== null) {
@@ -86,7 +81,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
   };
 
   const menuRole = useMemo(
-    () => (orientation === "horizontal" ? "menubar" : "menu"),
+    () => (orientation === 'horizontal' ? 'menubar' : 'menu'),
     [orientation]
   );
 
@@ -95,11 +90,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
       ref={containerRef}
       role={menuRole}
       data-atme-ui
-      className={cn(
-        styles.container,
-        styles[`container--${orientation}`],
-        className
-      )}
+      className={cn(styles.container, styles[`container--${orientation}`], className)}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -130,4 +121,4 @@ export const SideMenu: React.FC<SideMenuProps> = ({
   );
 };
 
-SideMenu.displayName = "SideMenu";
+SideMenu.displayName = 'SideMenu';

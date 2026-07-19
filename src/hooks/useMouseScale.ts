@@ -1,4 +1,4 @@
-import { useCallback, RefObject } from "react";
+import { useCallback, type RefObject } from 'react';
 
 const DISTANCE_MULTIPLIER = 4;
 const WAY_COEFFICIENT = 1.5;
@@ -9,7 +9,7 @@ export interface UseMouseScaleOptions {
   containerRef: RefObject<HTMLElement>;
   defaultSize: number;
   maxScale?: number;
-  orientation?: "horizontal" | "vertical";
+  orientation?: 'horizontal' | 'vertical';
   animationClassName?: string;
 }
 
@@ -31,7 +31,7 @@ export function useMouseScale({
   containerRef,
   defaultSize,
   maxScale = 1.5,
-  orientation = "horizontal",
+  orientation = 'horizontal',
   animationClassName,
 }: UseMouseScaleOptions): UseMouseScaleReturn {
   const handleMouseEnter = useCallback(() => {
@@ -46,7 +46,7 @@ export function useMouseScale({
     (e: React.MouseEvent<HTMLElement>) => {
       if (!containerRef.current) return;
 
-      const targetPos = orientation === "horizontal" ? e.clientX : e.clientY;
+      const targetPos = orientation === 'horizontal' ? e.clientX : e.clientY;
 
       itemRefs.current?.forEach((item) => {
         if (!item) return;
@@ -57,7 +57,7 @@ export function useMouseScale({
 
         const itemRect = item.getBoundingClientRect();
         const itemCenter =
-          orientation === "horizontal"
+          orientation === 'horizontal'
             ? itemRect.left + defaultSize / 2
             : itemRect.top + defaultSize / 2;
 
@@ -96,4 +96,3 @@ export function useMouseScale({
     handleMouseLeave,
   };
 }
-

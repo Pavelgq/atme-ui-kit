@@ -73,6 +73,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ theme = 'light', childre
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components -- намеренно: хук неотделим от своего Provider/Context
 export function useThemeContext(): ThemeContextValue {
   const context = useContext(ThemeContext);
   if (context === undefined) {

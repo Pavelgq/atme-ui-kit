@@ -1,8 +1,8 @@
-import React from "react";
-import cn from "classnames";
-import { Root } from "../Root";
-import { BaseComponentProps } from "@components/types";
-import styles from "./Term.module.pcss";
+import React from 'react';
+import cn from 'classnames';
+import { Root } from '../Root';
+import { type BaseComponentProps } from '@components/types';
+import styles from './Term.module.pcss';
 
 export interface TermProps extends BaseComponentProps {
   definition: string;
@@ -19,4 +19,4 @@ export function Term({ definition, children, className, testId }: TermProps) {
   );
 }
 
-Term.displayName = "Term";
+Term.displayName = 'Term';

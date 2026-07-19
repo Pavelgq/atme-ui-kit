@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import cn from 'classnames';
 import { Root } from '@components/primitives/Root';
 import { Typography } from '@components/primitives/Typography';
-import { BaseComponentProps } from '@components/types';
+import { type BaseComponentProps } from '@components/types';
 import styles from './TableOfContents.module.pcss';
 
 export type TableOfContentsLevel = 2 | 3 | 4 | 5 | 6;
@@ -32,25 +32,17 @@ export const TableOfContents = forwardRef<HTMLElement, TableOfContentsProps>(
         testId={testId}
         aria-label={title}
       >
-        {title && 
-          <Typography
-            variant="overline"
-            size="sm"
-            as="h2"
-            className={styles.title}
-          >
+        {title && (
+          <Typography variant="overline" size="sm" as="h2" className={styles.title}>
             {title}
           </Typography>
-        }
+        )}
         <ol className={styles.list} role="list">
           {items.map((item) => {
             const isActive = activeId === item.id;
             const level = item.level ?? 2;
             return (
-              <li
-                key={item.id}
-                className={cn(styles.item, styles[`item--level${level}`])}
-              >
+              <li key={item.id} className={cn(styles.item, styles[`item--level${level}`])}>
                 <a
                   href={item.href}
                   className={cn(styles.link, isActive && styles['link--active'])}

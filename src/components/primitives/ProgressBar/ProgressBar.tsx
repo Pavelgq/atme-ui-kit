@@ -1,15 +1,14 @@
-import React from "react";
-import cn from "classnames";
-import { Root } from "../Root";
-import { BaseComponentProps } from "@components/types";
-import styles from "./ProgressBar.module.pcss";
+import React from 'react';
+import cn from 'classnames';
+import { Root } from '../Root';
+import { type BaseComponentProps } from '@components/types';
+import styles from './ProgressBar.module.pcss';
 
-export type ProgressBarSize = "sm" | "md" | "lg";
-export type ProgressBarTone = "primary" | "secondary" | "success" | "warning";
+export type ProgressBarSize = 'sm' | 'md' | 'lg';
+export type ProgressBarTone = 'primary' | 'secondary' | 'success' | 'warning';
 
 export interface ProgressBarProps
-  extends BaseComponentProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+  extends BaseComponentProps, Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
   value: number;
   max?: number;
   segments?: number;
@@ -28,15 +27,15 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   value,
   max = 100,
   segments = 10,
-  size = "md",
-  tone = "secondary",
+  size = 'md',
+  tone = 'secondary',
   showValueLabel = false,
   valueLabel,
   sequentialAnimation = false,
   animationStepMs = 80,
   className,
   testId,
-  "aria-label": ariaLabel,
+  'aria-label': ariaLabel,
   ...props
 }) => {
   const safeMax = Math.max(1, Math.floor(max));
@@ -50,11 +49,15 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     : null;
 
   return (
-    <Root className={cn(styles.root, styles[`root--${size}`], className)} testId={testId} {...props}>
+    <Root
+      className={cn(styles.root, styles[`root--${size}`], className)}
+      testId={testId}
+      {...props}
+    >
       <div
         className={styles.track}
         role="progressbar"
-        aria-label={ariaLabel ?? "Progress"}
+        aria-label={ariaLabel ?? 'Progress'}
         aria-valuemin={0}
         aria-valuemax={safeMax}
         aria-valuenow={Math.round(safeValue)}
@@ -66,13 +69,13 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
               className={cn(
                 styles.segment,
                 styles[`segment--${tone}`],
-                index < activeSegments && styles["segment--active"],
-                sequentialAnimation && index < activeSegments && styles["segment--sequential"]
+                index < activeSegments && styles['segment--active'],
+                sequentialAnimation && index < activeSegments && styles['segment--sequential']
               )}
               style={
                 sequentialAnimation
                   ? ({
-                      "--segment-delay": `${index * animationStepMs}ms`,
+                      '--segment-delay': `${index * animationStepMs}ms`,
                     } as React.CSSProperties)
                   : undefined
               }
@@ -86,4 +89,4 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   );
 };
 
-ProgressBar.displayName = "ProgressBar";
+ProgressBar.displayName = 'ProgressBar';

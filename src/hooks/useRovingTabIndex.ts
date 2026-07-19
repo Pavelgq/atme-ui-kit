@@ -1,4 +1,4 @@
-import { useState, useCallback, RefObject } from "react";
+import { useState, useCallback, type RefObject } from 'react';
 
 export interface UseRovingTabIndexOptions {
   itemsCount: number;
@@ -9,10 +9,7 @@ export interface UseRovingTabIndexReturn {
   focusedIndex: number | null;
   setFocusedIndex: (index: number) => void;
   getTabIndex: (index: number) => number;
-  focusItem: (
-    index: number,
-    refs: RefObject<(HTMLElement | null)[]>
-  ) => void;
+  focusItem: (index: number, refs: RefObject<(HTMLElement | null)[]>) => void;
 }
 
 /**
@@ -26,9 +23,7 @@ export interface UseRovingTabIndexReturn {
 export function useRovingTabIndex({
   initialFocusedIndex = 0,
 }: UseRovingTabIndexOptions): UseRovingTabIndexReturn {
-  const [focusedIndex, setFocusedIndexState] = useState<number | null>(
-    initialFocusedIndex
-  );
+  const [focusedIndex, setFocusedIndexState] = useState<number | null>(initialFocusedIndex);
 
   const setFocusedIndex = useCallback((index: number) => {
     setFocusedIndexState(index);
@@ -36,8 +31,7 @@ export function useRovingTabIndex({
 
   const getTabIndex = useCallback(
     (index: number): number => {
-      return focusedIndex === index ||
-        (focusedIndex === null && index === initialFocusedIndex)
+      return focusedIndex === index || (focusedIndex === null && index === initialFocusedIndex)
         ? 0
         : -1;
     },
@@ -59,4 +53,3 @@ export function useRovingTabIndex({
     focusItem,
   };
 }
-

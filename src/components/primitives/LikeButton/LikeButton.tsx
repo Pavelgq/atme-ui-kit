@@ -1,12 +1,13 @@
 import React, { forwardRef, useState, useCallback } from 'react';
 import cn from 'classnames';
-import { BaseComponentProps } from '@components/types';
+import { type BaseComponentProps } from '@components/types';
 import { Typography } from '../Typography';
 import { HeartIcon } from '../Icon/Icons';
 import styles from './LikeButton.module.pcss';
 
 export interface LikeButtonProps
-  extends BaseComponentProps,
+  extends
+    BaseComponentProps,
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'children'> {
   liked?: boolean;
   defaultLiked?: boolean;

@@ -1,10 +1,10 @@
-import React from "react";
-import cn from "classnames";
-import { Root } from "../Root";
-import { Typography } from "../Typography";
-import { QuoteIcon } from "../Icon/Icons";
-import { BaseComponentProps } from "@components/types";
-import styles from "./Quote.module.pcss";
+import React from 'react';
+import cn from 'classnames';
+import { Root } from '../Root';
+import { Typography } from '../Typography';
+import { QuoteIcon } from '../Icon/Icons';
+import { type BaseComponentProps } from '@components/types';
+import styles from './Quote.module.pcss';
 
 export interface QuoteProps extends BaseComponentProps, React.HTMLAttributes<HTMLElement> {
   /** Автор цитаты */
@@ -47,4 +47,4 @@ export const Quote: React.FC<QuoteProps> = ({
   );
 };
 
-Quote.displayName = "Quote";
+Quote.displayName = 'Quote';

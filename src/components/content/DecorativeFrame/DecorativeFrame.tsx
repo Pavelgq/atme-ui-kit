@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import cn from 'classnames';
 import { Root } from '@components/primitives/Root';
-import { BaseComponentProps } from '@components/types';
+import { type BaseComponentProps } from '@components/types';
 import { PatternCell } from './components/PatternCell';
 import { createSeededRandom, generatePattern } from './utils/patternGenerator';
 import styles from './DecorativeFrame.module.pcss';
@@ -16,8 +16,7 @@ export type DecorativeFrameEdge = 'top' | 'right' | 'bottom' | 'left';
 export type DecorativeFrameDirection = 'external' | 'internal';
 
 export interface DecorativeFrameProps
-  extends BaseComponentProps,
-    Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
+  extends BaseComponentProps, Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
   /** Сторона для декоративной полосы */
   edge?: DecorativeFrameEdge;
   direction?: DecorativeFrameDirection;
@@ -116,7 +115,11 @@ export function DecorativeFrame({
   const stripContent = (
     <div
       ref={stripRef}
-      className={cn(styles.strip, styles[`strip--${edge}`], direction === 'internal' && styles.stripMirror)}
+      className={cn(
+        styles.strip,
+        styles[`strip--${edge}`],
+        direction === 'internal' && styles.stripMirror
+      )}
       style={stripStyle}
       aria-hidden
     >

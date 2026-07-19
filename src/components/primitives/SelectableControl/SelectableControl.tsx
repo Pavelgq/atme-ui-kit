@@ -1,15 +1,14 @@
-import React, { forwardRef, useEffect, useRef } from "react";
-import cn from "classnames";
-import { Root } from "../Root";
-import { BaseComponentProps } from "@components/types";
-import styles from "./SelectableControl.module.pcss";
+import React, { forwardRef, useEffect, useRef } from 'react';
+import cn from 'classnames';
+import { Root } from '../Root';
+import { type BaseComponentProps } from '@components/types';
+import styles from './SelectableControl.module.pcss';
 
-export type SelectableControlType = "checkbox" | "radio";
-export type SelectableControlSize = "sm" | "md" | "lg";
+export type SelectableControlType = 'checkbox' | 'radio';
+export type SelectableControlSize = 'sm' | 'md' | 'lg';
 
 export interface SelectableControlProps
-  extends BaseComponentProps,
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "type"> {
+  extends BaseComponentProps, Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
   type?: SelectableControlType;
   size?: SelectableControlSize;
   description?: React.ReactNode;
@@ -20,8 +19,8 @@ export interface SelectableControlProps
 export const SelectableControl = forwardRef<HTMLInputElement, SelectableControlProps>(
   (
     {
-      type = "checkbox",
-      size = "md",
+      type = 'checkbox',
+      size = 'md',
       description,
       indeterminate = false,
       className,
@@ -35,14 +34,14 @@ export const SelectableControl = forwardRef<HTMLInputElement, SelectableControlP
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
-      if (type === "checkbox" && inputRef.current) {
+      if (type === 'checkbox' && inputRef.current) {
         inputRef.current.indeterminate = indeterminate;
       }
     }, [indeterminate, type]);
 
     const setRefs = (node: HTMLInputElement | null) => {
       inputRef.current = node;
-      if (typeof ref === "function") {
+      if (typeof ref === 'function') {
         ref(node);
       } else if (ref) {
         ref.current = node;
@@ -56,7 +55,7 @@ export const SelectableControl = forwardRef<HTMLInputElement, SelectableControlP
         className={cn(
           styles.root,
           styles[`root--${size}`],
-          disabled && styles["root--disabled"],
+          disabled && styles['root--disabled'],
           className
         )}
       >
@@ -76,4 +75,4 @@ export const SelectableControl = forwardRef<HTMLInputElement, SelectableControlP
   }
 );
 
-SelectableControl.displayName = "SelectableControl";
+SelectableControl.displayName = 'SelectableControl';

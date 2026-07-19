@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, RefObject } from 'react';
+import { useState, useEffect, useCallback, type RefObject } from 'react';
 
 export interface UseActiveSectionOptions {
   /** Контейнер со скроллом. Если не указан — используется window */
@@ -51,7 +51,7 @@ export function useActiveSection(
 
     // Если ни одна не пройдена — активна первая (мы в начале страницы)
     setActiveId(lastPassed ?? sectionIds[0] ?? null);
-  }, [sectionIds, root?.current, offset]);
+  }, [sectionIds, root, offset]);
 
   useEffect(() => {
     // Для window-scroll используем window, иначе — ref контейнера

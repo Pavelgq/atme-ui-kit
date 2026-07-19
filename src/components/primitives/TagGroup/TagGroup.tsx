@@ -1,23 +1,24 @@
-import React, { useState, useMemo, useCallback } from "react";
-import cn from "classnames";
-import styles from "./TagGroup.module.pcss";
-import { Tag, TagProps } from "../Tag";
-import { ChevronUpIcon } from "../Icon/Icons";
-import { TagGroupItemView } from "./components";
-import type { TagGroupTag } from "./types";
+import React, { useState, useMemo, useCallback } from 'react';
+import cn from 'classnames';
+import styles from './TagGroup.module.pcss';
+import { Tag, type TagProps } from '../Tag';
+import { ChevronUpIcon } from '../Icon/Icons';
+import { TagGroupItemView } from './components';
+import type { TagGroupTag } from './types';
 
-export type { TagGroupItem, TagGroupTag } from "./types";
-export { isTagGroupItem } from "./types";
+export type { TagGroupItem, TagGroupTag } from './types';
+// eslint-disable-next-line react-refresh/only-export-components -- намеренно: type guard живёт рядом со своим компонентом
+export { isTagGroupItem } from './types';
 
 export interface TagGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   tags: TagGroupTag[];
   maxVisible?: number;
-  tagProps?: Omit<TagProps, "children">;
-  overflowTagProps?: Omit<TagProps, "children">;
-  collapseTagProps?: Omit<TagProps, "children">;
+  tagProps?: Omit<TagProps, 'children'>;
+  overflowTagProps?: Omit<TagProps, 'children'>;
+  collapseTagProps?: Omit<TagProps, 'children'>;
   collapseText?: string;
-  size?: TagProps["size"];
-  variant?: TagProps["variant"];
+  size?: TagProps['size'];
+  variant?: TagProps['variant'];
 }
 
 export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
@@ -28,7 +29,7 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
       tagProps,
       overflowTagProps,
       collapseTagProps,
-      collapseText = "Свернуть",
+      collapseText = 'Свернуть',
       size,
       variant,
       className,
@@ -57,7 +58,7 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
 
     const handleExpandKeyDown = useCallback(
       (e: React.KeyboardEvent<HTMLElement>) => {
-        if (e.key === "Enter" || e.key === " ") {
+        if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           handleExpand();
         }
@@ -67,7 +68,7 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
 
     const handleCollapseKeyDown = useCallback(
       (e: React.KeyboardEvent<HTMLElement>) => {
-        if (e.key === "Enter" || e.key === " ") {
+        if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           handleCollapse();
         }
@@ -126,4 +127,4 @@ export const TagGroup = React.forwardRef<HTMLDivElement, TagGroupProps>(
   }
 );
 
-TagGroup.displayName = "TagGroup";
+TagGroup.displayName = 'TagGroup';

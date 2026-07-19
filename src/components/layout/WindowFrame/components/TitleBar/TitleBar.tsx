@@ -1,8 +1,8 @@
-import { Stack } from "@components/layout/Stack";
-import { Typography } from "@components/primitives/Typography";
-import { FC, ReactNode } from "react";
-import styles from "./TitleBar.module.pcss";
-import { Spacer } from "@components/primitives/Spacer/Spacer";
+import { Stack } from '@components/layout/Stack';
+import { Typography } from '@components/primitives/Typography';
+import { type FC, type ReactNode } from 'react';
+import styles from './TitleBar.module.pcss';
+import { Spacer } from '@components/primitives/Spacer/Spacer';
 
 interface TitleBarProps {
   title?: string;
