@@ -1,0 +1,63 @@
+.root {
+  width: 1em;
+  height: 1em;
+
+  [data-rss-wave],
+  [data-rss-dot] {
+    transform-box: view-box;
+    transform-origin: 5px 19px;
+  }
+
+  [data-rss-wave] {
+    transition: opacity var(--transitions-duration-base, 200ms)
+      var(--transitions-easing-easeInOut, cubic-bezier(0.4, 0, 0.2, 1));
+  }
+}
+
+/* Ховер на самой иконке — работает без дополнительной обёртки */
+.root:hover [data-rss-wave='inner'],
+[data-rss-icon-wrapper]:hover .root [data-rss-wave='inner'] {
+  animation: rss-wave var(--transitions-duration-slow, 300ms)
+    var(--transitions-easing-easeOut, ease-out) 2;
+}
+
+.root:hover [data-rss-wave='outer'],
+[data-rss-icon-wrapper]:hover .root [data-rss-wave='outer'] {
+  animation: rss-wave var(--transitions-duration-slow, 300ms)
+    var(--transitions-easing-easeOut, ease-out) 2;
+  animation-delay: 0.12s;
+}
+
+.root:hover [data-rss-dot],
+[data-rss-icon-wrapper]:hover .root [data-rss-dot] {
+  animation: rss-dot-pulse var(--transitions-duration-slow, 300ms)
+    var(--transitions-easing-easeInOut, cubic-bezier(0.4, 0, 0.2, 1)) 2;
+}
+
+@keyframes rss-wave {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.5;
+  }
+
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rss-dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.35);
+  }
+}
