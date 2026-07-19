@@ -1,0 +1,180 @@
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+}
+
+.viewport {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: spacing(2);
+}
+
+.track {
+  display: flex;
+  flex: 1;
+  gap: var(--carousel-gap, 16px);
+  overflow: auto hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+
+  --carousel-active-cols: var(--carousel-cols-xs, 1);
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track:focus-visible {
+  outline: 2px solid var(--palette-primary-main);
+  outline-offset: 2px;
+}
+
+@media (width >= 640px) {
+  .track {
+    --carousel-active-cols: var(--carousel-cols-sm, var(--carousel-cols-xs, 1));
+  }
+}
+
+@media (width >= 768px) {
+  .track {
+    --carousel-active-cols: var(
+      --carousel-cols-md,
+      var(--carousel-cols-sm, var(--carousel-cols-xs, 1))
+    );
+  }
+}
+
+@media (width >= 1024px) {
+  .track {
+    --carousel-active-cols: var(
+      --carousel-cols-lg,
+      var(--carousel-cols-md, var(--carousel-cols-sm, var(--carousel-cols-xs, 1)))
+    );
+  }
+}
+
+@media (width >= 1280px) {
+  .track {
+    --carousel-active-cols: var(
+      --carousel-cols-xl,
+      var(
+        --carousel-cols-lg,
+        var(--carousel-cols-md, var(--carousel-cols-sm, var(--carousel-cols-xs, 1)))
+      )
+    );
+  }
+}
+
+@media (width >= 1536px) {
+  .track {
+    --carousel-active-cols: var(
+      --carousel-cols-2xl,
+      var(
+        --carousel-cols-xl,
+        var(
+          --carousel-cols-lg,
+          var(--carousel-cols-md, var(--carousel-cols-sm, var(--carousel-cols-xs, 1)))
+        )
+      )
+    );
+  }
+}
+
+.slide {
+  flex: 0 0
+    calc(
+      (100% - (var(--carousel-active-cols, 1) - 1) * var(--carousel-gap, 16px)) /
+        var(--carousel-active-cols, 1)
+    );
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.arrow {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: spacing(10);
+  height: spacing(10);
+  border: var(--border-base) solid var(--palette-border-subtle);
+  border-radius: var(--border-radius-full);
+  background-color: var(--palette-background-paper);
+  color: var(--palette-text-secondary);
+  box-shadow: var(--shadows-sm);
+  cursor: pointer;
+  transition:
+    color var(--transitions-duration-base) var(--transitions-easing-easeInOut),
+    background-color var(--transitions-duration-base) var(--transitions-easing-easeInOut),
+    transform var(--transitions-duration-base) var(--transitions-easing-easeOut);
+}
+
+.arrow:focus-visible {
+  outline: 2px solid var(--palette-primary-main);
+  outline-offset: 2px;
+}
+
+.arrow:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.arrow:hover:not(:disabled) {
+  color: var(--palette-primary-main);
+  transform: scale(1.06);
+}
+
+.arrow:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: spacing(2);
+}
+
+.dot {
+  width: spacing(2);
+  height: spacing(2);
+  padding: 0;
+  border: none;
+  border-radius: var(--border-radius-full);
+  background-color: var(--palette-border-subtle);
+  cursor: pointer;
+  transition:
+    background-color var(--transitions-duration-base) var(--transitions-easing-easeInOut),
+    transform var(--transitions-duration-base) var(--transitions-easing-easeOut);
+}
+
+.dot:hover {
+  background-color: var(--palette-primary-main);
+}
+
+.dot--active {
+  background-color: var(--palette-primary-main);
+  transform: scale(1.25);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--palette-primary-main);
+  outline-offset: 2px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

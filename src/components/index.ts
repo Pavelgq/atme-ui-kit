@@ -105,6 +105,9 @@ export type { GridProps, GridColumns, GridGap } from './layout/Grid';
 export { Island } from './layout/Island';
 export type { IslandProps, IslandSize, IslandVariant, IslandElevation } from './layout/Island';
 
+export { Carousel } from './layout/Carousel';
+export type { CarouselProps, CarouselGap, CarouselItemsPerView } from './layout/Carousel';
+
 export { ArticlePreview } from './content/ArticlePreview';
 export type { ArticlePreviewProps, ArticlePreviewView } from './content/ArticlePreview';
 
