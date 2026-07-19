@@ -1,0 +1,60 @@
+---
+description: Структура и чек-лист нового компонента
+globs: src/components/**/*.tsx
+alwaysApply: false
+---
+
+# Структура компонента
+
+Каждый компонент — отдельная папка `ComponentName/` с фиксированным набором файлов:
+
+```
+ComponentName/
+  ComponentName.tsx          # сам компонент
+  ComponentName.module.pcss  # стили (CSS Modules)
+  ComponentName.stories.tsx  # Storybook, tags: ['autodocs']
+  ComponentName.test.tsx     # vitest + Testing Library
+  index.ts                   # export { ComponentName }; export type { ComponentNameProps }
+  components/                # приватные подкомпоненты (если есть)
+```
+
+## Обязательный набор пропсов
+
+Публичный компонент расширяет `BaseComponentProps` (`className`, `testId`) и нативные HTML-атрибуты своего тега:
+
+```tsx
+export interface ComponentNameProps
+  extends BaseComponentProps,
+    React.HTMLAttributes<HTMLDivElement> {
+  // …
+}
+```
+
+`testId` пробрасывается как `data-testid` — либо через [[root-wrapper]] (`<Root testId={testId} />`), либо вручную `{...(testId && { 'data-testid': testId })}`.
+
+## forwardRef + displayName
+
+Компонент оборачивается в `forwardRef`, тип рефа соответствует корневому DOM-узлу. После определения обязательно:
+
+```tsx
+ComponentName.displayName = 'ComponentName';
+```
+
+## Экспорт
+
+Новый компонент **обязательно** регистрируется в барреле `src/components/index.ts` (типы — рядом, через `export type`). Компонент, недоступный из паблик-барреля, не существует для потребителей пакета — это частая причина «невидимых» фич.
+
+## Иконки
+
+Кастомные SVG-иконки живут в `src/components/primitives/Icon/Icons/custom/<Name>Icon/` и **тоже** регистрируются в `Icons/custom/index.ts` → `Icons/index.ts`. Анимация иконки на hover — через `data-*` атрибуты на элементах SVG и CSS `[data-xxx-wrapper]:hover .root [data-part]`, см. `LinkIcon`/`HashIcon` как референс. Не завязывайте анимацию на JS (`useState`), если её можно выразить в CSS.
+
+## Тесты — минимальный набор
+
+- рендерится и виден в доступном дереве (`getByRole`/`getByTestId`)
+- принимает и пробрасывает `className`, `testId`
+- ключевые варианты пропсов (variant/size/controlled-uncontrolled)
+- взаимодействие через `@testing-library/user-event`, не `fireEvent` напрямую
+
+## Перед коммитом
+
+`pre-commit` уже прогоняет `lint-staged` (ESLint + Prettier/Stylelint) на застейдженных файлах, `pre-push` — `type-check` и `test`. Это не отменяет ручной прогон `pnpm lint`, `pnpm type-check`, `pnpm test` при работе над крупной фичей — так проблемы находятся до пуша, а не в хуке.
