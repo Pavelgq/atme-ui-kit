@@ -101,7 +101,6 @@ export const ArticlePreview = forwardRef<HTMLDivElement | HTMLAnchorElement, Art
         formattedDate={formattedDate}
         view={view}
         tags={tags}
-        href={href}
         showPlaceholder={showPlaceholder}
         className={contentClassName}
       />

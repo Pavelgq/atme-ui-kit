@@ -112,9 +112,10 @@ describe('ArticlePreview', () => {
   });
 
   it('добавляет data-testid на корень при переданном testId', () => {
+    // Корень — всегда div (stretched-link паттерн), ссылка живёт внутри как отдельный <a>
     render(<ArticlePreview {...defaultProps} href="/blog/1" testId="card-1" />);
     expect(screen.getByTestId('card-1')).toBeInTheDocument();
-    expect(screen.getByTestId('card-1').tagName).toBe('A');
+    expect(screen.getByTestId('card-1').tagName).toBe('DIV');
   });
 
   it('рендерит слот tags в карточке', () => {

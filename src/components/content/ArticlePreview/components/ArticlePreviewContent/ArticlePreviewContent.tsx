@@ -20,7 +20,6 @@ export interface ArticlePreviewContentProps {
   formattedDate: string;
   view: ArticlePreviewContentView;
   tags?: React.ReactNode;
-  href?: string;
   /** Показывать ли заглушку если imageUrl не передан. По умолчанию true */
   showPlaceholder?: boolean;
   className?: string;
@@ -50,7 +49,6 @@ export function ArticlePreviewContent({
   formattedDate,
   view,
   tags,
-  href,
   showPlaceholder = true,
   className,
 }: ArticlePreviewContentProps) {
@@ -104,13 +102,7 @@ export function ArticlePreviewContent({
     );
 
     return (
-      <div
-        className={cn(
-          styles.content,
-          styles['content--card'],
-          className
-        )}
-      >
+      <div className={cn(styles.content, styles['content--card'], className)}>
         <div className={styles.cardBody}>
           {author ? (
             <div className={styles.author} onClick={(e) => e.stopPropagation()}>
@@ -153,11 +145,7 @@ export function ArticlePreviewContent({
                 {tags}
               </div>
             )}
-            {href ? (
-              <a href={href} className={styles.meta}>{metaItems}</a>
-            ) : (
-              <div className={styles.meta}>{metaItems}</div>
-            )}
+            <div className={styles.meta}>{metaItems}</div>
           </div>
         </div>
         {imageUrl ? (
