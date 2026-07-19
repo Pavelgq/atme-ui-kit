@@ -1,6 +1,8 @@
 export { DocumentIcon } from './design';
 export {
   ChevronUpIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   ClockIcon,
   CloseIcon,
   EyeIcon,

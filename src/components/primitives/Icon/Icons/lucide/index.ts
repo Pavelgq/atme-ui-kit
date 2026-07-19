@@ -1,4 +1,6 @@
 export { ChevronUpIcon } from './ChevronUpIcon';
+export { ChevronLeftIcon } from './ChevronLeftIcon';
+export { ChevronRightIcon } from './ChevronRightIcon';
 export { ClockIcon } from './ClockIcon';
 export { CloseIcon } from './CloseIcon';
 export { EyeIcon } from './EyeIcon';
