@@ -12,12 +12,7 @@ export type {
 } from './primitives/Typography';
 
 export { Heading } from './primitives/Heading';
-export type {
-  HeadingProps,
-  HeadingVariant,
-  HeadingSize,
-  HeadingColor,
-} from './primitives/Heading';
+export type { HeadingProps, HeadingVariant, HeadingSize, HeadingColor } from './primitives/Heading';
 
 export { Tag } from './primitives/Tag';
 export type { TagProps, TagVariant, TagSize } from './primitives/Tag';
@@ -50,6 +45,26 @@ export type { BadgeProps, BadgeVariant, BadgeSize } from './primitives/Badge';
 export { Icon } from './primitives/Icon';
 export type { IconProps } from './primitives/Icon';
 
+export {
+  DocumentIcon,
+  ChevronUpIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ClockIcon,
+  CloseIcon,
+  EyeIcon,
+  FileTextIcon,
+  FullscreenIcon,
+  HeartIcon,
+  HomeIcon,
+  DismissIcon,
+  HashIcon,
+  LinkIcon,
+  QuoteIcon,
+  RssIcon,
+} from './primitives/Icon/Icons';
+export type { HeartIconProps, DismissIconProps, RssIconProps } from './primitives/Icon/Icons';
+
 export { LabelMenuItem } from './primitives/LabelMenuItem';
 export type { LabelMenuItemProps } from './primitives/LabelMenuItem';
 
@@ -75,7 +90,14 @@ export { CodeBlock } from './primitives/CodeBlock';
 export type { CodeBlockProps } from './primitives/CodeBlock';
 
 export { Stack } from './layout/Stack';
-export type { StackProps, StackDirection, StackAlign, StackJustify, StackWrap, StackGap } from './layout/Stack';
+export type {
+  StackProps,
+  StackDirection,
+  StackAlign,
+  StackJustify,
+  StackWrap,
+  StackGap,
+} from './layout/Stack';
 
 export { Grid } from './layout/Grid';
 export type { GridProps, GridColumns, GridGap } from './layout/Grid';
